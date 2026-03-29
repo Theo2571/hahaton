@@ -11,6 +11,27 @@ const toneOptions: { value: Tone; label: string; desc: string; emoji: string }[]
 
 const priorityCountries = ['ОАЭ', 'Таиланд', 'Турция', 'Мальдивы', 'Греция', 'Испания', 'Италия', 'Бали', 'Египет'];
 
+const CARD: React.CSSProperties = {
+  background: 'rgba(24,24,27,0.5)',
+  backdropFilter: 'blur(12px)',
+  WebkitBackdropFilter: 'blur(12px)',
+  border: '1px solid rgba(255,255,255,0.06)',
+  borderRadius: 16,
+};
+
+const INPUT_STYLE: React.CSSProperties = {
+  width: '100%',
+  background: 'rgba(39,39,42,0.6)',
+  border: '1px solid rgba(255,255,255,0.07)',
+  borderRadius: 8,
+  padding: '10px 12px',
+  color: '#fafafa',
+  fontSize: 13,
+  outline: 'none',
+  boxSizing: 'border-box',
+  fontFamily: 'Inter, sans-serif',
+};
+
 export default function AISettings() {
   const [tone, setTone] = useState<Tone>('friendly');
   const [autoPush, setAutoPush] = useState(true);
@@ -20,9 +41,7 @@ export default function AISettings() {
   const [saved, setSaved] = useState(false);
 
   function toggleCountry(c: string) {
-    setSelectedCountries(prev =>
-      prev.includes(c) ? prev.filter(x => x !== c) : [...prev, c]
-    );
+    setSelectedCountries(prev => prev.includes(c) ? prev.filter(x => x !== c) : [...prev, c]);
   }
 
   function handleSave() {
@@ -32,72 +51,55 @@ export default function AISettings() {
 
   return (
     <div>
-      <div style={{ marginBottom: 24 }}>
-        <h1 style={{ margin: 0, fontSize: 22, fontWeight: 700, color: '#F1F5F9' }}>Настройки AI</h1>
-        <p style={{ margin: '4px 0 0', fontSize: 14, color: '#94A3B8' }}>
-          Конфигурация AI-ассистента
-        </p>
+      <div style={{ marginBottom: 28 }}>
+        <div style={{ fontSize: 10, fontWeight: 700, color: '#7C3AED', letterSpacing: '0.18em', textTransform: 'uppercase', marginBottom: 6, fontFamily: 'Inter, sans-serif' }}>
+          Конфигурация
+        </div>
+        <h1 style={{ margin: 0, fontSize: 28, fontWeight: 800, color: '#fafafa', fontFamily: 'Manrope, sans-serif', letterSpacing: '-0.02em' }}>
+          Настройки AI
+        </h1>
+        <p style={{ margin: '4px 0 0', fontSize: 13, color: '#71717a' }}>Конфигурация AI-ассистента</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 400px', gap: 24 }}>
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: 20 }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
           {/* Tone */}
-          <div
-            style={{
-              background: '#161B27',
-              border: '1px solid #2A3347',
-              borderRadius: 12,
-              padding: 24,
-            }}
-          >
+          <div style={{ ...CARD, padding: 24 }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 20 }}>
-              <Bot size={18} color="#3B82F6" />
-              <h3 style={{ margin: 0, fontSize: 15, fontWeight: 600, color: '#F1F5F9' }}>
+              <Bot size={17} color="#7C3AED" />
+              <h3 style={{ margin: 0, fontSize: 14, fontWeight: 700, color: '#fafafa', fontFamily: 'Manrope, sans-serif' }}>
                 Тон общения
               </h3>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 12 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 10 }}>
               {toneOptions.map(opt => (
                 <button
                   key={opt.value}
                   onClick={() => setTone(opt.value)}
                   style={{
-                    background: tone === opt.value ? 'rgba(59,130,246,0.15)' : '#1E2433',
-                    border: `1px solid ${tone === opt.value ? '#3B82F6' : '#2A3347'}`,
-                    borderRadius: 10,
+                    background: tone === opt.value ? 'rgba(124,58,237,0.18)' : 'rgba(39,39,42,0.4)',
+                    border: `1px solid ${tone === opt.value ? 'rgba(124,58,237,0.45)' : 'rgba(255,255,255,0.06)'}`,
+                    borderRadius: 12,
                     padding: '16px 12px',
                     cursor: 'pointer',
                     textAlign: 'center',
-                    transition: 'all 0.15s',
+                    transition: 'all 0.2s',
+                    boxShadow: tone === opt.value ? '0 0 20px rgba(124,58,237,0.15)' : 'none',
                   }}
                 >
-                  <div style={{ fontSize: 24, marginBottom: 8 }}>{opt.emoji}</div>
-                  <div
-                    style={{
-                      fontSize: 13,
-                      fontWeight: 600,
-                      color: tone === opt.value ? '#3B82F6' : '#F1F5F9',
-                      marginBottom: 4,
-                    }}
-                  >
+                  <div style={{ fontSize: 22, marginBottom: 8 }}>{opt.emoji}</div>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: tone === opt.value ? '#a78bfa' : '#e4e4e7', marginBottom: 4, fontFamily: 'Manrope, sans-serif' }}>
                     {opt.label}
                   </div>
-                  <div style={{ fontSize: 11, color: '#64748B', lineHeight: 1.4 }}>{opt.desc}</div>
+                  <div style={{ fontSize: 10, color: '#71717a', lineHeight: 1.45 }}>{opt.desc}</div>
                 </button>
               ))}
             </div>
           </div>
 
           {/* Scenarios */}
-          <div
-            style={{
-              background: '#161B27',
-              border: '1px solid #2A3347',
-              borderRadius: 12,
-              padding: 24,
-            }}
-          >
-            <h3 style={{ margin: '0 0 16px', fontSize: 15, fontWeight: 600, color: '#F1F5F9' }}>
+          <div style={{ ...CARD, padding: 24 }}>
+            <h3 style={{ margin: '0 0 16px', fontSize: 14, fontWeight: 700, color: '#fafafa', fontFamily: 'Manrope, sans-serif' }}>
               Сценарии
             </h3>
             <div
@@ -106,16 +108,16 @@ export default function AISettings() {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: '14px 16px',
-                background: '#1E2433',
-                borderRadius: 10,
-                border: '1px solid #2A3347',
+                background: 'rgba(39,39,42,0.4)',
+                border: '1px solid rgba(255,255,255,0.05)',
+                borderRadius: 12,
               }}
             >
               <div>
-                <div style={{ fontSize: 14, fontWeight: 500, color: '#F1F5F9', marginBottom: 4 }}>
+                <div style={{ fontSize: 14, fontWeight: 600, color: '#e4e4e7', marginBottom: 3, fontFamily: 'Manrope, sans-serif' }}>
                   Авто-дожим клиентов
                 </div>
-                <div style={{ fontSize: 12, color: '#64748B' }}>
+                <div style={{ fontSize: 11, color: '#71717a' }}>
                   AI сам напоминает о предложении через 24 часа
                 </div>
               </div>
@@ -123,28 +125,20 @@ export default function AISettings() {
                 onClick={() => setAutoPush(!autoPush)}
                 style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 4 }}
               >
-                {autoPush ? (
-                  <ToggleRight size={32} color="#3B82F6" />
-                ) : (
-                  <ToggleLeft size={32} color="#64748B" />
-                )}
+                {autoPush
+                  ? <ToggleRight size={30} color="#7C3AED" />
+                  : <ToggleLeft size={30} color="#3f3f46" />
+                }
               </button>
             </div>
           </div>
 
           {/* Priority Countries */}
-          <div
-            style={{
-              background: '#161B27',
-              border: '1px solid #2A3347',
-              borderRadius: 12,
-              padding: 24,
-            }}
-          >
-            <h3 style={{ margin: '0 0 16px', fontSize: 15, fontWeight: 600, color: '#F1F5F9' }}>
+          <div style={{ ...CARD, padding: 24 }}>
+            <h3 style={{ margin: '0 0 6px', fontSize: 14, fontWeight: 700, color: '#fafafa', fontFamily: 'Manrope, sans-serif' }}>
               Приоритет стран
             </h3>
-            <p style={{ margin: '0 0 14px', fontSize: 12, color: '#64748B' }}>
+            <p style={{ margin: '0 0 14px', fontSize: 11, color: '#71717a' }}>
               AI будет предлагать эти направления в первую очередь
             </p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
@@ -153,15 +147,16 @@ export default function AISettings() {
                   key={c}
                   onClick={() => toggleCountry(c)}
                   style={{
-                    background: selectedCountries.includes(c) ? 'rgba(59,130,246,0.15)' : '#1E2433',
-                    border: `1px solid ${selectedCountries.includes(c) ? '#3B82F6' : '#2A3347'}`,
-                    borderRadius: 6,
+                    background: selectedCountries.includes(c) ? 'rgba(124,58,237,0.18)' : 'rgba(39,39,42,0.5)',
+                    border: `1px solid ${selectedCountries.includes(c) ? 'rgba(124,58,237,0.4)' : 'rgba(255,255,255,0.06)'}`,
+                    borderRadius: 8,
                     padding: '6px 14px',
-                    color: selectedCountries.includes(c) ? '#3B82F6' : '#94A3B8',
-                    fontSize: 13,
-                    fontWeight: selectedCountries.includes(c) ? 600 : 400,
+                    color: selectedCountries.includes(c) ? '#a78bfa' : '#71717a',
+                    fontSize: 12,
+                    fontWeight: selectedCountries.includes(c) ? 700 : 400,
                     cursor: 'pointer',
                     transition: 'all 0.15s',
+                    fontFamily: 'Inter, sans-serif',
                   }}
                 >
                   {c}
@@ -172,66 +167,29 @@ export default function AISettings() {
         </div>
 
         {/* Right: Parameters */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-          <div
-            style={{
-              background: '#161B27',
-              border: '1px solid #2A3347',
-              borderRadius: 12,
-              padding: 24,
-            }}
-          >
-            <h3 style={{ margin: '0 0 20px', fontSize: 15, fontWeight: 600, color: '#F1F5F9' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+          <div style={{ ...CARD, padding: 24 }}>
+            <h3 style={{ margin: '0 0 20px', fontSize: 14, fontWeight: 700, color: '#fafafa', fontFamily: 'Manrope, sans-serif' }}>
               Параметры
             </h3>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 18 }}>
               <div>
-                <label style={{ display: 'block', fontSize: 12, color: '#94A3B8', marginBottom: 8 }}>
+                <label style={{ display: 'block', fontSize: 10, color: '#71717a', marginBottom: 8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                   Минимальный бюджет ($)
                 </label>
-                <input
-                  type="number"
-                  value={minBudget}
-                  onChange={e => setMinBudget(e.target.value)}
-                  style={{
-                    width: '100%',
-                    background: '#1E2433',
-                    border: '1px solid #2A3347',
-                    borderRadius: 8,
-                    padding: '10px 12px',
-                    color: '#F1F5F9',
-                    fontSize: 14,
-                    outline: 'none',
-                    boxSizing: 'border-box',
-                  }}
-                />
-                <p style={{ margin: '6px 0 0', fontSize: 11, color: '#64748B' }}>
+                <input type="number" value={minBudget} onChange={e => setMinBudget(e.target.value)} style={INPUT_STYLE} />
+                <p style={{ margin: '6px 0 0', fontSize: 10, color: '#52525b' }}>
                   Лиды ниже этого бюджета не получают приоритет
                 </p>
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: 12, color: '#94A3B8', marginBottom: 8 }}>
+                <label style={{ display: 'block', fontSize: 10, color: '#71717a', marginBottom: 8, fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.1em' }}>
                   Задержка ответа (сек)
                 </label>
-                <input
-                  type="number"
-                  value={responseDelay}
-                  onChange={e => setResponseDelay(e.target.value)}
-                  style={{
-                    width: '100%',
-                    background: '#1E2433',
-                    border: '1px solid #2A3347',
-                    borderRadius: 8,
-                    padding: '10px 12px',
-                    color: '#F1F5F9',
-                    fontSize: 14,
-                    outline: 'none',
-                    boxSizing: 'border-box',
-                  }}
-                />
-                <p style={{ margin: '6px 0 0', fontSize: 11, color: '#64748B' }}>
+                <input type="number" value={responseDelay} onChange={e => setResponseDelay(e.target.value)} style={INPUT_STYLE} />
+                <p style={{ margin: '6px 0 0', fontSize: 10, color: '#52525b' }}>
                   Имитация человеческой паузы перед ответом
                 </p>
               </div>
@@ -239,15 +197,8 @@ export default function AISettings() {
           </div>
 
           {/* Current config summary */}
-          <div
-            style={{
-              background: '#161B27',
-              border: '1px solid #2A3347',
-              borderRadius: 12,
-              padding: 24,
-            }}
-          >
-            <h3 style={{ margin: '0 0 16px', fontSize: 15, fontWeight: 600, color: '#F1F5F9' }}>
+          <div style={{ ...CARD, padding: 24 }}>
+            <h3 style={{ margin: '0 0 14px', fontSize: 14, fontWeight: 700, color: '#fafafa', fontFamily: 'Manrope, sans-serif' }}>
               Текущая конфигурация
             </h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -260,10 +211,16 @@ export default function AISettings() {
               ].map(item => (
                 <div
                   key={item.label}
-                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                    padding: '8px 0',
+                    borderBottom: '1px solid rgba(255,255,255,0.03)',
+                  }}
                 >
-                  <span style={{ fontSize: 12, color: '#64748B' }}>{item.label}</span>
-                  <span style={{ fontSize: 12, color: '#F1F5F9', fontWeight: 500, textAlign: 'right', maxWidth: '60%' }}>
+                  <span style={{ fontSize: 11, color: '#71717a' }}>{item.label}</span>
+                  <span style={{ fontSize: 12, color: '#e4e4e7', fontWeight: 600, textAlign: 'right', maxWidth: '60%', fontFamily: 'Manrope, sans-serif' }}>
                     {item.value}
                   </span>
                 </div>
@@ -274,22 +231,26 @@ export default function AISettings() {
           <button
             onClick={handleSave}
             style={{
-              background: saved ? '#10B981' : '#3B82F6',
+              background: saved
+                ? 'linear-gradient(135deg, #10B981, #059669)'
+                : 'linear-gradient(135deg, #7C3AED, #5B21B6)',
               border: 'none',
-              borderRadius: 10,
+              borderRadius: 12,
               padding: '13px',
               color: '#fff',
               fontSize: 14,
-              fontWeight: 700,
+              fontWeight: 800,
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               gap: 8,
-              transition: 'background 0.2s',
+              transition: 'all 0.2s',
+              boxShadow: saved ? '0 0 20px rgba(16,185,129,0.4)' : '0 0 24px rgba(124,58,237,0.4)',
+              fontFamily: 'Manrope, sans-serif',
             }}
           >
-            <Save size={16} />
+            <Save size={15} />
             {saved ? 'Сохранено!' : 'Сохранить настройки'}
           </button>
         </div>

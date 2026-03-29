@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aiva Nebula | AI Travel Sales Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary-fixed-variant": "#390083",
+              "on-tertiary": "#6a0a31",
+              "on-primary": "#3c0089",
+              "error": "#ff6e84",
+              "on-tertiary-fixed": "#380016",
+              "primary-dim": "#8a4cfc",
+              "surface-container-lowest": "#000000",
+              "secondary-container": "#5516be",
+              "inverse-primary": "#742fe5",
+              "primary-fixed": "#b28cff",
+              "tertiary-dim": "#f17799",
+              "tertiary-fixed-dim": "#f77c9e",
+              "tertiary-fixed": "#ff8eac",
+              "on-secondary-fixed": "#40009b",
+              "surface-container": "#1a1919",
+              "on-surface": "#ffffff",
+              "secondary-fixed-dim": "#ceb9ff",
+              "on-error": "#490013",
+              "on-tertiary-container": "#5a0027",
+              "on-primary-container": "#2e006c",
+              "on-tertiary-fixed-variant": "#711036",
+              "secondary": "#ac8aff",
+              "primary-fixed-dim": "#a67aff",
+              "tertiary": "#ff97b2",
+              "primary": "#bd9dff",
+              "on-secondary": "#280067",
+              "secondary-fixed": "#dac9ff",
+              "on-primary-fixed": "#000000",
+              "on-background": "#ffffff",
+              "inverse-surface": "#fcf8f8",
+              "error-dim": "#d73357",
+              "inverse-on-surface": "#565554",
+              "surface-dim": "#0e0e0e",
+              "background": "#0e0e0e",
+              "on-surface-variant": "#adaaaa",
+              "tertiary-container": "#fe81a4",
+              "surface-variant": "#262626",
+              "surface-container-highest": "#262626",
+              "on-error-container": "#ffb2b9",
+              "surface-bright": "#2c2c2c",
+              "error-container": "#a70138",
+              "surface-tint": "#bd9dff",
+              "surface-container-low": "#131313",
+              "surface": "#0e0e0e",
+              "on-secondary-fixed-variant": "#5f28c8",
+              "outline-variant": "#494847",
+              "surface-container-high": "#201f1f",
+              "secondary-dim": "#8455ef",
+              "outline": "#777575"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(38, 38, 38, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .ai-glow {
+            box-shadow: 0 0 30px rgba(189, 157, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar Component -->
+<aside class="fixed left-0 top-0 h-full flex flex-col h-screen w-64 border-r border-[#262626] bg-[#0e0e0e] dark:bg-[#0e0e0e] font-manrope tracking-tight text-sm z-50">
+<div class="p-6 flex flex-col gap-1">
+<span class="text-xl font-bold tracking-tighter text-[#bd9dff]">Aiva Nebula</span>
+<span class="text-[10px] uppercase tracking-[0.2em] text-gray-500 font-bold">AI Travel Sales</span>
+</div>
+<nav class="flex-1 mt-4">
+<ul class="space-y-1">
+<!-- Active Item: Dashboard -->
+<li class="px-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#bd9dff] font-bold border-r-2 border-[#bd9dff] bg-[#1a1a1a] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+</li>
+<li class="px-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 hover:bg-[#1a1a1a] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span>Leads</span>
+</a>
+</li>
+<li class="px-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 hover:bg-[#1a1a1a] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="filter_alt">filter_alt</span>
+<span>Funnel</span>
+</a>
+</li>
+<li class="px-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 hover:bg-[#1a1a1a] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span>Tours</span>
+</a>
+</li>
+<li class="px-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 hover:bg-[#1a1a1a] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+</li>
+<li class="px-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 hover:bg-[#1a1a1a] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="extension">extension</span>
+<span>Integrations</span>
+</a>
+</li>
+<li class="px-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 hover:bg-[#1a1a1a] transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</li>
+</ul>
+</nav>
+<div class="p-6 border-t border-[#262626]">
+<button class="w-full py-3 px-4 rounded-lg bg-primary text-on-primary font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-all active:scale-95 shadow-[0_0_20px_rgba(189,157,255,0.2)]">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span>New Lead</span>
+</button>
+</div>
+</aside>
+<!-- TopAppBar Component -->
+<header class="flex items-center justify-between px-8 ml-64 w-[calc(100%-16rem)] h-16 sticky top-0 z-40 bg-[#0e0e0e]/80 backdrop-blur-xl border-b border-[#262626]/50">
+<div class="flex-1 max-w-xl">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-high border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary transition-all placeholder:text-gray-600" placeholder="Search leads, tours, or AI insights..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-white/5 rounded-full p-2 text-gray-400 hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="flex items-center gap-3 pl-4 border-l border-[#262626]">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-semibold text-white">Alex Rivera</p>
+<p class="text-[10px] text-primary uppercase tracking-wider">Admin</p>
+</div>
+<img alt="User Profile" class="w-10 h-10 rounded-full border border-primary-dim/30 object-cover" data-alt="portrait of a professional male travel consultant with a friendly expression in a modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB49mo3X6LGWkSlzsHnP0GVXGH12DXo8Rbtx7SPhZZFBT3S7HRylvmGjrqMAJbwO30q_yr0v4b4zKpp4ZpuvVRWlVrTf_DoPBCLOh6fLINS0OGAn24sUVHl6hwQoBJ4bs4yFRuKt6AoahCvyz2Qsp2f3Q89Z_ZeicI476Z_b9CRb6PrxUGqGC_Q4s1fmuBy3ZkiPr_w-ayEYrUHJZHOLzG2br51kjtIOyh1HMptI-BspJv2PwJi-AxkuYeWoU74fCOsFSFk1ySpP-4"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 p-8 min-h-screen">
+<div class="max-w-7xl mx-auto space-y-8">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<h1 class="font-headline text-4xl font-extrabold tracking-tighter text-white">Intelligence Overview</h1>
+<p class="text-on-surface-variant font-medium">Real-time performance of your travel sales engine.</p>
+</div>
+<div class="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-gray-500 bg-surface-container px-3 py-1.5 rounded-full">
+<span class="w-2 h-2 rounded-full bg-tertiary animate-pulse"></span>
+                    Live Updates Active
+                </div>
+</div>
+<!-- KPI Blocks Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Leads Card -->
+<div class="glass-card rounded-xl p-6 ai-glow relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-all"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined" data-icon="person_search">person_search</span>
+</div>
+<span class="text-tertiary text-xs font-bold">+12% vs LW</span>
+</div>
+<p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Leads Today</p>
+<p class="font-headline text-3xl font-extrabold text-white">1,284</p>
+<div class="mt-4 w-full bg-surface-container-highest h-1 rounded-full overflow-hidden">
+<div class="bg-primary h-full w-3/4"></div>
+</div>
+</div>
+<!-- Conversion Card -->
+<div class="glass-card rounded-xl p-6 ai-glow relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 rounded-lg bg-tertiary/10 text-tertiary">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<span class="text-primary text-xs font-bold">Optimal</span>
+</div>
+<p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Conversion Rate</p>
+<p class="font-headline text-3xl font-extrabold text-white">24.8%</p>
+<p class="mt-2 text-xs text-gray-500 italic">AI performance up by 4.2%</p>
+</div>
+<!-- Revenue Card -->
+<div class="glass-card rounded-xl p-6 ai-glow relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 rounded-lg bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<span class="text-tertiary text-xs font-bold">Record Month</span>
+</div>
+<p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">AI Revenue</p>
+<p class="font-headline text-3xl font-extrabold text-white">$428.5k</p>
+<p class="mt-2 text-xs text-gray-500">Projected: $510k</p>
+</div>
+<!-- Active Dialogs Card -->
+<div class="glass-card rounded-xl p-6 ai-glow relative overflow-hidden group">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 rounded-lg bg-primary-dim/10 text-primary-dim">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+</div>
+<span class="flex h-2 w-2 rounded-full bg-primary-dim"></span>
+</div>
+<p class="text-gray-400 text-xs font-bold uppercase tracking-widest mb-1">Active Dialogs</p>
+<p class="font-headline text-3xl font-extrabold text-white">842</p>
+<p class="mt-2 text-xs text-gray-500">Avg response: 1.2s</p>
+</div>
+</div>
+<!-- Main Insights Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Main Chart Area -->
+<div class="lg:col-span-8 bg-surface-container-low rounded-xl p-8 border border-white/5 relative overflow-hidden">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="font-headline text-xl font-bold text-white">Leads vs Sales Velocity</h3>
+<p class="text-gray-500 text-sm">Temporal mapping of intent to conversion</p>
+</div>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-primary"></span>
+<span class="text-xs text-gray-400">Leads</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-tertiary"></span>
+<span class="text-xs text-gray-400">Sales</span>
+</div>
+</div>
+</div>
+<!-- Chart Placeholder Visual -->
+<div class="h-64 flex items-end justify-between gap-2">
+<div class="w-full bg-primary/20 rounded-t-lg relative group h-[40%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary rounded-t-lg transition-all h-[70%]"></div>
+</div>
+<div class="w-full bg-primary/20 rounded-t-lg relative group h-[60%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary rounded-t-lg transition-all h-[80%]"></div>
+</div>
+<div class="w-full bg-primary/20 rounded-t-lg relative group h-[55%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary rounded-t-lg transition-all h-[75%]"></div>
+</div>
+<div class="w-full bg-primary/20 rounded-t-lg relative group h-[85%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary rounded-t-lg transition-all h-[95%]"></div>
+</div>
+<div class="w-full bg-primary/20 rounded-t-lg relative group h-[70%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary rounded-t-lg transition-all h-[85%]"></div>
+</div>
+<div class="w-full bg-primary/20 rounded-t-lg relative group h-[90%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary rounded-t-lg transition-all h-[100%]"></div>
+</div>
+<div class="w-full bg-primary/20 rounded-t-lg relative group h-[75%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary rounded-t-lg transition-all h-[80%]"></div>
+</div>
+<div class="w-full bg-primary/20 rounded-t-lg relative group h-[80%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary rounded-t-lg transition-all h-[90%]"></div>
+</div>
+</div>
+<div class="flex justify-between mt-4 text-[10px] text-gray-600 font-bold uppercase tracking-widest">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</div>
+<!-- Problems Block -->
+<div class="lg:col-span-4 bg-surface-container-low rounded-xl p-8 border border-white/5 space-y-6">
+<div>
+<h3 class="font-headline text-xl font-bold text-white">Funnel Friction</h3>
+<p class="text-gray-500 text-sm">Critical drop-off points detected</p>
+</div>
+<div class="space-y-4">
+<div class="p-4 rounded-lg bg-error-container/10 border-l-4 border-error">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-symbols-outlined text-error text-sm" data-icon="report">report</span>
+<p class="text-sm font-bold text-white">Payment Gateway Latency</p>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">High abandonment rate at the checkout phase for EU customers. Possible currency mismatch.</p>
+</div>
+<div class="p-4 rounded-lg bg-tertiary-container/10 border-l-4 border-tertiary">
+<div class="flex items-center gap-3 mb-1">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="warning">warning</span>
+<p class="text-sm font-bold text-white">Itinerary Customization</p>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">Leads are stalling when asked for flight preferences. UI may be too complex.</p>
+</div>
+</div>
+<button class="w-full py-3 rounded-lg border border-outline-variant text-on-surface text-sm font-bold hover:bg-white/5 transition-colors">
+                        View Full Funnel Audit
+                    </button>
+</div>
+</div>
+<!-- Recommendations & Secondary Insights -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Recommendations Block -->
+<div class="lg:col-span-2 glass-card rounded-xl p-8 relative group overflow-hidden">
+<div class="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-primary/5 to-transparent pointer-events-none"></div>
+<div class="flex items-center gap-4 mb-6">
+<div class="p-3 rounded-full bg-primary-container text-on-primary-container">
+<span class="material-symbols-outlined" data-icon="psychology" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<div>
+<h3 class="font-headline text-xl font-bold text-white">AI Strategy Advisor</h3>
+<p class="text-primary-dim text-sm font-semibold">Strategic recommendations based on Q3 trends</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="bg-surface-container rounded-xl p-5 border border-white/5 hover:border-primary/30 transition-all">
+<p class="text-primary text-[10px] font-extrabold uppercase tracking-widest mb-2">Inventory Optimization</p>
+<p class="text-white font-medium text-sm leading-relaxed">"High-intent searches for 'Eco-Luxury' are exceeding current tour supply by 40%. Recommend adding more boutique sustainable resorts in Southeast Asia."</p>
+</div>
+<div class="bg-surface-container rounded-xl p-5 border border-white/5 hover:border-primary/30 transition-all">
+<p class="text-tertiary text-[10px] font-extrabold uppercase tracking-widest mb-2">Lead Acquisition</p>
+<p class="text-white font-medium text-sm leading-relaxed">"Current leads show 65% higher engagement on weekends. Consider scaling budget tours visibility during Friday evening GMT windows."</p>
+</div>
+</div>
+</div>
+<!-- Recent Activity / Mini Bento -->
+<div class="bg-surface-container-low rounded-xl p-8 border border-white/5 flex flex-col justify-between">
+<div>
+<h3 class="font-headline text-xl font-bold text-white mb-6">Real-time Pulse</h3>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<img alt="Lead Profile" class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a young woman traveler with a bright expression and sunny natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI04h6UNJxeohDCCXA0vJB5cQ4NG8DKdbSud0iURqH7h7b2jJZlN7XJ8NKg6fwihWHd14UIsoZjwllO0V1YYmTeNNH2Lny0Z-0fO-zfKRgXeSc9ak3LpI4cCV1gj8svoUZFzuwhLLe3H372JDYZAb9uHgXchzxngmnx3WVI2gr_EIRroaNJj8NON6N0jnYENubUSzCnOa_EVV5tlSrA5h2UFBtyynXxL3XZNhuYX9tqiFNlWLLpiJmG66lcvQOIfSkpyVj74AUAW8"/>
+<div>
+<p class="text-sm font-bold text-white">Sarah Jenkins</p>
+<p class="text-xs text-gray-500">Booking: Bali Retreat (Confirmed)</p>
+</div>
+<span class="ml-auto text-[10px] font-bold text-primary">JUST NOW</span>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<div>
+<p class="text-sm font-bold text-white">AI Agent #402</p>
+<p class="text-xs text-gray-500">Upsold: Premium Flight Bundle</p>
+</div>
+<span class="ml-auto text-[10px] font-bold text-gray-600">4m AGO</span>
+</div>
+<div class="flex items-center gap-4 opacity-50">
+<img alt="Lead Profile" class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a professional man with glasses in a warm lit environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuDjxPp2gNxeDDBT-APsbCB0oHBgo8RulDRDhxPaA-4vTVN-NJ0dsEo3uNcSRMUvQ5pHeWuqDSGj48UfJ5Ql5m4bsxDe3d1iNfMGywKj78x7D01qRGo0kvvdyRWyOyQEMAVIkIwJF-zqOcrsXfyMvQxLZP_lDiBwhJ4pYZsSj4MNsx4n0KrS8du-Ob2eikVAoo65IRRLVb22zqd01D0NZiHo9OmEl2Uu8k84Fp-cZClTSLKy10_UEqVDiwFBpFZ5t1BJiXRIVbs24"/>
+<div>
+<p class="text-sm font-bold text-white">David Chen</p>
+<p class="text-xs text-gray-500">Enquiry: Tokyo 5-Day Tour</p>
+</div>
+<span class="ml-auto text-[10px] font-bold text-gray-600">12m AGO</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Suppression: On Dashboard FAB is active as per PRD "New Lead" action which is already in sidebar but can be floating on mobile. Here we follow desktop shell. -->
+</body></html>

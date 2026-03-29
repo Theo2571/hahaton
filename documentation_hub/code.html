@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#2c2c2c",
+            "on-error": "#490013",
+            "primary": "#bd9dff",
+            "surface-container-low": "#131313",
+            "primary-container": "#b28cff",
+            "inverse-on-surface": "#565554",
+            "error": "#ff6e84",
+            "secondary-dim": "#8455ef",
+            "on-surface-variant": "#adaaaa",
+            "primary-fixed": "#b28cff",
+            "secondary-container": "#5516be",
+            "outline-variant": "#494847",
+            "surface-tint": "#bd9dff",
+            "error-container": "#a70138",
+            "primary-dim": "#8a4cfc",
+            "on-error-container": "#ffb2b9",
+            "on-background": "#ffffff",
+            "inverse-surface": "#fcf8f8",
+            "on-tertiary-container": "#5a0027",
+            "secondary-fixed-dim": "#ceb9ff",
+            "on-tertiary-fixed": "#380016",
+            "secondary": "#ac8aff",
+            "error-dim": "#d73357",
+            "tertiary": "#ff97b2",
+            "tertiary-dim": "#f17799",
+            "tertiary-fixed-dim": "#f77c9e",
+            "tertiary-container": "#fe81a4",
+            "on-secondary-fixed": "#40009b",
+            "surface-container": "#1a1919",
+            "background": "#0e0e0e",
+            "surface": "#0e0e0e",
+            "on-primary-fixed-variant": "#390083",
+            "inverse-primary": "#742fe5",
+            "secondary-fixed": "#dac9ff",
+            "tertiary-fixed": "#ff8eac",
+            "on-primary": "#3c0089",
+            "primary-fixed-dim": "#a67aff",
+            "on-primary-fixed": "#000000",
+            "surface-container-high": "#201f1f",
+            "on-surface": "#ffffff",
+            "on-primary-container": "#2e006c",
+            "on-secondary": "#280067",
+            "surface-variant": "#262626",
+            "outline": "#777575",
+            "surface-container-lowest": "#000000",
+            "on-tertiary-fixed-variant": "#711036",
+            "surface-dim": "#0e0e0e",
+            "on-tertiary": "#6a0a31",
+            "surface-container-highest": "#262626",
+            "on-secondary-fixed-variant": "#5f28c8",
+            "on-secondary-container": "#d9c8ff"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- Shared Component: TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-neutral-950/40 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(124,58,237,0.1)] flex items-center justify-between px-8 h-16 w-full">
+<div class="flex items-center gap-8">
+<div class="text-2xl font-black tracking-tighter text-white bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400 font-['Manrope'] tracking-tight">Aiva Nebula</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-neutral-400 hover:text-white transition-colors font-['Manrope'] tracking-tight" href="#">Pricing</a>
+<a class="text-violet-400 font-bold border-b-2 border-violet-500 pb-1 font-['Manrope'] tracking-tight" href="#">Documentation</a>
+<a class="text-neutral-400 hover:text-white transition-colors font-['Manrope'] tracking-tight" href="#">Support</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="bg-surface-container-high border-none rounded-lg py-2 pl-10 pr-4 text-sm w-64 focus:ring-1 focus:ring-primary-dim transition-all outline-none" placeholder="Search documentation..." type="text"/>
+</div>
+<button class="text-neutral-400 hover:text-white transition-colors px-4 py-2 font-['Manrope'] tracking-tight hover:bg-white/5 active:scale-95 duration-200">Login</button>
+<button class="bg-primary text-on-primary font-bold px-6 py-2 rounded-lg hover:bg-primary-container transition-all active:scale-95 duration-200 font-['Manrope'] tracking-tight">Get Started</button>
+</div>
+</header>
+<div class="flex pt-16">
+<!-- Shared Component: SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-neutral-900/50 backdrop-blur-xl bg-neutral-900 flex flex-col h-full p-4 pt-20 font-['Inter'] text-sm font-medium">
+<div class="mb-8 px-4">
+<div class="text-xs uppercase tracking-widest text-outline mb-4">Core Concepts</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 bg-violet-600/20 text-violet-400 rounded-lg px-4 py-3 border-r-2 border-violet-500 hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+            Quickstart
+          </a>
+<a class="flex items-center gap-3 text-neutral-500 hover:text-neutral-200 px-4 py-3 hover:bg-white/5 transition-colors hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="psychology">psychology</span>
+            Bot Personality
+          </a>
+<a class="flex items-center gap-3 text-neutral-500 hover:text-neutral-200 px-4 py-3 hover:bg-white/5 transition-colors hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="database">database</span>
+            Knowledge Base
+          </a>
+<a class="flex items-center gap-3 text-neutral-500 hover:text-neutral-200 px-4 py-3 hover:bg-white/5 transition-colors hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="api">api</span>
+            API Reference
+          </a>
+<a class="flex items-center gap-3 text-neutral-500 hover:text-neutral-200 px-4 py-3 hover:bg-white/5 transition-colors hover:translate-x-1 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+            Settings
+          </a>
+</div>
+</div>
+<div class="mt-auto border-t border-white/5 pt-6 px-4 pb-8">
+<div class="text-xs uppercase tracking-widest text-outline mb-4">Resources</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 text-neutral-500 hover:text-neutral-200 px-4 py-2 hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+            Docs
+          </a>
+<a class="flex items-center gap-3 text-neutral-500 hover:text-neutral-200 px-4 py-2 hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+            Help
+          </a>
+</div>
+<button class="w-full mt-6 bg-surface-container-highest text-primary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-white/5 transition-all">
+<span class="material-symbols-outlined text-sm">add</span>
+          Create New Bot
+        </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 min-h-screen bg-background">
+<div class="max-w-4xl mx-auto px-12 py-16">
+<!-- Hero Section -->
+<section class="mb-16">
+<nav class="flex items-center gap-2 text-xs text-outline mb-6 font-medium">
+<span>Documentation</span>
+<span class="material-symbols-outlined text-[10px]">chevron_right</span>
+<span class="text-primary-dim">Quickstart Guide</span>
+</nav>
+<h1 class="text-5xl font-extrabold font-headline tracking-tighter mb-6 bg-gradient-to-br from-white to-white/60 bg-clip-text text-transparent">
+            Get started with Aiva
+          </h1>
+<p class="text-lg text-on-surface-variant leading-relaxed max-w-2xl">
+            Welcome to the Aiva Nebula documentation. Learn how to integrate our luminous intelligence engines into your existing workspace in under five minutes.
+          </p>
+</section>
+<!-- Bento Grid Feature Highlight -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+<div class="col-span-2 bg-surface-container border border-outline-variant/15 rounded-xl p-8 group hover:border-primary/30 transition-all">
+<div class="flex items-start justify-between mb-8">
+<div class="p-3 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<span class="text-xs font-bold px-3 py-1 bg-tertiary-container/20 text-tertiary-fixed rounded-full">New Release</span>
+</div>
+<h3 class="text-xl font-bold font-headline mb-2">Neural Onboarding</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+              Our automated setup script detects your environment variables and configures the SDK hooks automatically. No manual boilerplate required.
+            </p>
+</div>
+<div class="bg-surface-container-high border border-outline-variant/15 rounded-xl p-8 flex flex-col justify-center text-center">
+<div class="text-4xl font-black text-primary mb-2">99.9%</div>
+<div class="text-sm font-medium text-outline uppercase tracking-widest">Uptime SLA</div>
+</div>
+</section>
+<!-- Technical Content Section -->
+<article class="space-y-12">
+<div id="installation">
+<h2 class="text-2xl font-bold font-headline mb-4 flex items-center gap-3">
+<span class="text-primary">01.</span> Installation
+            </h2>
+<p class="text-on-surface-variant mb-6 leading-relaxed">
+              To begin, install the Aiva Core library using your preferred package manager. We recommend using <code class="bg-surface-container px-1.5 py-0.5 rounded text-primary-fixed">pnpm</code> for faster module resolution.
+            </p>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-white/5">
+<div class="flex items-center justify-between px-4 py-2 bg-white/5 text-[10px] uppercase tracking-widest font-bold text-outline">
+<span>Terminal</span>
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-white transition-colors">content_copy</span>
+</div>
+<pre class="p-6 text-sm font-mono overflow-x-auto hide-scrollbar"><span class="text-secondary">pnpm</span> install <span class="text-primary">@aiva/nebula-core</span></pre>
+</div>
+</div>
+<div id="configuration">
+<h2 class="text-2xl font-bold font-headline mb-4 flex items-center gap-3">
+<span class="text-primary">02.</span> Initializing the Agent
+            </h2>
+<p class="text-on-surface-variant mb-6 leading-relaxed">
+              The nebula client requires an API Key which can be generated from your <a class="text-primary hover:underline" href="#">workspace settings</a>. Ensure you never expose this key in client-side code.
+            </p>
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-white/5">
+<div class="flex items-center justify-between px-4 py-2 bg-white/5 text-[10px] uppercase tracking-widest font-bold text-outline">
+<span>index.ts</span>
+<span class="material-symbols-outlined text-sm cursor-pointer hover:text-white transition-colors">content_copy</span>
+</div>
+<pre class="p-6 text-sm font-mono overflow-x-auto hide-scrollbar"><span class="text-pink-400">import</span> { <span class="text-yellow-200">NebulaClient</span> } <span class="text-pink-400">from</span> <span class="text-emerald-400">'@aiva/nebula-core'</span>;
+
+<span class="text-neutral-500">// Initialize with high-precision neural parameters</span>
+<span class="text-pink-400">const</span> client = <span class="text-pink-400">new</span> <span class="text-yellow-200">NebulaClient</span>({
+  apiKey: process.env.AIVA_KEY,
+  personality: <span class="text-emerald-400">'luminous-editorial'</span>,
+  temperature: <span class="text-orange-300">0.7</span>
+});
+
+<span class="text-pink-400">await</span> client.<span class="text-blue-300">connect</span>();
+<span class="text-blue-300">console</span>.<span class="text-blue-300">log</span>(<span class="text-emerald-400">'Intelligence link established.'</span>);</pre>
+</div>
+</div>
+</article>
+<!-- Footer Call to Action -->
+<footer class="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+<div>
+<h4 class="font-bold mb-2">Need more help?</h4>
+<p class="text-sm text-on-surface-variant">Join our Discord community or book a technical deep-dive.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2.5 bg-surface-container-high rounded-lg text-sm font-bold border border-outline-variant/20 hover:bg-surface-bright transition-all">Join Discord</button>
+<button class="px-6 py-2.5 bg-primary text-on-primary rounded-lg text-sm font-bold shadow-[0_4px_20px_rgba(189,157,255,0.2)] hover:scale-105 transition-all">Support Center</button>
+</div>
+</footer>
+</div>
+<!-- Right Side Meta (Floating) -->
+<aside class="fixed right-8 top-32 hidden xl:block w-48 space-y-8">
+<div>
+<h5 class="text-[10px] uppercase tracking-[0.2em] font-black text-outline mb-4">On this page</h5>
+<nav class="space-y-3 text-sm">
+<a class="block text-primary-dim font-bold border-l-2 border-primary-dim pl-3" href="#installation">Installation</a>
+<a class="block text-outline hover:text-on-surface-variant pl-3 border-l-2 border-transparent transition-colors" href="#configuration">Configuration</a>
+<a class="block text-outline hover:text-on-surface-variant pl-3 border-l-2 border-transparent transition-colors" href="#">SDK Usage</a>
+<a class="block text-outline hover:text-on-surface-variant pl-3 border-l-2 border-transparent transition-colors" href="#">Error Handling</a>
+</nav>
+</div>
+<div class="p-6 bg-surface-container rounded-2xl border border-outline-variant/10 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-tertiary mb-3">auto_awesome</span>
+<p class="text-xs leading-relaxed font-medium mb-3">Explore the new API reference for visual generation.</p>
+<a class="text-[10px] font-bold text-primary flex items-center gap-1 group" href="#">
+            LEARN MORE 
+            <span class="material-symbols-outlined text-[12px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</a>
+</div>
+</aside>
+</main>
+</div>
+<!-- Ambient Digital Aura (Backdrop) -->
+<div class="fixed top-0 right-0 w-[500px] h-[500px] bg-primary-dim/5 blur-[120px] rounded-full -z-10 pointer-events-none"></div>
+<div class="fixed bottom-0 left-64 w-[300px] h-[300px] bg-secondary-dim/5 blur-[100px] rounded-full -z-10 pointer-events-none"></div>
+</body></html>

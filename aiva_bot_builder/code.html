@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bot Builder | Aiva Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#7C3AED",
+                        "surface": "#09090b", // zinc-950
+                        "surface-container": "#18181b", // zinc-900
+                        "surface-container-high": "#27272a", // zinc-800
+                        "on-surface": "#fafafa",
+                        "on-surface-variant": "#a1a1aa",
+                        "outline": "#3f3f46",
+                        "outline-variant": "#27272a",
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "manrope": ["Manrope", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .tonal-shift { background-color: rgba(24, 24, 27, 0.3); }
+        .glass-panel {
+            background: rgba(24, 24, 27, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface selection:bg-primary/30 selection:text-white">
+<!-- SideNavBar Component Implementation -->
+<aside class="fixed left-0 top-0 h-full w-64 border-r border-white/5 bg-zinc-950/60 backdrop-blur-2xl flex flex-col py-8 z-40">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-2xl" style="font-variation-settings: 'FILL' 1;">temp_preferences_custom</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-violet-500 font-manrope">Aiva Pro</h1>
+<p class="text-[10px] text-zinc-500 font-manrope tracking-widest uppercase">Neural Interface</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-2 space-y-1">
+<a class="text-zinc-500 hover:text-zinc-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm font-semibold tracking-wide hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary transition-colors">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-zinc-500 hover:text-zinc-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm font-semibold tracking-wide hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary transition-colors">insights</span>
+<span>Analytics</span>
+</a>
+<a class="bg-violet-600/20 text-violet-400 border-r-4 border-violet-500 px-4 py-3 flex items-center gap-3 font-manrope text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined text-xl">smart_toy</span>
+<span>Agents</span>
+</a>
+<a class="text-zinc-500 hover:text-zinc-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm font-semibold tracking-wide hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary transition-colors">terminal</span>
+<span>Logs</span>
+</a>
+<a class="text-zinc-500 hover:text-zinc-200 px-4 py-3 flex items-center gap-3 font-manrope text-sm font-semibold tracking-wide hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-xl group-hover:text-primary transition-colors">payments</span>
+<span>Billing</span>
+</a>
+</nav>
+<div class="px-4 mt-auto space-y-4">
+<button class="w-full py-3 bg-primary hover:bg-violet-600 text-white rounded-lg text-sm font-bold shadow-[0_0_20px_rgba(124,58,237,0.3)] transition-all active:scale-95">
+            New Agent
+        </button>
+<div class="space-y-1 pt-4 border-t border-white/5">
+<a class="text-zinc-500 hover:text-zinc-200 px-4 py-2 flex items-center gap-3 text-xs font-manrope uppercase tracking-widest hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">help</span>
+<span>Help</span>
+</a>
+<a class="text-zinc-500 hover:text-zinc-200 px-4 py-2 flex items-center gap-3 text-xs font-manrope uppercase tracking-widest hover:bg-white/5 transition-colors" href="#">
+<span class="material-symbols-outlined text-lg">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</div>
+</aside>
+<main class="ml-64 min-h-screen flex flex-col">
+<!-- TopNavBar Component Implementation -->
+<header class="fixed top-0 w-full z-50 bg-zinc-950/40 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(124,58,237,0.1)] ml-0">
+<div class="flex justify-between items-center px-8 py-3 w-full max-w-[calc(100%-16rem)] ml-auto">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<h2 class="text-lg font-manrope font-bold text-white tracking-tight">Bot Builder</h2>
+<span class="px-2 py-0.5 rounded bg-zinc-800 text-[10px] text-zinc-400 font-bold uppercase tracking-widest">ID: #04</span>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="font-manrope tracking-tight text-sm font-medium text-violet-400 font-bold border-b-2 border-violet-500 pb-1" href="#">Models</a>
+<a class="font-manrope tracking-tight text-sm font-medium text-zinc-400 hover:text-white transition-colors" href="#">Datasets</a>
+<a class="font-manrope tracking-tight text-sm font-medium text-zinc-400 hover:text-white transition-colors" href="#">Deploy</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2">
+<button class="px-4 py-1.5 border border-white/10 text-zinc-300 font-bold text-xs rounded hover:bg-white/5 transition-all">Save Draft</button>
+<button class="px-5 py-1.5 bg-primary text-white font-bold text-xs rounded hover:bg-violet-600 shadow-lg shadow-primary/20 transition-all active:scale-95">Publish Bot</button>
+</div>
+<div class="w-px h-6 bg-white/10 mx-2"></div>
+<div class="flex items-center gap-4">
+<button class="text-zinc-400 hover:text-white transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="text-zinc-400 hover:text-white transition-colors"><span class="material-symbols-outlined">settings</span></button>
+<div class="w-8 h-8 rounded-full bg-zinc-800 border border-white/10 overflow-hidden">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEMYibWLI8Vgyf8iw76RaTEJx1BG5I_rmQO8JrTTVHoxA3puFashV3rkMn5fRcQuSnhqLpOopJoWqfIUG5bl4VhDajnKBXKoVlWBTWCOvAL3ImNFh5CvgD9nFNv1uc1C-JWScz_nww9QtSTuulJg0bAoxpeTtjCTdPjX0GsoNQsuyz7s72WTh_Ezd0GDDKdvONlUKwYc50s1zoYFD4-qICNIlxl03hyYoK409wNh3H4_q7x6e6XkxBWQbF0Mr7GDOwcxcbfH5a_Eo"/>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="flex-1 p-8 pt-24 grid grid-cols-12 gap-8 max-w-7xl mx-auto w-full">
+<!-- Main Configuration Area -->
+<section class="col-span-12 lg:col-span-7 space-y-8">
+<!-- Bot Personality -->
+<div class="glass-panel p-8 rounded-lg shadow-2xl">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="font-manrope font-extrabold text-xl tracking-tighter text-white">Neural Personality</h3>
+<p class="text-sm text-zinc-500 mt-1">Configure the core logic and behavioral tone of your agent.</p>
+</div>
+<span class="bg-violet-500/10 text-violet-400 border border-violet-500/20 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Active State</span>
+</div>
+<div class="space-y-8">
+<div>
+<label class="block text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-3">System Instruction</label>
+<textarea class="w-full bg-zinc-900/50 border border-white/10 rounded-lg p-5 text-sm text-zinc-300 focus:ring-1 focus:ring-primary/50 focus:border-primary/50 transition-all min-h-[140px] font-body leading-relaxed" placeholder="e.g. You are a highly specialized neural interface assistant for Aiva Intelligence. Use technical, precise, yet supportive language..."></textarea>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<label class="block text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-3">Creativity Variance</label>
+<input class="w-full h-1.5 bg-zinc-800 rounded-lg appearance-none cursor-pointer accent-primary" max="100" min="0" type="range" value="40"/>
+<div class="flex justify-between mt-3 text-[10px] font-bold text-zinc-600 uppercase tracking-widest">
+<span>Deterministic</span>
+<span>Stochastic</span>
+</div>
+</div>
+<div>
+<label class="block text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-3">Tone Matrix</label>
+<select class="w-full bg-zinc-900/50 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-zinc-300 focus:ring-1 focus:ring-primary/50 transition-all appearance-none cursor-pointer">
+<option>Professional &amp; Analytical</option>
+<option>Creative &amp; Abstract</option>
+<option>Concise &amp; Logical</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- Knowledge Base -->
+<div class="glass-panel p-8 rounded-lg">
+<div class="mb-8">
+<h3 class="font-manrope font-extrabold text-xl tracking-tighter text-white">Knowledge Core</h3>
+<p class="text-sm text-zinc-500 mt-1">Ground your agent's responses in high-fidelity datasets.</p>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="group border border-white/5 bg-zinc-900/20 hover:bg-violet-500/5 hover:border-violet-500/30 rounded-xl p-8 transition-all cursor-pointer flex flex-col items-center justify-center text-center">
+<div class="w-12 h-12 rounded-full bg-violet-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-2xl">upload_file</span>
+</div>
+<span class="text-sm font-bold text-white tracking-tight">Upload Corpus</span>
+<span class="text-[10px] text-zinc-600 mt-1 uppercase tracking-wider">PDF, Markdown, JSON</span>
+</div>
+<div class="group border border-white/5 bg-zinc-900/20 hover:bg-violet-500/5 hover:border-violet-500/30 rounded-xl p-8 transition-all cursor-pointer flex flex-col items-center justify-center text-center">
+<div class="w-12 h-12 rounded-full bg-violet-500/10 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-2xl">language</span>
+</div>
+<span class="text-sm font-bold text-white tracking-tight">Recursive Crawl</span>
+<span class="text-[10px] text-zinc-600 mt-1 uppercase tracking-wider">Web Integration</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex items-center justify-between p-4 bg-white/5 border border-white/5 rounded-lg group hover:border-white/10 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded bg-zinc-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">description</span>
+</div>
+<div>
+<p class="text-sm font-bold text-zinc-200">Neural_Logic_Specs_v4.pdf</p>
+<p class="text-[10px] text-zinc-600 uppercase tracking-widest font-medium">Vectorized 42m ago • 4.1 MB</p>
+</div>
+</div>
+<button class="text-zinc-600 hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 bg-white/5 border border-white/5 rounded-lg group hover:border-white/10 transition-all">
+<div class="flex items-center gap-4">
+<div class="w-8 h-8 rounded bg-zinc-800 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-xl">link</span>
+</div>
+<div>
+<p class="text-sm font-bold text-zinc-200">https://api.aiva.pro/documentation</p>
+<p class="text-[10px] text-zinc-600 uppercase tracking-widest font-medium">Synced yesterday • 128 nodes</p>
+</div>
+</div>
+<button class="text-zinc-600 hover:text-red-400 transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Integrations -->
+<div class="glass-panel p-8 rounded-lg">
+<div class="mb-8">
+<h3 class="font-manrope font-extrabold text-xl tracking-tighter text-white">Neural Endpoints</h3>
+<p class="text-sm text-zinc-500 mt-1">Broadcast your agent to external platforms and interfaces.</p>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="p-5 rounded-lg bg-zinc-900/40 border border-white/5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="w-10 h-10 rounded bg-green-950/30 flex items-center justify-center">
+<img alt="WhatsApp" class="w-6 h-6 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuwVc6nuc7zR-8R7BDVZg6r_tCGEYx5NSHKpnNKwfCK46V2RVQC1HKJskw83VSeYAS8yHejmLslImE5Dz4SgOBq2g_xD_U7v0yzqbdSzyAfbAwdx4wyGvCsIhkAhlxqZ628rJXwq6W_JIeAXYQ2Q4W6Bg6Ks1PAZq-qQATA95Lc_G-Rf6f8IGrSAcss7rLj3Gqdyz32rTHAztQUUigkzrQuD-4AUMF_1UJ7a9Ed2swSlTEwMbbKpOKdwLzH4rhUn_-s-xSn0_q5Qk"/>
+</div>
+<button class="w-10 h-6 rounded-full bg-violet-500 relative transition-colors">
+<span class="absolute right-1 top-1 w-4 h-4 rounded-full bg-white"></span>
+</button>
+</div>
+<div>
+<p class="text-sm font-bold text-zinc-200">WhatsApp</p>
+<p class="text-[10px] text-zinc-600 uppercase tracking-widest font-bold">Encrypted Link</p>
+</div>
+</div>
+<div class="p-5 rounded-lg bg-zinc-900/40 border border-white/5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="w-10 h-10 rounded bg-indigo-950/30 flex items-center justify-center">
+<img alt="Slack" class="w-6 h-6 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKGiZg1OmjwW9xJPsIfRwJ9HmzHQlbP6fH2KlaFVI5YSCt3a4pSfpbZu7MeLSM-YyvxhhrmUpmZPR6KeT74l2-2OvE5_WFLQwZsyrnZrg7rRq3YvzmUjXJ3EDYicn0kPpJ5m9U5DW-_p8V47tjHEcDSmgiBjLlbUwuZ_j8RxQ8GG8sNqEiY2DXP1LA8g9e6wQ2JQMSfBe_nOSlUXguoRSxUYqNpAcqwYfFBKf9Z8lKAHR6w9eqF3nRG-87nMrzeH2tzlpgLI3MLvY"/>
+</div>
+<button class="w-10 h-6 rounded-full bg-zinc-800 relative transition-colors">
+<span class="absolute left-1 top-1 w-4 h-4 rounded-full bg-zinc-600"></span>
+</button>
+</div>
+<div>
+<p class="text-sm font-bold text-zinc-200">Slack</p>
+<p class="text-[10px] text-zinc-600 uppercase tracking-widest font-bold">Team Mesh</p>
+</div>
+</div>
+<div class="p-5 rounded-lg bg-zinc-900/40 border border-white/5 flex flex-col gap-4">
+<div class="flex justify-between items-start">
+<div class="w-10 h-10 rounded bg-zinc-800/50 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">dynamic_feed</span>
+</div>
+<button class="w-10 h-6 rounded-full bg-violet-500 relative transition-colors">
+<span class="absolute right-1 top-1 w-4 h-4 rounded-full bg-white"></span>
+</button>
+</div>
+<div>
+<p class="text-sm font-bold text-zinc-200">Embed API</p>
+<p class="text-[10px] text-zinc-600 uppercase tracking-widest font-bold">Direct Stream</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sandbox / Preview Area -->
+<section class="col-span-12 lg:col-span-5 h-[calc(100vh-160px)] sticky top-24">
+<div class="bg-zinc-950 h-full rounded-lg shadow-2xl flex flex-col border border-white/10 overflow-hidden">
+<div class="p-5 bg-zinc-900/60 border-b border-white/5 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-gradient-to-tr from-primary to-violet-400 flex items-center justify-center text-white shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">neurology</span>
+</div>
+<div>
+<h4 class="text-sm font-bold text-white tracking-tight leading-tight">Aiva Interface</h4>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+<span class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Live Testing</span>
+</div>
+</div>
+</div>
+<button class="text-zinc-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">refresh</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide tonal-shift">
+<div class="flex flex-col items-center justify-center text-center py-12 px-8">
+<div class="w-16 h-16 rounded-2xl bg-zinc-900/80 border border-white/10 flex items-center justify-center mb-6 shadow-inner">
+<span class="material-symbols-outlined text-3xl text-primary">sensors</span>
+</div>
+<p class="text-[10px] text-zinc-500 font-bold uppercase tracking-[0.2em]">Neural Sandbox Environment</p>
+<p class="text-xs text-zinc-400 mt-2 leading-relaxed">System state is ephemeral. All interactions are simulated and not stored in the production ledger.</p>
+</div>
+<div class="flex justify-start">
+<div class="max-w-[85%] bg-zinc-900 border border-white/5 p-4 rounded-2xl rounded-tl-none">
+<p class="text-sm text-zinc-200 leading-relaxed">Neural interface established. I am Aiva Agent #04. I've assimilated your Knowledge Core. How shall we proceed with the verification?</p>
+</div>
+</div>
+<div class="flex justify-end">
+<div class="max-w-[85%] bg-primary p-4 rounded-2xl rounded-tr-none shadow-xl shadow-primary/10">
+<p class="text-sm font-medium text-white">Synthesize a summary of the rate limits from the manual.</p>
+</div>
+</div>
+<div class="flex justify-start">
+<div class="max-w-[85%] bg-zinc-900 border border-white/5 p-4 rounded-2xl rounded-tl-none space-y-3">
+<p class="text-sm text-zinc-200 leading-relaxed">Referencing <span class="text-primary font-bold">Neural_Logic_Specs_v4.pdf</span>: Enterprise accounts are allocated a high-throughput lane capped at 10,000 req/min with a burst allowance of 15,000.</p>
+<div class="flex items-center gap-2 pt-3 border-t border-white/5">
+<span class="px-2 py-0.5 bg-zinc-800 text-[9px] font-bold text-zinc-500 rounded uppercase tracking-widest">SOURCE: CORE_SPECS</span>
+</div>
+</div>
+</div>
+<div class="flex justify-start items-center gap-2 px-2">
+<div class="flex space-x-1.5">
+<div class="w-1.5 h-1.5 bg-primary/40 rounded-full animate-bounce"></div>
+<div class="w-1.5 h-1.5 bg-primary/40 rounded-full animate-bounce [animation-delay:0.2s]"></div>
+<div class="w-1.5 h-1.5 bg-primary/40 rounded-full animate-bounce [animation-delay:0.4s]"></div>
+</div>
+</div>
+</div>
+<div class="p-4 bg-zinc-900/60 border-t border-white/10">
+<div class="relative flex items-center">
+<input class="w-full bg-zinc-950 border border-white/10 rounded-lg py-3.5 px-6 pr-14 text-sm text-zinc-200 focus:ring-1 focus:ring-primary/50 focus:border-primary/50 placeholder:text-zinc-600 transition-all" placeholder="Enter neural command..." type="text"/>
+<button class="absolute right-2 w-10 h-10 bg-primary text-white rounded-lg flex items-center justify-center shadow-lg shadow-primary/20 hover:bg-violet-600 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg">send</span>
+</button>
+</div>
+<p class="text-center text-[9px] font-bold text-zinc-600 uppercase tracking-widest mt-4">Simulated environment • V.4.0.2</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Component Implementation -->
+<footer class="w-full py-12 border-t border-white/5 bg-zinc-950 mt-12">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-1">
+<p class="font-inter text-xs tracking-widest uppercase text-zinc-600">© 2024 Aiva Intelligence. Editorial Futurist Division.</p>
+</div>
+<div class="flex gap-8 mt-6 md:mt-0">
+<a class="font-inter text-xs tracking-widest uppercase text-zinc-600 hover:text-violet-400 transition-colors" href="#">Privacy Policy</a>
+<a class="font-inter text-xs tracking-widest uppercase text-zinc-600 hover:text-violet-400 transition-colors" href="#">Terms of Service</a>
+<a class="font-inter text-xs tracking-widest uppercase text-zinc-600 hover:text-violet-400 transition-colors" href="#">API Status</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#2c2c2c",
+                        "on-error": "#490013",
+                        "primary": "#bd9dff",
+                        "surface-container-low": "#131313",
+                        "primary-container": "#b28cff",
+                        "inverse-on-surface": "#565554",
+                        "error": "#ff6e84",
+                        "secondary-dim": "#8455ef",
+                        "on-surface-variant": "#adaaaa",
+                        "primary-fixed": "#b28cff",
+                        "secondary-container": "#5516be",
+                        "outline-variant": "#494847",
+                        "surface-tint": "#bd9dff",
+                        "error-container": "#a70138",
+                        "primary-dim": "#8a4cfc",
+                        "on-error-container": "#ffb2b9",
+                        "on-background": "#ffffff",
+                        "inverse-surface": "#fcf8f8",
+                        "on-tertiary-container": "#5a0027",
+                        "secondary-fixed-dim": "#ceb9ff",
+                        "on-tertiary-fixed": "#380016",
+                        "secondary": "#ac8aff",
+                        "error-dim": "#d73357",
+                        "tertiary": "#ff97b2",
+                        "tertiary-dim": "#f17799",
+                        "tertiary-fixed-dim": "#f77c9e",
+                        "tertiary-container": "#fe81a4",
+                        "on-secondary-fixed": "#40009b",
+                        "surface-container": "#1a1919",
+                        "background": "#0e0e0e",
+                        "surface": "#0e0e0e",
+                        "on-primary-fixed-variant": "#390083",
+                        "inverse-primary": "#742fe5",
+                        "secondary-fixed": "#dac9ff",
+                        "tertiary-fixed": "#ff8eac",
+                        "on-primary": "#3c0089",
+                        "primary-fixed-dim": "#a67aff",
+                        "on-primary-fixed": "#000000",
+                        "surface-container-high": "#201f1f",
+                        "on-surface": "#ffffff",
+                        "on-primary-container": "#2e006c",
+                        "on-secondary": "#280067",
+                        "surface-variant": "#262626",
+                        "outline": "#777575",
+                        "surface-container-lowest": "#000000",
+                        "on-tertiary-fixed-variant": "#711036",
+                        "surface-dim": "#0e0e0e",
+                        "on-tertiary": "#6a0a31",
+                        "surface-container-highest": "#262626",
+                        "on-secondary-fixed-variant": "#5f28c8",
+                        "on-secondary-container": "#d9c8ff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(38, 38, 38, 0.4);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        body {
+            background-color: #0e0e0e;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary/30">
+<!-- TopAppBar from JSON -->
+<header class="fixed top-0 w-full z-50 bg-neutral-950/40 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(124,58,237,0.1)] flex items-center justify-between px-8 h-16 w-full font-['Manrope'] tracking-tight">
+<div class="text-2xl font-black tracking-tighter text-white bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">
+            Aiva Nebula
+        </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-neutral-400 hover:text-white transition-colors" href="#">Pricing</a>
+<a class="text-neutral-400 hover:text-white transition-colors" href="#">Documentation</a>
+<a class="text-neutral-400 hover:text-white transition-colors" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-neutral-400 hover:text-white transition-colors active:scale-95 duration-200">Login</button>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-lg font-bold hover:bg-primary-container transition-all duration-300 active:scale-95">Get Started</button>
+</div>
+</header>
+<!-- SideNavBar from JSON -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-40 bg-neutral-900 flex flex-col p-4 pt-20 font-['Inter'] text-sm font-medium">
+<div class="mb-8 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-primary-dim flex items-center justify-center text-on-primary font-bold">AW</div>
+<div>
+<div class="text-on-surface font-semibold">Aiva Workspace</div>
+<div class="text-on-surface-variant text-xs">Enterprise Plan</div>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-neutral-500 hover:text-neutral-200 px-4 py-3 hover:bg-white/5 transition-colors duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 text-neutral-500 hover:text-neutral-200 px-4 py-3 hover:bg-white/5 transition-colors duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+                AI Agents
+            </a>
+<a class="flex items-center gap-3 bg-violet-600/20 text-violet-400 rounded-lg px-4 py-3 border-r-2 border-violet-500 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+                Team
+            </a>
+<a class="flex items-center gap-3 text-neutral-500 hover:text-neutral-200 px-4 py-3 hover:bg-white/5 transition-colors duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 text-neutral-500 hover:text-neutral-200 px-4 py-3 hover:bg-white/5 transition-colors duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Settings
+            </a>
+</nav>
+<button class="mt-4 mb-8 mx-2 bg-white/5 border border-white/10 text-on-surface py-2.5 rounded-lg hover:bg-white/10 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+            Create New Bot
+        </button>
+<div class="border-t border-white/5 pt-4 space-y-1">
+<a class="flex items-center gap-3 text-neutral-500 hover:text-neutral-200 px-4 py-2 text-xs" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="description">description</span>
+                Docs
+            </a>
+<a class="flex items-center gap-3 text-neutral-500 hover:text-neutral-200 px-4 py-2 text-xs" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="help">help</span>
+                Help
+            </a>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="pl-64 pt-16 min-h-screen bg-background">
+<div class="max-w-6xl mx-auto p-12">
+<!-- Header Section -->
+<header class="mb-12 flex items-end justify-between gap-8">
+<div class="space-y-2 max-w-2xl">
+<h1 class="text-5xl font-extrabold font-headline tracking-tighter text-on-surface leading-none">
+                        Team <span class="text-primary">Management</span>
+</h1>
+<p class="text-on-surface-variant text-lg font-body leading-relaxed pt-2">
+                        Govern access levels, monitor activity, and orchestrate collaboration within your neural workspace.
+                    </p>
+</div>
+<button class="bg-primary text-on-primary h-12 px-8 rounded-lg font-bold flex items-center gap-2 hover:shadow-[0_0_20px_rgba(189,157,255,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+                    Invite New Member
+                </button>
+</header>
+<!-- Bento Grid Layout for Management -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Main Team List (Large Bento Piece) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container rounded-xl p-1 overflow-hidden">
+<div class="p-6 pb-2 border-b border-white/5 flex items-center justify-between">
+<h3 class="font-headline text-xl font-bold">Active Operators</h3>
+<div class="flex gap-2">
+<span class="bg-surface-container-highest px-3 py-1 rounded-full text-xs text-on-surface-variant">4 Active Now</span>
+</div>
+</div>
+<div class="divide-y divide-white/5">
+<!-- User Row 1 -->
+<div class="flex items-center justify-between p-6 hover:bg-white/[0.02] transition-colors group">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Elena Sterling" class="w-12 h-12 rounded-full border-2 border-primary/20" data-alt="portrait of a professional woman with sharp lighting and clean tech background in a minimalist digital workspace" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUn20vPW0iIgOdG_CHIKGC2e5mv_lWYbWwaLYo_rdgfhdOCf0ikEia_QOHPsInrNJsIRZssD6AM7lNGI2ur7QLA5AWLUxAJ_OuU8FGRcfsOwlfjQL5TBf5Z4hgdfDFpJDuuV9IpktS-4buRFe_5u8aMYA4SQPmFMpQofxW71WMLpnY7XEc4km-WhKpSJtwrjcpClL3OkENGyLK7qo5uGn-2VVlPeCrusOuxtCGjICBBykJUMvCeYGfzSfvM5yhIJtt9tqTqB8kZu4"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-surface-container rounded-full"></div>
+</div>
+<div>
+<div class="text-on-surface font-semibold">Elena Sterling</div>
+<div class="text-on-surface-variant text-xs">elena.s@aiva.nebula</div>
+</div>
+</div>
+<div class="flex items-center gap-12">
+<div class="text-right">
+<div class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Role</div>
+<span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-0.5 rounded uppercase">Admin</span>
+</div>
+<div class="text-right w-32">
+<div class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Activity</div>
+<div class="text-sm text-on-surface">Just now</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- User Row 2 -->
+<div class="flex items-center justify-between p-6 hover:bg-white/[0.02] transition-colors group">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Julian Kang" class="w-12 h-12 rounded-full border-2 border-transparent" data-alt="headshot of a young man with glasses and neutral expression in a dark high-tech office environment with blue highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTakQIHcQZYAlJPBaUbfO_4jX8OiK48osmq9MWfqEXqJw1mRBJISWx_CTqPohsc0bGn4OIZt5IPYgCofB14Hi-ytMfwGUxieALEQrZzzoC3XA2iIjVYUOkkq6TQJSbuVmicDBEOnx2mIJySp03PmyWKZCcd6hTPMKNuKC-22q53DxUXwYf2l21-FpX0IijY1_PcozunMdV2npamjMApIJ-9NcRf04dhRubzLM-cjJGXp8WaQUXf8UiENgkypZ1SU9IICQvBQ7KChQ"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-surface-container rounded-full"></div>
+</div>
+<div>
+<div class="text-on-surface font-semibold">Julian Kang</div>
+<div class="text-on-surface-variant text-xs">j.kang@aiva.nebula</div>
+</div>
+</div>
+<div class="flex items-center gap-12">
+<div class="text-right">
+<div class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Role</div>
+<span class="bg-white/5 text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded uppercase">Editor</span>
+</div>
+<div class="text-right w-32">
+<div class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Activity</div>
+<div class="text-sm text-on-surface">12m ago</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- User Row 3 -->
+<div class="flex items-center justify-between p-6 hover:bg-white/[0.02] transition-colors group">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="Aria Moore" class="w-12 h-12 rounded-full border-2 border-transparent" data-alt="professional profile of a person with creative style in soft purple cinematic lighting and dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLvI6Yr-M1G4F1jl8UoPkqMGRR6Cgp2GczBpRkhc-XMLC28Wo_Sfs2otNd3TXXOUkci58GikViAylR4b8ak4me8IKjcsVxz4fLG6I8NhD8pNjq4J6oXC24yNvJPy570qPI5_K9xYt6Ip-Nww5ZxAp7d82B8g-7eUOhbf5Ltw_8PDGno0Rm73ro9htECJEeq6EhcIYTZlullL_rkB90kA9JvZ91VbXfJeH9g3yrRTNBIqClOQv-Noh3edwGEQG0PEFR71nM8U9rRqE"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-neutral-600 border-2 border-surface-container rounded-full"></div>
+</div>
+<div>
+<div class="text-on-surface font-semibold">Aria Moore</div>
+<div class="text-on-surface-variant text-xs">aria@aiva.nebula</div>
+</div>
+</div>
+<div class="flex items-center gap-12">
+<div class="text-right">
+<div class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Role</div>
+<span class="bg-white/5 text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded uppercase">Viewer</span>
+</div>
+<div class="text-right w-32">
+<div class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Activity</div>
+<div class="text-sm text-on-surface">Yesterday</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<!-- User Row 4 -->
+<div class="flex items-center justify-between p-6 hover:bg-white/[0.02] transition-colors group">
+<div class="flex items-center gap-4">
+<div class="relative">
+<img alt="David Vance" class="w-12 h-12 rounded-full border-2 border-transparent" data-alt="side profile of an older businessman with silver hair and sharp tailored suit against a deep obsidian backdrop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdDxKQ6N30s_-W22ZIUVEMTNOAcDpiECiH69VOhgnzLL3kxNAVyX3xf2sLsUdpOye0hOU98U0wa75cRfIqt0bA3M0YFBNVtk4--d1LOoUetp9BrBg97eVffIGhUamNWwzDLk-D3g-vqDIQU_zNxZtxwxY2C_ORccLJlzONfwpADydCJdcF7SkdhNreUn752ZQS8bmYGknk-MDfjSaqd-DLn4Zx30WIpxfDrSrcPI1m-saYGn1jDlJ8eSLYEyZsvzuT5xKevaJ0QXE"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-surface-container rounded-full"></div>
+</div>
+<div>
+<div class="text-on-surface font-semibold">David Vance</div>
+<div class="text-on-surface-variant text-xs">vance.d@aiva.nebula</div>
+</div>
+</div>
+<div class="flex items-center gap-12">
+<div class="text-right">
+<div class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Role</div>
+<span class="bg-white/5 text-on-surface-variant text-[10px] font-bold px-2 py-0.5 rounded uppercase">Editor</span>
+</div>
+<div class="text-right w-32">
+<div class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Activity</div>
+<div class="text-sm text-on-surface">2h ago</div>
+</div>
+<button class="p-2 text-on-surface-variant hover:text-white transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Settings & Summary Sidebar (Bento Piece) -->
+<div class="col-span-12 lg:col-span-4 space-y-6">
+<!-- Global Permissions Card -->
+<div class="bg-surface-container-high rounded-xl p-6 border-t border-white/5 shadow-xl">
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="security" style="font-variation-settings: 'FILL' 1;">security</span>
+<h3 class="font-headline font-bold text-lg">Quick Permissions</h3>
+</div>
+<div class="space-y-4">
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="text-sm text-on-surface font-medium group-hover:text-primary transition-colors">Invite Access</span>
+<div class="w-10 h-5 bg-surface-container-highest rounded-full relative transition-all peer-checked:bg-primary">
+<div class="absolute right-1 top-1 w-3 h-3 bg-on-surface rounded-full"></div>
+</div>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="text-sm text-on-surface font-medium group-hover:text-primary transition-colors">API Keys View</span>
+<div class="w-10 h-5 bg-primary/20 rounded-full relative border border-primary/30">
+<div class="absolute right-1 top-1 w-3 h-3 bg-primary rounded-full"></div>
+</div>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<span class="text-sm text-on-surface font-medium group-hover:text-primary transition-colors">Billing Export</span>
+<div class="w-10 h-5 bg-surface-container-highest rounded-full relative">
+<div class="absolute left-1 top-1 w-3 h-3 bg-on-surface-variant rounded-full"></div>
+</div>
+</label>
+</div>
+<button class="w-full mt-6 py-2 text-xs font-bold text-primary uppercase tracking-widest hover:bg-primary/5 rounded transition-colors">
+                            Manage All Roles
+                        </button>
+</div>
+<!-- Usage Stats Card -->
+<div class="bg-surface-container rounded-xl p-6 relative overflow-hidden group">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-primary/10 blur-[60px] group-hover:bg-primary/20 transition-all duration-700"></div>
+<h4 class="text-xs uppercase tracking-tighter text-on-surface-variant mb-4 font-bold">Workspace Seat Usage</h4>
+<div class="flex items-end gap-2 mb-1">
+<span class="text-4xl font-black font-headline">12</span>
+<span class="text-on-surface-variant mb-1">/ 20 seats</span>
+</div>
+<div class="w-full h-1 bg-surface-container-highest rounded-full mt-4">
+<div class="h-full bg-primary rounded-full" style="width: 60%"></div>
+</div>
+<p class="text-[10px] text-on-surface-variant mt-4">Your workspace is at 60% capacity. Upgrade to add more operators.</p>
+</div>
+<!-- Pending Invites -->
+<div class="glass-panel rounded-xl p-6">
+<h3 class="font-headline font-bold text-lg mb-4">Pending Invites</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between bg-white/[0.03] p-3 rounded-lg border border-white/5">
+<div>
+<div class="text-sm font-medium text-on-surface">marcus.v@nebula</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-wider">Editor • Sent 2d ago</div>
+</div>
+<button class="text-error-dim hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="cancel">cancel</span>
+</button>
+</div>
+<div class="flex items-center justify-between bg-white/[0.03] p-3 rounded-lg border border-white/5">
+<div>
+<div class="text-sm font-medium text-on-surface">sarah.j@alpha</div>
+<div class="text-[10px] text-on-surface-variant uppercase tracking-wider">Viewer • Sent 1h ago</div>
+</div>
+<button class="text-error-dim hover:text-error transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="cancel">cancel</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB Suppression: Not rendered on Management page as per rules -->
+</body></html>

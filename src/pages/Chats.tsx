@@ -9,10 +9,10 @@ const channelColors: Record<Channel, string> = {
 };
 
 const statusConfig: Record<LeadStatus, { label: string; color: string; bg: string }> = {
-  new: { label: 'Новый', color: '#3B82F6', bg: 'rgba(59,130,246,0.15)' },
-  in_progress: { label: 'В процессе', color: '#F59E0B', bg: 'rgba(245,158,11,0.15)' },
-  hot: { label: 'Горячий 🔥', color: '#EF4444', bg: 'rgba(239,68,68,0.15)' },
-  paid: { label: 'Оплачено ✓', color: '#10B981', bg: 'rgba(16,185,129,0.15)' },
+  new: { label: 'Новый', color: '#7C3AED', bg: 'rgba(124,58,237,0.15)' },
+  in_progress: { label: 'В процессе', color: '#F59E0B', bg: 'rgba(245,158,11,0.12)' },
+  hot: { label: 'Горячий 🔥', color: '#EF4444', bg: 'rgba(239,68,68,0.12)' },
+  paid: { label: 'Оплачено ✓', color: '#10B981', bg: 'rgba(16,185,129,0.12)' },
 };
 
 function StatusBadge({ status }: { status: LeadStatus }) {
@@ -20,13 +20,14 @@ function StatusBadge({ status }: { status: LeadStatus }) {
   return (
     <span
       style={{
-        fontSize: 11,
-        fontWeight: 500,
+        fontSize: 10,
+        fontWeight: 600,
         color: cfg.color,
         background: cfg.bg,
         padding: '2px 7px',
-        borderRadius: 4,
+        borderRadius: 20,
         whiteSpace: 'nowrap',
+        letterSpacing: '0.02em',
       }}
     >
       {cfg.label}
@@ -38,19 +39,25 @@ function ChannelBadge({ channel }: { channel: Channel }) {
   return (
     <span
       style={{
-        fontSize: 10,
+        fontSize: 9,
         fontWeight: 700,
         color: channelColors[channel],
-        background: `${channelColors[channel]}22`,
-        padding: '1px 6px',
+        background: `${channelColors[channel]}18`,
+        padding: '2px 6px',
         borderRadius: 3,
-        letterSpacing: 0.3,
+        letterSpacing: 0.5,
       }}
     >
       {channel}
     </span>
   );
 }
+
+const GLASS: React.CSSProperties = {
+  background: 'rgba(24,24,27,0.5)',
+  backdropFilter: 'blur(12px)',
+  WebkitBackdropFilter: 'blur(12px)',
+};
 
 export default function Chats() {
   const [selectedId, setSelectedId] = useState<string>(leads[0].id);
@@ -88,28 +95,30 @@ export default function Chats() {
     <div
       style={{
         display: 'flex',
-        height: 'calc(100vh - 108px)',
+        height: 'calc(100vh - 114px)',
         gap: 0,
-        borderRadius: 12,
+        borderRadius: 16,
         overflow: 'hidden',
-        border: '1px solid #2A3347',
+        border: '1px solid rgba(255,255,255,0.06)',
       }}
     >
       {/* Left: Lead List */}
       <div
         style={{
-          width: 300,
-          minWidth: 300,
-          background: '#161B27',
-          borderRight: '1px solid #2A3347',
+          width: 290,
+          minWidth: 290,
+          ...GLASS,
+          borderRight: '1px solid rgba(255,255,255,0.05)',
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden',
         }}
       >
-        <div style={{ padding: '14px 16px', borderBottom: '1px solid #2A3347' }}>
-          <h2 style={{ margin: 0, fontSize: 15, fontWeight: 600, color: '#F1F5F9' }}>Диалоги</h2>
-          <p style={{ margin: '2px 0 0', fontSize: 12, color: '#94A3B8' }}>
+        <div style={{ padding: '16px 18px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+          <h2 style={{ margin: 0, fontSize: 14, fontWeight: 800, color: '#fafafa', fontFamily: 'Manrope, sans-serif', letterSpacing: '-0.01em' }}>
+            Диалоги
+          </h2>
+          <p style={{ margin: '2px 0 0', fontSize: 11, color: '#52525b' }}>
             {allLeads.length} лидов
           </p>
         </div>
@@ -121,43 +130,51 @@ export default function Chats() {
               onClick={() => setSelectedId(lead.id)}
               style={{
                 padding: '12px 16px',
-                borderBottom: '1px solid #1E2433',
+                borderBottom: '1px solid rgba(255,255,255,0.03)',
                 cursor: 'pointer',
-                background: selectedId === lead.id ? '#1E2433' : 'transparent',
-                transition: 'background 0.1s',
+                background: selectedId === lead.id ? 'rgba(124,58,237,0.12)' : 'transparent',
+                borderLeft: selectedId === lead.id ? '3px solid #7C3AED' : '3px solid transparent',
+                transition: 'all 0.15s',
+              }}
+              onMouseEnter={e => {
+                if (lead.id !== selectedId) e.currentTarget.style.background = 'rgba(255,255,255,0.03)';
+              }}
+              onMouseLeave={e => {
+                if (lead.id !== selectedId) e.currentTarget.style.background = 'transparent';
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-                  <span style={{ fontSize: 13, fontWeight: 500, color: '#F1F5F9' }}>
+                  <span style={{ fontSize: 13, fontWeight: 600, color: '#e4e4e7', fontFamily: 'Manrope, sans-serif' }}>
                     {lead.name}
                   </span>
                   {lead.unread > 0 && (
                     <span
                       style={{
-                        fontSize: 10,
+                        fontSize: 9,
                         fontWeight: 700,
-                        background: '#3B82F6',
+                        background: '#7C3AED',
                         color: '#fff',
                         padding: '1px 5px',
-                        borderRadius: 10,
+                        borderRadius: 20,
+                        boxShadow: '0 0 8px rgba(124,58,237,0.5)',
                       }}
                     >
                       {lead.unread}
                     </span>
                   )}
                 </div>
-                <span style={{ fontSize: 11, color: '#64748B' }}>{lead.lastTime}</span>
+                <span style={{ fontSize: 10, color: '#3f3f46' }}>{lead.lastTime}</span>
               </div>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 5 }}>
                 <ChannelBadge channel={lead.channel} />
                 <StatusBadge status={lead.status} />
               </div>
               <p
                 style={{
                   margin: 0,
-                  fontSize: 12,
-                  color: '#64748B',
+                  fontSize: 11,
+                  color: '#52525b',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
                   whiteSpace: 'nowrap',
@@ -176,7 +193,7 @@ export default function Chats() {
           flex: 1,
           display: 'flex',
           flexDirection: 'column',
-          background: '#0F1117',
+          background: '#09090b',
           overflow: 'hidden',
         }}
       >
@@ -184,8 +201,8 @@ export default function Chats() {
         <div
           style={{
             padding: '12px 20px',
-            borderBottom: '1px solid #2A3347',
-            background: '#161B27',
+            borderBottom: '1px solid rgba(255,255,255,0.05)',
+            background: 'rgba(24,24,27,0.4)',
             display: 'flex',
             justifyContent: 'space-between',
             alignItems: 'center',
@@ -194,59 +211,63 @@ export default function Chats() {
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <div
               style={{
-                width: 38,
-                height: 38,
+                width: 36,
+                height: 36,
                 borderRadius: '50%',
-                background: '#1E2433',
+                background: 'linear-gradient(135deg, rgba(124,58,237,0.3), rgba(91,33,182,0.3))',
+                border: '1px solid rgba(124,58,237,0.3)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 14,
-                fontWeight: 600,
-                color: '#3B82F6',
+                fontSize: 13,
+                fontWeight: 700,
+                color: '#a78bfa',
+                fontFamily: 'Manrope, sans-serif',
               }}
             >
               {selected.name.charAt(0)}
             </div>
             <div>
-              <div style={{ fontSize: 14, fontWeight: 600, color: '#F1F5F9' }}>{selected.name}</div>
-              <div style={{ fontSize: 12, color: '#94A3B8', display: 'flex', gap: 6 }}>
+              <div style={{ fontSize: 14, fontWeight: 700, color: '#fafafa', fontFamily: 'Manrope, sans-serif' }}>{selected.name}</div>
+              <div style={{ fontSize: 11, color: '#71717a', display: 'flex', gap: 6, alignItems: 'center' }}>
                 <ChannelBadge channel={selected.channel} />
-                <span>•</span>
+                <span>·</span>
                 <span>{selected.country}</span>
               </div>
             </div>
           </div>
-          <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <div>
             {managerConnected ? (
               <span
                 style={{
-                  fontSize: 12,
+                  fontSize: 11,
                   color: '#10B981',
-                  background: 'rgba(16,185,129,0.15)',
-                  padding: '4px 10px',
-                  borderRadius: 6,
+                  background: 'rgba(16,185,129,0.12)',
+                  border: '1px solid rgba(16,185,129,0.2)',
+                  padding: '5px 10px',
+                  borderRadius: 20,
                   display: 'flex',
                   alignItems: 'center',
                   gap: 5,
                 }}
               >
-                <Headphones size={13} /> Менеджер подключён
+                <Headphones size={12} /> Менеджер подключён
               </span>
             ) : (
               <span
                 style={{
-                  fontSize: 12,
-                  color: '#3B82F6',
-                  background: 'rgba(59,130,246,0.15)',
-                  padding: '4px 10px',
-                  borderRadius: 6,
+                  fontSize: 11,
+                  color: '#a78bfa',
+                  background: 'rgba(124,58,237,0.12)',
+                  border: '1px solid rgba(124,58,237,0.2)',
+                  padding: '5px 10px',
+                  borderRadius: 20,
                   display: 'flex',
                   alignItems: 'center',
                   gap: 5,
                 }}
               >
-                <Bot size={13} /> AI отвечает
+                <Bot size={12} /> AI отвечает
               </span>
             )}
           </div>
@@ -270,17 +291,18 @@ export default function Chats() {
                 {!isClient && (
                   <div
                     style={{
-                      width: 28,
-                      height: 28,
+                      width: 26,
+                      height: 26,
                       borderRadius: '50%',
-                      background: isAI ? 'rgba(59,130,246,0.2)' : 'rgba(16,185,129,0.2)',
+                      background: isAI ? 'rgba(124,58,237,0.2)' : 'rgba(16,185,129,0.2)',
+                      border: `1px solid ${isAI ? 'rgba(124,58,237,0.3)' : 'rgba(16,185,129,0.3)'}`,
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       flexShrink: 0,
                     }}
                   >
-                    {isAI ? <Bot size={14} color="#3B82F6" /> : <User size={14} color="#10B981" />}
+                    {isAI ? <Bot size={13} color="#a78bfa" /> : <User size={13} color="#10B981" />}
                   </div>
                 )}
                 <div style={{ maxWidth: '65%' }}>
@@ -288,9 +310,10 @@ export default function Chats() {
                     <div
                       style={{
                         fontSize: 10,
-                        color: isAI ? '#3B82F6' : '#10B981',
+                        color: isAI ? '#7C3AED' : '#10B981',
                         marginBottom: 3,
-                        fontWeight: 500,
+                        fontWeight: 600,
+                        letterSpacing: '0.03em',
                       }}
                     >
                       {isAI ? 'AI-ассистент' : 'Менеджер'}
@@ -299,11 +322,15 @@ export default function Chats() {
                   <div
                     style={{
                       padding: '9px 13px',
-                      borderRadius: isClient ? '12px 12px 2px 12px' : '12px 12px 12px 2px',
-                      background: isClient ? '#3B82F6' : '#1E2433',
-                      color: '#F1F5F9',
+                      borderRadius: isClient ? '14px 14px 2px 14px' : '14px 14px 14px 2px',
+                      background: isClient
+                        ? 'linear-gradient(135deg, #7C3AED, #5B21B6)'
+                        : 'rgba(39,39,42,0.6)',
+                      border: isClient ? 'none' : '1px solid rgba(255,255,255,0.06)',
+                      color: '#fafafa',
                       fontSize: 13,
-                      lineHeight: 1.5,
+                      lineHeight: 1.55,
+                      boxShadow: isClient ? '0 4px 16px rgba(124,58,237,0.3)' : 'none',
                     }}
                   >
                     {msg.text}
@@ -311,7 +338,7 @@ export default function Chats() {
                   <div
                     style={{
                       fontSize: 10,
-                      color: '#64748B',
+                      color: '#3f3f46',
                       marginTop: 3,
                       textAlign: isClient ? 'right' : 'left',
                     }}
@@ -328,8 +355,8 @@ export default function Chats() {
         <div
           style={{
             padding: '12px 16px',
-            borderTop: '1px solid #2A3347',
-            background: '#161B27',
+            borderTop: '1px solid rgba(255,255,255,0.05)',
+            background: 'rgba(24,24,27,0.4)',
             display: 'flex',
             gap: 8,
           }}
@@ -341,28 +368,30 @@ export default function Chats() {
             placeholder={managerConnected ? 'Написать клиенту...' : 'Сообщение (режим менеджера)...'}
             style={{
               flex: 1,
-              background: '#1E2433',
-              border: '1px solid #2A3347',
-              borderRadius: 8,
+              background: 'rgba(39,39,42,0.6)',
+              border: '1px solid rgba(255,255,255,0.07)',
+              borderRadius: 10,
               padding: '9px 14px',
-              color: '#F1F5F9',
+              color: '#fafafa',
               fontSize: 13,
               outline: 'none',
+              fontFamily: 'Inter, sans-serif',
             }}
           />
           <button
             onClick={sendMessage}
             style={{
-              background: '#3B82F6',
+              background: 'linear-gradient(135deg, #7C3AED, #5B21B6)',
               border: 'none',
-              borderRadius: 8,
+              borderRadius: 10,
               padding: '9px 13px',
               cursor: 'pointer',
               display: 'flex',
               alignItems: 'center',
+              boxShadow: '0 0 16px rgba(124,58,237,0.4)',
             }}
           >
-            <Send size={15} color="#fff" />
+            <Send size={14} color="#fff" />
           </button>
         </div>
       </div>
@@ -370,25 +399,25 @@ export default function Chats() {
       {/* Right: Lead Context */}
       <div
         style={{
-          width: 280,
-          minWidth: 280,
-          background: '#161B27',
-          borderLeft: '1px solid #2A3347',
+          width: 270,
+          minWidth: 270,
+          ...GLASS,
+          borderLeft: '1px solid rgba(255,255,255,0.05)',
           display: 'flex',
           flexDirection: 'column',
           overflow: 'hidden',
         }}
       >
-        <div style={{ padding: '14px 16px', borderBottom: '1px solid #2A3347' }}>
-          <h3 style={{ margin: 0, fontSize: 13, fontWeight: 600, color: '#94A3B8', textTransform: 'uppercase', letterSpacing: 0.5 }}>
+        <div style={{ padding: '16px 18px', borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+          <h3 style={{ margin: 0, fontSize: 10, fontWeight: 700, color: '#52525b', textTransform: 'uppercase', letterSpacing: '0.15em', fontFamily: 'Manrope, sans-serif' }}>
             Контекст лида
           </h3>
         </div>
 
-        <div style={{ overflowY: 'auto', flex: 1, padding: 16, display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <div style={{ overflowY: 'auto', flex: 1, padding: 16, display: 'flex', flexDirection: 'column', gap: 18 }}>
           {/* Status */}
           <div>
-            <div style={{ fontSize: 11, color: '#64748B', marginBottom: 6, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 0.5 }}>
+            <div style={{ fontSize: 10, color: '#3f3f46', marginBottom: 7, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
               Статус
             </div>
             <StatusBadge status={selected.status} />
@@ -396,19 +425,27 @@ export default function Chats() {
 
           {/* Params */}
           <div>
-            <div style={{ fontSize: 11, color: '#64748B', marginBottom: 8, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 0.5 }}>
+            <div style={{ fontSize: 10, color: '#3f3f46', marginBottom: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
               Параметры
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
               {[
                 { label: '🌍 Страна', value: selected.country },
                 { label: '📅 Даты', value: selected.dates },
                 { label: '💰 Бюджет', value: selected.budget },
                 { label: '👥 Люди', value: `${selected.people} чел.` },
               ].map(p => (
-                <div key={p.label} style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <span style={{ fontSize: 12, color: '#64748B' }}>{p.label}</span>
-                  <span style={{ fontSize: 12, color: '#F1F5F9', fontWeight: 500 }}>{p.value}</span>
+                <div
+                  key={p.label}
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    padding: '6px 0',
+                    borderBottom: '1px solid rgba(255,255,255,0.03)',
+                  }}
+                >
+                  <span style={{ fontSize: 12, color: '#71717a' }}>{p.label}</span>
+                  <span style={{ fontSize: 12, color: '#e4e4e7', fontWeight: 600 }}>{p.value}</span>
                 </div>
               ))}
             </div>
@@ -417,7 +454,7 @@ export default function Chats() {
           {/* Suggested Tours */}
           {selected.suggestedTours.length > 0 && (
             <div>
-              <div style={{ fontSize: 11, color: '#64748B', marginBottom: 8, fontWeight: 500, textTransform: 'uppercase', letterSpacing: 0.5 }}>
+              <div style={{ fontSize: 10, color: '#3f3f46', marginBottom: 10, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.12em' }}>
                 Предложены туры
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
@@ -425,19 +462,19 @@ export default function Chats() {
                   <div
                     key={tour.id}
                     style={{
-                      background: '#1E2433',
-                      borderRadius: 8,
+                      background: 'rgba(39,39,42,0.4)',
+                      border: '1px solid rgba(255,255,255,0.05)',
+                      borderRadius: 10,
                       padding: '10px 12px',
-                      border: '1px solid #2A3347',
                     }}
                   >
-                    <div style={{ fontSize: 12, fontWeight: 600, color: '#F1F5F9', marginBottom: 2 }}>
+                    <div style={{ fontSize: 12, fontWeight: 700, color: '#e4e4e7', marginBottom: 2, fontFamily: 'Manrope, sans-serif' }}>
                       {tour.hotel}
                     </div>
-                    <div style={{ fontSize: 11, color: '#94A3B8', marginBottom: 4 }}>
-                      {tour.country} • {tour.dates}
+                    <div style={{ fontSize: 11, color: '#71717a', marginBottom: 5 }}>
+                      {tour.country} · {tour.dates}
                     </div>
-                    <div style={{ fontSize: 13, fontWeight: 700, color: '#3B82F6' }}>
+                    <div style={{ fontSize: 14, fontWeight: 800, color: '#a78bfa', fontFamily: 'Manrope, sans-serif' }}>
                       ${tour.price.toLocaleString()}
                     </div>
                   </div>
@@ -451,22 +488,27 @@ export default function Chats() {
             onClick={() => setManagerConnected(!managerConnected)}
             style={{
               marginTop: 'auto',
-              background: managerConnected ? 'rgba(16,185,129,0.15)' : '#3B82F6',
-              border: managerConnected ? '1px solid #10B981' : 'none',
-              borderRadius: 8,
-              padding: '10px',
+              background: managerConnected
+                ? 'rgba(16,185,129,0.12)'
+                : 'linear-gradient(135deg, #7C3AED, #5B21B6)',
+              border: managerConnected ? '1px solid rgba(16,185,129,0.3)' : 'none',
+              borderRadius: 10,
+              padding: '11px',
               cursor: 'pointer',
               color: managerConnected ? '#10B981' : '#fff',
               fontSize: 13,
-              fontWeight: 600,
+              fontWeight: 700,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               gap: 6,
               width: '100%',
+              boxShadow: managerConnected ? 'none' : '0 0 20px rgba(124,58,237,0.35)',
+              fontFamily: 'Manrope, sans-serif',
+              transition: 'all 0.2s',
             }}
           >
-            <UserPlus size={15} />
+            <UserPlus size={14} />
             {managerConnected ? 'Отключиться' : 'Подключиться'}
           </button>
         </div>

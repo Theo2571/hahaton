@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Analytics | Aiva Intelligence</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#7C3AED",
+                        "primary-container": "#4C1D95",
+                        surface: "#09090b",
+                        "surface-container": "#18181b",
+                        "surface-container-low": "#27272a",
+                        "surface-container-lowest": "#09090b",
+                        "on-surface": "#fafafa",
+                        "on-surface-variant": "#a1a1aa",
+                        outline: "#3f3f46",
+                        tertiary: "#10b981",
+                        error: "#ef4444"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-manrope { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-purple {
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/30 selection:text-white">
+<!-- SideNavBar (Shared Component: COMPONENTS_10) -->
+<aside class="fixed left-0 top-0 h-full w-64 border-r border-white/5 bg-zinc-950/60 backdrop-blur-2xl flex flex-col py-8 z-40">
+    <div class="mb-10 px-6">
+        <div class="flex items-center gap-3">
+            <div class="h-10 w-10 rounded-lg bg-violet-600/20 flex items-center justify-center border border-violet-500/30">
+                <span class="material-symbols-outlined text-violet-500" style="font-variation-settings: 'FILL' 1;">neurology</span>
+            </div>
+            <div>
+                <h1 class="text-lg font-black text-violet-500 font-manrope uppercase tracking-tighter leading-none">Aiva Pro</h1>
+                <p class="text-[10px] text-zinc-500 font-manrope font-semibold tracking-widest uppercase mt-1">Neural Interface Active</p>
+            </div>
+        </div>
+    </div>
+    <nav class="flex-1 px-2 space-y-1">
+        <a class="text-zinc-500 hover:text-zinc-200 px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-white/5 transition-all duration-300 font-manrope text-sm font-semibold tracking-wide" href="#">
+            <span class="material-symbols-outlined">dashboard</span>
+            Dashboard
+        </a>
+        <a class="bg-violet-600/20 text-violet-400 border-r-4 border-violet-500 px-4 py-3 flex items-center gap-3 font-manrope text-sm font-semibold tracking-wide" href="#">
+            <span class="material-symbols-outlined">insights</span>
+            Analytics
+        </a>
+        <a class="text-zinc-500 hover:text-zinc-200 px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-white/5 transition-all duration-300 font-manrope text-sm font-semibold tracking-wide" href="#">
+            <span class="material-symbols-outlined">smart_toy</span>
+            Agents
+        </a>
+        <a class="text-zinc-500 hover:text-zinc-200 px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-white/5 transition-all duration-300 font-manrope text-sm font-semibold tracking-wide" href="#">
+            <span class="material-symbols-outlined">terminal</span>
+            Logs
+        </a>
+        <a class="text-zinc-500 hover:text-zinc-200 px-4 py-3 flex items-center gap-3 rounded-lg hover:bg-white/5 transition-all duration-300 font-manrope text-sm font-semibold tracking-wide" href="#">
+            <span class="material-symbols-outlined">payments</span>
+            Billing
+        </a>
+    </nav>
+    <div class="mt-auto px-6 space-y-4">
+        <button class="w-full bg-violet-600 hover:bg-violet-500 text-white py-2.5 px-4 rounded-lg text-sm font-bold transition-all active:scale-95 glow-purple">
+            New Agent
+        </button>
+        <div class="pt-4 border-t border-white/5 space-y-1">
+            <a class="text-zinc-500 hover:text-zinc-200 px-4 py-2 flex items-center gap-3 transition-colors text-sm font-medium" href="#">
+                <span class="material-symbols-outlined text-lg">help</span>
+                Help
+            </a>
+            <a class="text-zinc-500 hover:text-zinc-200 px-4 py-2 flex items-center gap-3 transition-colors text-sm font-medium" href="#">
+                <span class="material-symbols-outlined text-lg">logout</span>
+                Logout
+            </a>
+        </div>
+    </div>
+</aside>
+<!-- TopNavBar (Shared Component: COMPONENTS_10) -->
+<header class="fixed top-0 left-64 right-0 z-30 bg-zinc-950/40 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(124,58,237,0.1)]">
+    <div class="flex justify-between items-center px-8 py-3 w-full">
+        <div class="flex items-center gap-6">
+            <div class="relative flex items-center">
+                <span class="material-symbols-outlined absolute left-3 text-zinc-400 text-sm">search</span>
+                <input class="bg-white/5 border-white/10 rounded-full py-1.5 pl-10 pr-4 text-xs text-zinc-200 focus:outline-none focus:ring-1 focus:ring-violet-500 w-64 transition-all" placeholder="Search neural patterns..." type="text"/>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a class="text-zinc-400 hover:text-white transition-colors font-manrope tracking-tight text-sm font-medium" href="#">Models</a>
+                <a class="text-zinc-400 hover:text-white transition-colors font-manrope tracking-tight text-sm font-medium" href="#">Datasets</a>
+                <a class="text-zinc-400 hover:text-white transition-colors font-manrope tracking-tight text-sm font-medium" href="#">Deploy</a>
+            </nav>
+        </div>
+        <div class="flex items-center gap-4">
+            <button class="text-zinc-400 hover:bg-white/5 p-2 rounded-full transition-all active:scale-95">
+                <span class="material-symbols-outlined">notifications</span>
+            </button>
+            <button class="text-zinc-400 hover:bg-white/5 p-2 rounded-full transition-all active:scale-95">
+                <span class="material-symbols-outlined">settings</span>
+            </button>
+            <div class="h-8 w-8 rounded-full border-2 border-violet-500/50 p-0.5 ml-2 overflow-hidden">
+                <img alt="User profile avatar" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBGub6a5OpVvoAj2AMUdxDw93MzCCmkRzeUhM8rWY-cDYUYK5dURqgAl259iZYIJt6Fk9IlwnmF1RTLoaXJNOxY1_UIeDziAfZesg48ibthrDWY7cF_3j4tyUPaqGPtv6vSF1PLCUuprS7wBJ5YF2pyoVXujbhMI8v9wySNsBkNKRhPEa9jlltQFT9M84U9_UPTvCC9p83bhzyHL60iOxDQOeH1hch_HjzRsUfdWO0bfAhNhg5Rkus8AXSo5Cr5houx1O0O6-ZHUU"/>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-16 min-h-screen bg-surface">
+    <div class="p-8 space-y-8 max-w-7xl mx-auto">
+        <!-- Dashboard Header -->
+        <div class="flex justify-between items-end">
+            <div>
+                <h2 class="font-manrope font-extrabold text-2xl text-on-surface tracking-tight">Intelligence Dashboard</h2>
+                <p class="text-xs text-zinc-500 font-medium uppercase tracking-[0.2em] mt-1">Instance: production-east-01 • v2.4.9-stable</p>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="flex items-center bg-zinc-900 border border-white/5 px-4 py-2 rounded-lg gap-3 cursor-pointer hover:bg-zinc-800 transition-colors">
+                    <span class="material-symbols-outlined text-sm text-zinc-400">calendar_today</span>
+                    <span class="text-xs font-semibold text-zinc-200">Last 30 Days</span>
+                    <span class="material-symbols-outlined text-sm text-zinc-400">expand_more</span>
+                </div>
+                <button class="bg-violet-600 text-white text-xs font-bold px-5 py-2.5 rounded-lg hover:bg-violet-500 transition-all active:scale-95 shadow-lg shadow-violet-500/20">
+                    EXPORT REPORT
+                </button>
+            </div>
+        </div>
+        <!-- Metric Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="bg-zinc-900/50 border border-white/5 p-6 rounded-xl hover:border-violet-500/30 transition-colors group">
+                <span class="text-[10px] font-bold text-zinc-500 tracking-[0.15em] uppercase">Conversation Volume</span>
+                <div class="flex items-baseline gap-3 mt-4">
+                    <span class="text-3xl font-manrope font-black text-on-surface">12,842</span>
+                    <span class="text-xs font-bold text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">arrow_upward</span> 12%
+                    </span>
+                </div>
+                <div class="h-1 w-full bg-zinc-800 mt-4 rounded-full overflow-hidden">
+                    <div class="h-full bg-violet-600 w-3/4 rounded-full"></div>
+                </div>
+            </div>
+            <div class="bg-zinc-900/50 border border-white/5 p-6 rounded-xl hover:border-violet-500/30 transition-colors">
+                <span class="text-[10px] font-bold text-zinc-500 tracking-[0.15em] uppercase">Handoff Rate</span>
+                <div class="flex items-baseline gap-3 mt-4">
+                    <span class="text-3xl font-manrope font-black text-on-surface">4.2%</span>
+                    <span class="text-xs font-bold text-tertiary flex items-center gap-0.5">
+<span class="material-symbols-outlined text-xs">arrow_downward</span> 0.8%
+                    </span>
+                </div>
+                <div class="h-1 w-full bg-zinc-800 mt-4 rounded-full overflow-hidden">
+                    <div class="h-full bg-violet-600 w-1/4 rounded-full"></div>
+                </div>
+            </div>
+            <div class="bg-zinc-900/50 border border-white/5 p-6 rounded-xl hover:border-violet-500/30 transition-colors">
+                <span class="text-[10px] font-bold text-zinc-500 tracking-[0.15em] uppercase">Avg. Sentiment</span>
+                <div class="flex items-baseline gap-3 mt-4">
+                    <span class="text-3xl font-manrope font-black text-on-surface">0.88</span>
+                    <div class="px-2 py-0.5 bg-tertiary/20 text-tertiary text-[10px] rounded border border-tertiary/30 font-bold uppercase tracking-widest">Positive</div>
+                </div>
+                <div class="h-1 w-full bg-zinc-800 mt-4 rounded-full overflow-hidden">
+                    <div class="h-full bg-tertiary w-4/5 rounded-full"></div>
+                </div>
+            </div>
+            <div class="bg-zinc-900/50 border border-white/5 p-6 rounded-xl hover:border-violet-500/30 transition-colors">
+                <span class="text-[10px] font-bold text-zinc-500 tracking-[0.15em] uppercase">Completion Rate</span>
+                <div class="flex items-baseline gap-3 mt-4">
+                    <span class="text-3xl font-manrope font-black text-on-surface">94.1%</span>
+                    <span class="material-symbols-outlined text-violet-500 text-sm">auto_graph</span>
+                </div>
+                <div class="h-1 w-full bg-zinc-800 mt-4 rounded-full overflow-hidden">
+                    <div class="h-full bg-violet-500 w-[94%] rounded-full shadow-[0_0_8px_rgba(124,58,237,0.5)]"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Asymmetric Data Visualization Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Main Chart: Purple Vibrancy -->
+            <div class="lg:col-span-2 bg-zinc-900/30 border border-white/5 p-8 rounded-xl backdrop-blur-sm">
+                <div class="flex justify-between items-center mb-10">
+                    <div>
+                        <h3 class="font-manrope font-bold text-xl text-on-surface">Conversation Trends</h3>
+                        <p class="text-xs text-zinc-500 mt-1">Hourly interaction density across neural endpoints</p>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex items-center gap-2">
+                            <div class="h-2 w-2 rounded-full bg-violet-600 shadow-[0_0_8px_rgba(124,58,237,0.6)]"></div>
+                            <span class="text-xs font-semibold text-zinc-400">Active</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <div class="h-2 w-2 rounded-full bg-zinc-700"></div>
+                            <span class="text-xs font-semibold text-zinc-400">Baseline</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Visual Placeholder for Chart -->
+                <div class="h-64 flex items-end gap-2 w-full">
+                    <div class="flex-1 bg-violet-600/10 h-[30%] rounded-t-md hover:bg-violet-600/20 transition-all cursor-help"></div>
+                    <div class="flex-1 bg-violet-600/10 h-[45%] rounded-t-md hover:bg-violet-600/20 transition-all cursor-help"></div>
+                    <div class="flex-1 bg-violet-600/20 h-[35%] rounded-t-md hover:bg-violet-600/20 transition-all cursor-help"></div>
+                    <div class="flex-1 bg-violet-600/30 h-[60%] rounded-t-md hover:bg-violet-600/20 transition-all cursor-help"></div>
+                    <div class="flex-1 bg-violet-600/40 h-[55%] rounded-t-md hover:bg-violet-600/20 transition-all cursor-help"></div>
+                    <div class="flex-1 bg-violet-600 h-[90%] rounded-t-md relative group shadow-[0_-4px_20px_rgba(124,58,237,0.3)]">
+                        <div class="absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-zinc-950 text-[10px] font-black py-1.5 px-3 rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+                            1,402 ACTIVE SESSIONS
+                        </div>
+                    </div>
+                    <div class="flex-1 bg-violet-600/50 h-[80%] rounded-t-md hover:bg-violet-600/20 transition-all cursor-help"></div>
+                    <div class="flex-1 bg-violet-600/30 h-[65%] rounded-t-md hover:bg-violet-600/20 transition-all cursor-help"></div>
+                    <div class="flex-1 bg-violet-600/40 h-[75%] rounded-t-md hover:bg-violet-600/20 transition-all cursor-help"></div>
+                    <div class="flex-1 bg-violet-600/20 h-[50%] rounded-t-md hover:bg-violet-600/20 transition-all cursor-help"></div>
+                    <div class="flex-1 bg-violet-600/10 h-[40%] rounded-t-md hover:bg-violet-600/20 transition-all cursor-help"></div>
+                    <div class="flex-1 bg-violet-600/5 h-[30%] rounded-t-md hover:bg-violet-600/20 transition-all cursor-help"></div>
+                </div>
+                <div class="flex justify-between mt-6 text-[10px] font-bold text-zinc-500 tracking-[0.2em] uppercase">
+                    <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
+                </div>
+            </div>
+            <!-- Handoff: Modern Ring -->
+            <div class="bg-zinc-900 border border-white/5 p-8 rounded-xl flex flex-col">
+                <h3 class="font-manrope font-bold text-xl text-on-surface">Escalation Matrix</h3>
+                <p class="text-xs text-zinc-500 mt-1">Neural bypass justification logs</p>
+                <div class="flex-1 flex flex-col justify-center items-center py-8">
+                    <div class="relative h-44 w-44 rounded-full flex items-center justify-center">
+                        <svg class="h-full w-full -rotate-90" viewbox="0 0 100 100">
+                            <circle class="text-white/5" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+                            <circle class="text-violet-500" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="240" stroke-linecap="round" stroke-width="8" style="filter: drop-shadow(0 0 6px rgba(124,58,237,0.5));"></circle>
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center">
+                            <span class="text-3xl font-black text-on-surface">4.2%</span>
+                            <span class="text-[9px] font-bold text-zinc-500 uppercase tracking-widest">Global Rate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center text-xs">
+                        <div class="flex items-center gap-2">
+                            <div class="h-1.5 w-1.5 rounded-full bg-violet-500"></div>
+                            <span class="text-zinc-400 font-medium">Complex Query</span>
+                        </div>
+                        <span class="font-bold text-zinc-200">62%</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs">
+                        <div class="flex items-center gap-2">
+                            <div class="h-1.5 w-1.5 rounded-full bg-zinc-600"></div>
+                            <span class="text-zinc-400 font-medium">Frustration</span>
+                        </div>
+                        <span class="font-bold text-zinc-200">24%</span>
+                    </div>
+                    <div class="flex justify-between items-center text-xs">
+                        <div class="flex items-center gap-2">
+                            <div class="h-1.5 w-1.5 rounded-full bg-zinc-800"></div>
+                            <span class="text-zinc-400 font-medium">User Request</span>
+                        </div>
+                        <span class="font-bold text-zinc-200">14%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom Row -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Top Queries -->
+            <div class="bg-zinc-900/40 border border-white/5 p-8 rounded-xl">
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="font-manrope font-bold text-xl text-on-surface">Dominant Queries</h3>
+                    <button class="text-[10px] font-bold text-violet-400 tracking-[0.2em] uppercase hover:text-white transition-colors">Audit All</button>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-transparent hover:border-violet-500/20 transition-all group">
+                        <div class="flex items-center gap-4">
+                            <span class="text-[10px] font-black text-zinc-600 group-hover:text-violet-500 transition-colors">01</span>
+                            <span class="text-sm font-medium text-zinc-200">"How do I reset my API key?"</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <span class="text-xs font-bold text-zinc-400">2,410</span>
+                            <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-transparent hover:border-violet-500/20 transition-all group">
+                        <div class="flex items-center gap-4">
+                            <span class="text-[10px] font-black text-zinc-600 group-hover:text-violet-500 transition-colors">02</span>
+                            <span class="text-sm font-medium text-zinc-200">"Can I upgrade my monthly quota?"</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <span class="text-xs font-bold text-zinc-400">1,892</span>
+                            <span class="material-symbols-outlined text-zinc-600 text-lg">trending_flat</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-transparent hover:border-violet-500/20 transition-all group">
+                        <div class="flex items-center gap-4">
+                            <span class="text-[10px] font-black text-zinc-600 group-hover:text-violet-500 transition-colors">03</span>
+                            <span class="text-sm font-medium text-zinc-200">"Is there a Python SDK available?"</span>
+                        </div>
+                        <div class="flex items-center gap-6">
+                            <span class="text-xs font-bold text-zinc-400">1,540</span>
+                            <span class="material-symbols-outlined text-error text-lg" style="font-variation-settings: 'FILL' 1;">trending_down</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Sentiment Heatmap -->
+            <div class="bg-zinc-950 border border-white/5 p-8 rounded-xl relative overflow-hidden group">
+                <div class="relative z-10">
+                    <h3 class="font-manrope font-bold text-xl text-on-surface mb-2">Sentiment Distribution</h3>
+                    <p class="text-xs text-zinc-500 mb-8">Emotional arc of long-form neural conversations</p>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between text-[10px] font-black mb-2 uppercase tracking-widest">
+                                <span class="text-zinc-300">Positive Intent</span>
+                                <span class="text-tertiary">74%</span>
+                            </div>
+                            <div class="h-1.5 w-full bg-zinc-900 rounded-full overflow-hidden">
+                                <div class="h-full bg-tertiary w-[74%] rounded-full shadow-[0_0_10px_rgba(16,185,129,0.4)]"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] font-black mb-2 uppercase tracking-widest">
+                                <span class="text-zinc-300">Neutral / Technical</span>
+                                <span class="text-zinc-500">21%</span>
+                            </div>
+                            <div class="h-1.5 w-full bg-zinc-900 rounded-full overflow-hidden">
+                                <div class="h-full bg-zinc-600 w-[21%] rounded-full"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-[10px] font-black mb-2 uppercase tracking-widest">
+                                <span class="text-zinc-300">Negative / Frustrated</span>
+                                <span class="text-error">5%</span>
+                            </div>
+                            <div class="h-1.5 w-full bg-zinc-900 rounded-full overflow-hidden">
+                                <div class="h-full bg-error w-[5%] rounded-full shadow-[0_0_10px_rgba(239,68,68,0.4)]"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-12 grid grid-cols-2 gap-4">
+                        <div class="bg-white/5 p-4 rounded-lg border-l-2 border-tertiary transition-colors hover:bg-white/10">
+                            <span class="block text-[9px] font-black text-zinc-500 uppercase tracking-widest mb-1">Peak Saturation</span>
+                            <span class="text-lg font-manrope font-bold text-zinc-100">Tue 14:00</span>
+                        </div>
+                        <div class="bg-white/5 p-4 rounded-lg border-l-2 border-violet-500 transition-colors hover:bg-white/10">
+                            <span class="block text-[9px] font-black text-zinc-500 uppercase tracking-widest mb-1">Active Cluster</span>
+                            <span class="text-lg font-manrope font-bold text-zinc-100">North Am.</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Background Decorative Icon -->
+                <div class="absolute -right-16 -bottom-16 opacity-[0.03] rotate-12 transition-transform duration-1000 group-hover:rotate-0">
+                    <span class="material-symbols-outlined text-[240px] text-violet-500" style="font-variation-settings: 'FILL' 1;">analytics</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer (Shared Component: COMPONENTS_10) -->
+    <footer class="w-full py-12 border-t border-white/5 bg-zinc-950 mt-12">
+        <div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto">
+            <div class="flex flex-col items-center md:items-start gap-2 mb-6 md:mb-0">
+                <span class="font-inter text-xs tracking-widest uppercase text-zinc-600">© 2024 Aiva Intelligence. Editorial Futurist Division.</span>
+            </div>
+            <div class="flex gap-8">
+                <a class="font-inter text-xs tracking-widest uppercase text-zinc-600 hover:text-violet-400 transition-colors" href="#">Privacy Policy</a>
+                <a class="font-inter text-xs tracking-widest uppercase text-zinc-600 hover:text-violet-400 transition-colors" href="#">Terms of Service</a>
+                <a class="font-inter text-xs tracking-widest uppercase text-zinc-600 hover:text-violet-400 transition-colors" href="#">API Status</a>
+            </div>
+        </div>
+    </footer>
+</main>
+</body></html>

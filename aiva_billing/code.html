@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aiva Nebula - Billing</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#6a0a31",
+              "on-tertiary-container": "#5a0027",
+              "outline": "#777575",
+              "error-dim": "#d73357",
+              "secondary-container": "#5516be",
+              "error": "#ff6e84",
+              "on-error": "#490013",
+              "inverse-on-surface": "#565554",
+              "surface-bright": "#2c2c2c",
+              "surface-container-low": "#131313",
+              "outline-variant": "#494847",
+              "on-primary": "#3c0089",
+              "primary-dim": "#8a4cfc",
+              "on-error-container": "#ffb2b9",
+              "tertiary-dim": "#f17799",
+              "secondary": "#ac8aff",
+              "on-surface": "#ffffff",
+              "secondary-fixed-dim": "#ceb9ff",
+              "secondary-dim": "#8455ef",
+              "on-tertiary-fixed-variant": "#711036",
+              "surface-container-lowest": "#000000",
+              "on-secondary": "#280067",
+              "inverse-surface": "#fcf8f8",
+              "tertiary": "#ff97b2",
+              "surface-variant": "#262626",
+              "on-primary-fixed-variant": "#390083",
+              "primary-container": "#b28cff",
+              "on-tertiary-fixed": "#380016",
+              "on-secondary-fixed-variant": "#5f28c8",
+              "surface-container-highest": "#262626",
+              "primary-fixed": "#b28cff",
+              "tertiary-fixed": "#ff8eac",
+              "on-background": "#ffffff",
+              "surface-dim": "#0e0e0e",
+              "inverse-primary": "#742fe5",
+              "surface": "#0e0e0e",
+              "primary-fixed-dim": "#a67aff",
+              "secondary-fixed": "#dac9ff",
+              "error-container": "#a70138",
+              "surface-tint": "#bd9dff",
+              "on-secondary-fixed": "#40009b",
+              "on-secondary-container": "#d9c8ff",
+              "primary": "#bd9dff",
+              "tertiary-container": "#fe81a4",
+              "surface-container-high": "#201f1f",
+              "on-primary-container": "#2e006c",
+              "background": "#0e0e0e",
+              "surface-container": "#1a1919",
+              "on-surface-variant": "#adaaaa",
+              "on-primary-fixed": "#000000",
+              "tertiary-fixed-dim": "#f77c9e"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0e0e0e;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(38, 38, 38, 0.4);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary/30 min-h-screen">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 h-full w-64 border-r border-white/5 bg-slate-950 flex flex-col p-4 gap-2 z-40">
+<div class="mb-8 px-2">
+<h1 class="text-xl font-bold text-white font-headline">Aiva Nebula</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-violet-500/80 font-bold">Intelligence Layer</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 ease-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 ease-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+                Analytics
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 ease-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="smart_toy">smart_toy</span>
+                Agents
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 ease-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+                Logs
+            </a>
+<!-- Active State: Billing -->
+<a class="flex items-center gap-3 px-3 py-2.5 text-white bg-violet-600/10 rounded-lg shadow-[inset_0_0_12px_rgba(124,58,237,0.2)] transition-all duration-300 ease-out font-medium text-sm" href="#">
+<span class="material-symbols-outlined text-violet-500" data-icon="payments" style="font-variation-settings: 'FILL' 1;">payments</span>
+                Billing
+            </a>
+</nav>
+<div class="mt-auto flex flex-col gap-1 pt-4 border-t border-white/5">
+<button class="w-full mb-4 bg-primary text-on-primary py-2.5 rounded-lg font-bold text-sm hover:opacity-90 active:scale-95 transition-all shadow-[0_0_20px_rgba(189,157,255,0.2)]">
+                New Agent
+            </button>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 ease-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Support
+            </a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-400 hover:text-slate-200 hover:bg-white/5 transition-all duration-300 ease-out font-medium text-sm rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Sign Out
+            </a>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 left-64 right-0 h-16 z-50 bg-slate-950/40 backdrop-blur-xl flex justify-between items-center px-8">
+<div class="flex items-center gap-4">
+<span class="text-on-surface-variant font-medium">Billing &amp; Subscriptions</span>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4">
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-400 hover:bg-white/5 transition-colors rounded-full active:scale-95 duration-200">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+<div class="h-8 w-8 rounded-full bg-surface-container-highest border border-white/10 overflow-hidden">
+<img alt="User profile" data-alt="minimalist 3d avatar of a tech professional with short dark hair and a neutral expression in a high-tech studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEk09i6HHIMx5oaY_S6jbC1MC929PzYbVYrgE5ReZ8e7p-cbNLlDxOpKIeyFVqUigxezpsUhPMnYy6akAv-e63mL51kgI0weM4jZ0z0Yk6fV5anSZ-8ZjKrnF8wh4UvP33Gvla7xsbcAkqglQf9__Y71UR0T9WZokkzWTGORs3xJs4_C-fFrdzReVu-uTyXzcEunHKPHoE_tmhdoo01ZuvpYZd0SVEuAhukJig03Owt_g5yrm_gijDGP1NwX6dpZKhCP84CQ4Ga14"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-64 pt-16 min-h-screen">
+<div class="max-w-7xl mx-auto p-12 space-y-12">
+<!-- Page Header Section -->
+<section class="flex justify-between items-end">
+<div class="space-y-2">
+<h2 class="text-5xl font-extrabold font-headline tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">
+                        Billing
+                    </h2>
+<p class="text-on-surface-variant text-lg max-w-md">Manage your intelligence workspace resources and subscription parameters.</p>
+</div>
+<div class="flex gap-4">
+<button class="px-6 py-2.5 glass-panel rounded-lg text-sm font-semibold hover:bg-white/10 transition-all">Download All Invoices</button>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Current Plan Card -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-low rounded-xl p-8 border border-white/5 relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 blur-[60px] rounded-full -mr-16 -mt-16"></div>
+<div class="relative z-10 flex flex-col h-full">
+<div class="flex justify-between items-start mb-12">
+<div>
+<span class="text-[10px] uppercase tracking-widest text-primary font-bold mb-2 block">Current Plan</span>
+<h3 class="text-3xl font-black font-headline tracking-tight">Professional</h3>
+</div>
+<span class="bg-primary/20 text-primary-fixed px-3 py-1 rounded-full text-xs font-bold border border-primary/30">Active</span>
+</div>
+<div class="space-y-4 mb-12">
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span class="text-sm">Priority Neural Processing</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span class="text-sm">Advanced Multi-Agent Orchestration</span>
+</div>
+<div class="flex items-center gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="check_circle">check_circle</span>
+<span class="text-sm">Unlimited Knowledge Vector Stores</span>
+</div>
+</div>
+<div class="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
+<div>
+<p class="text-2xl font-bold">$149<span class="text-sm text-on-surface-variant font-medium">/month</span></p>
+<p class="text-[10px] text-on-surface-variant">Next billing cycle: Oct 12, 2023</p>
+</div>
+<button class="bg-white text-black px-6 py-2 rounded-lg text-sm font-bold hover:bg-slate-200 transition-colors">Upgrade Plan</button>
+</div>
+</div>
+</div>
+<!-- Usage Summary Card -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-low rounded-xl p-8 border border-white/5">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-xl font-bold font-headline">Usage Summary</h3>
+<span class="text-xs text-on-surface-variant">Cycle ends in 18 days</span>
+</div>
+<div class="space-y-8">
+<!-- Usage Item 1: Tokens -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-bold text-sm">Neural Tokens</p>
+<p class="text-xs text-on-surface-variant">Total context consumed across agents</p>
+</div>
+<p class="text-sm font-mono"><span class="text-white font-bold">4.2M</span> / 10M</p>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary to-primary-dim" style="width: 42%"></div>
+</div>
+</div>
+<!-- Usage Item 2: API Calls -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-bold text-sm">API Requests</p>
+<p class="text-xs text-on-surface-variant">External gateway calls</p>
+</div>
+<p class="text-sm font-mono"><span class="text-white font-bold">84,102</span> / 250,000</p>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-tertiary to-tertiary-dim" style="width: 34%"></div>
+</div>
+</div>
+<!-- Usage Item 3: Storage -->
+<div class="space-y-3">
+<div class="flex justify-between items-end">
+<div>
+<p class="font-bold text-sm">Vector Storage</p>
+<p class="text-xs text-on-surface-variant">Knowledge base indexing</p>
+</div>
+<p class="text-sm font-mono"><span class="text-white font-bold">12.4 GB</span> / 50 GB</p>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary" style="width: 25%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Payment Method Card -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-low rounded-xl p-8 border border-white/5 flex flex-col">
+<h3 class="text-xl font-bold font-headline mb-6">Payment Method</h3>
+<div class="bg-surface-container-high rounded-xl p-6 border border-white/5 space-y-6">
+<div class="flex justify-between items-start">
+<div class="flex gap-4">
+<div class="w-12 h-8 bg-slate-800 rounded flex items-center justify-center border border-white/10">
+<span class="text-[10px] font-bold tracking-tighter">VISA</span>
+</div>
+<div>
+<p class="text-sm font-bold">•••• •••• •••• 4242</p>
+<p class="text-xs text-on-surface-variant">Expires 12/26</p>
+</div>
+</div>
+<span class="text-[10px] uppercase font-black text-primary px-2 py-0.5 bg-primary/10 rounded">Default</span>
+</div>
+<div class="flex gap-2">
+<button class="text-xs font-bold text-primary hover:underline">Edit</button>
+<span class="text-white/10">•</span>
+<button class="text-xs font-bold text-on-surface-variant hover:text-white transition-colors">Replace</button>
+</div>
+</div>
+<button class="mt-6 flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-dashed border-white/10 text-on-surface-variant hover:border-primary/50 hover:text-primary transition-all text-sm font-medium">
+<span class="material-symbols-outlined text-lg" data-icon="add_circle">add_circle</span>
+                        Add New Method
+                    </button>
+</div>
+<!-- Billing History Table -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-xl p-8 border border-white/5 overflow-hidden">
+<div class="flex items-center justify-between mb-8 px-2">
+<h3 class="text-xl font-bold font-headline">Billing History</h3>
+<button class="text-sm font-medium text-primary flex items-center gap-1">
+                            View All <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="text-on-surface-variant text-[10px] uppercase tracking-widest border-b border-white/5">
+<th class="pb-4 font-bold">Invoice ID</th>
+<th class="pb-4 font-bold">Date</th>
+<th class="pb-4 font-bold">Amount</th>
+<th class="pb-4 font-bold">Status</th>
+<th class="pb-4 font-bold text-right">Receipt</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<tr class="group hover:bg-white/[0.02] transition-colors">
+<td class="py-4 text-sm font-mono text-on-surface-variant">INV-2023-009</td>
+<td class="py-4 text-sm font-medium">Sep 12, 2023</td>
+<td class="py-4 text-sm font-bold">$149.00</td>
+<td class="py-4 text-sm">
+<span class="inline-flex items-center gap-1 text-emerald-400 text-xs font-bold">
+<span class="w-1 h-1 rounded-full bg-emerald-400"></span> Paid
+                                        </span>
+</td>
+<td class="py-4 text-right">
+<button class="p-2 hover:bg-white/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="download">download</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-white/[0.02] transition-colors">
+<td class="py-4 text-sm font-mono text-on-surface-variant">INV-2023-008</td>
+<td class="py-4 text-sm font-medium">Aug 12, 2023</td>
+<td class="py-4 text-sm font-bold">$149.00</td>
+<td class="py-4 text-sm">
+<span class="inline-flex items-center gap-1 text-emerald-400 text-xs font-bold">
+<span class="w-1 h-1 rounded-full bg-emerald-400"></span> Paid
+                                        </span>
+</td>
+<td class="py-4 text-right">
+<button class="p-2 hover:bg-white/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="download">download</span>
+</button>
+</td>
+</tr>
+<tr class="group hover:bg-white/[0.02] transition-colors">
+<td class="py-4 text-sm font-mono text-on-surface-variant">INV-2023-007</td>
+<td class="py-4 text-sm font-medium">Jul 12, 2023</td>
+<td class="py-4 text-sm font-bold">$149.00</td>
+<td class="py-4 text-sm">
+<span class="inline-flex items-center gap-1 text-emerald-400 text-xs font-bold">
+<span class="w-1 h-1 rounded-full bg-emerald-400"></span> Paid
+                                        </span>
+</td>
+<td class="py-4 text-right">
+<button class="p-2 hover:bg-white/10 rounded-lg transition-colors">
+<span class="material-symbols-outlined text-lg text-on-surface-variant" data-icon="download">download</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Promotion / CTA Section -->
+<section class="bg-gradient-to-br from-violet-900/20 to-fuchsia-900/10 rounded-2xl p-12 border border-violet-500/20 relative overflow-hidden">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(124,58,237,0.1),transparent_70%)]"></div>
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<h4 class="text-2xl font-bold font-headline mb-2">Power up with Enterprise</h4>
+<p class="text-on-surface-variant max-w-lg">Custom token limits, dedicated compute clusters, and SLA-backed performance for large-scale operations.</p>
+</div>
+<button class="px-8 py-4 bg-primary text-on-primary rounded-xl font-extrabold text-base shadow-[0_0_30px_rgba(189,157,255,0.3)] hover:scale-105 transition-transform">
+                        Contact Sales
+                    </button>
+</div>
+</section>
+</div>
+</main>
+<!-- Support Floating Action Button -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-[0_8px_32px_rgba(189,157,255,0.3)] flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" data-icon="chat" style="font-variation-settings: 'FILL' 1;">chat</span>
+</button>
+</body></html>

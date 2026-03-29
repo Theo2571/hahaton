@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-bright": "#2c2c2c",
+              "on-error": "#490013",
+              "primary": "#bd9dff",
+              "surface-container-low": "#131313",
+              "primary-container": "#b28cff",
+              "inverse-on-surface": "#565554",
+              "error": "#ff6e84",
+              "secondary-dim": "#8455ef",
+              "on-surface-variant": "#adaaaa",
+              "primary-fixed": "#b28cff",
+              "secondary-container": "#5516be",
+              "outline-variant": "#494847",
+              "surface-tint": "#bd9dff",
+              "error-container": "#a70138",
+              "primary-dim": "#8a4cfc",
+              "on-error-container": "#ffb2b9",
+              "on-background": "#ffffff",
+              "inverse-surface": "#fcf8f8",
+              "on-tertiary-container": "#5a0027",
+              "secondary-fixed-dim": "#ceb9ff",
+              "on-tertiary-fixed": "#380016",
+              "secondary": "#ac8aff",
+              "error-dim": "#d73357",
+              "tertiary": "#ff97b2",
+              "tertiary-dim": "#f17799",
+              "tertiary-fixed-dim": "#f77c9e",
+              "tertiary-container": "#fe81a4",
+              "on-secondary-fixed": "#40009b",
+              "surface-container": "#1a1919",
+              "background": "#0e0e0e",
+              "surface": "#0e0e0e",
+              "on-primary-fixed-variant": "#390083",
+              "inverse-primary": "#742fe5",
+              "secondary-fixed": "#dac9ff",
+              "tertiary-fixed": "#ff8eac",
+              "on-primary": "#3c0089",
+              "primary-fixed-dim": "#a67aff",
+              "on-primary-fixed": "#000000",
+              "surface-container-high": "#201f1f",
+              "on-surface": "#ffffff",
+              "on-primary-container": "#2e006c",
+              "on-secondary": "#280067",
+              "surface-variant": "#262626",
+              "outline": "#777575",
+              "surface-container-lowest": "#000000",
+              "on-tertiary-fixed-variant": "#711036",
+              "surface-dim": "#0e0e0e",
+              "on-tertiary": "#6a0a31",
+              "surface-container-highest": "#262626",
+              "on-secondary-fixed-variant": "#5f28c8",
+              "on-secondary-container": "#d9c8ff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(38, 38, 38, 0.4);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .digital-aura {
+            background: radial-gradient(circle at center, rgba(138, 76, 252, 0.08) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-neutral-950/40 backdrop-blur-2xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(124,58,237,0.1)] flex items-center justify-between px-8 h-16 w-full font-['Manrope'] tracking-tight">
+<div class="text-2xl font-black tracking-tighter text-white bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">
+            Aiva Nebula
+        </div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-neutral-400 hover:text-white transition-colors duration-300" href="#">Documentation</a>
+<a class="text-violet-400 font-bold border-b-2 border-violet-500 pb-1" href="#">Pricing</a>
+<a class="text-neutral-400 hover:text-white transition-colors duration-300" href="#">Support</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-neutral-400 hover:text-white px-4 py-2 transition-all active:scale-95 duration-200">Login</button>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-lg font-bold hover:bg-primary-container transition-all active:scale-95 duration-200">Get Started</button>
+</div>
+</header>
+<main class="relative pt-32 pb-24 overflow-hidden">
+<!-- Background Aura -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full digital-aura -z-10"></div>
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 text-center mb-20">
+<h1 class="font-headline text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                Scalable Intelligence for <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-tertiary to-primary-container">Modern Enterprises</span>
+</h1>
+<p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto font-body">
+                Flexible plans designed to empower your team with neural-speed automation and sovereign AI agents.
+            </p>
+</section>
+<!-- Pricing Bento Grid -->
+<section class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Starter Tier -->
+<div class="glass-card p-10 rounded-xl flex flex-col h-full hover:scale-[1.02] transition-transform duration-300">
+<div class="mb-8">
+<span class="text-xs font-bold tracking-widest uppercase text-primary-dim mb-4 block">Individual</span>
+<h3 class="text-3xl font-headline font-bold mb-2">Starter</h3>
+<div class="flex items-baseline gap-1 mt-6">
+<span class="text-4xl font-extrabold">$49</span>
+<span class="text-on-surface-variant">/mo</span>
+</div>
+</div>
+<ul class="space-y-6 mb-12 flex-grow">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface">Up to 3 AI Agents</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface">50,000 Neural Tokens</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface">Standard Analytics</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface">Community Support</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-lg font-bold border border-outline-variant hover:bg-white/5 transition-colors active:scale-95 duration-200">
+                        Start for Free
+                    </button>
+</div>
+<!-- Professional Tier (Featured) -->
+<div class="glass-card p-1 relative rounded-xl flex flex-col h-full hover:scale-[1.02] transition-transform duration-300 ring-2 ring-primary/40 shadow-2xl shadow-primary/10">
+<div class="bg-surface-container rounded-[calc(0.75rem-1px)] p-9 flex flex-col h-full">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-4 py-1 rounded-full text-xs font-black uppercase tracking-tighter">
+                            Most Popular
+                        </div>
+<div class="mb-8">
+<span class="text-xs font-bold tracking-widest uppercase text-tertiary mb-4 block">Scaling Teams</span>
+<h3 class="text-3xl font-headline font-bold mb-2">Professional</h3>
+<div class="flex items-baseline gap-1 mt-6">
+<span class="text-4xl font-extrabold text-primary">$199</span>
+<span class="text-on-surface-variant">/mo</span>
+</div>
+</div>
+<ul class="space-y-6 mb-12 flex-grow">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary text-sm" data-icon="verified">verified</span>
+<span class="text-on-surface font-semibold">Everything in Starter</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface">15 AI Agents</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface">500,000 Neural Tokens</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface">Priority GPU Access</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface">24/7 Priority Support</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-lg font-bold bg-primary text-on-primary hover:bg-primary-container transition-all active:scale-95 duration-200 shadow-lg shadow-primary/20">
+                            Upgrade to Pro
+                        </button>
+</div>
+</div>
+<!-- Enterprise Tier -->
+<div class="glass-card p-10 rounded-xl flex flex-col h-full hover:scale-[1.02] transition-transform duration-300">
+<div class="mb-8">
+<span class="text-xs font-bold tracking-widest uppercase text-secondary-fixed mb-4 block">Global Scale</span>
+<h3 class="text-3xl font-headline font-bold mb-2">Enterprise</h3>
+<div class="flex items-baseline gap-1 mt-6">
+<span class="text-4xl font-extrabold">Custom</span>
+</div>
+</div>
+<ul class="space-y-6 mb-12 flex-grow">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="star">star</span>
+<span class="text-on-surface font-semibold">Everything in Professional</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface">Unlimited AI Agents</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface">Dedicated Node Instance</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface">Custom SLA Agreements</span>
+</li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle">check_circle</span>
+<span class="text-on-surface">On-premise Deployment</span>
+</li>
+</ul>
+<button class="w-full py-4 rounded-lg font-bold border border-primary text-primary hover:bg-primary/5 transition-colors active:scale-95 duration-200">
+                        Contact Sales
+                    </button>
+</div>
+</div>
+</section>
+<!-- Features Comparison (Editorial Layout) -->
+<section class="max-w-7xl mx-auto px-8 mt-40">
+<div class="flex flex-col md:flex-row gap-16 items-start">
+<div class="w-full md:w-1/3 sticky top-32">
+<h2 class="font-headline text-4xl font-extrabold tracking-tight mb-4">The Neural Advantage</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                        Every Aiva tier includes our core sovereign intelligence layer, ensuring your data never leaves your workspace.
+                    </p>
+<div class="mt-10 h-1 w-20 bg-gradient-to-r from-primary to-transparent"></div>
+</div>
+<div class="w-full md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-12">
+<div>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="security">security</span>
+</div>
+<h4 class="font-bold text-xl">Sovereign Encryption</h4>
+</div>
+<p class="text-on-surface-variant text-sm">End-to-end neural encryption at the edge. Your models, your weights, your privacy.</p>
+</div>
+<div>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="bolt">bolt</span>
+</div>
+<h4 class="font-bold text-xl">Sub-ms Latency</h4>
+</div>
+<p class="text-on-surface-variant text-sm">Experience intelligence without the wait. Optimized for high-frequency operations.</p>
+</div>
+<div>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="hub">hub</span>
+</div>
+<h4 class="font-bold text-xl">Global Sync</h4>
+</div>
+<p class="text-on-surface-variant text-sm">Distributed agent memory across your entire organization's cloud nodes.</p>
+</div>
+<div>
+<div class="flex items-center gap-4 mb-4">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface" data-icon="api">api</span>
+</div>
+<h4 class="font-bold text-xl">Extensible API</h4>
+</div>
+<p class="text-on-surface-variant text-sm">Seamlessly connect Aiva to your existing tech stack with zero friction.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="max-w-7xl mx-auto px-8 mt-40">
+<div class="relative overflow-hidden rounded-3xl p-12 md:p-24 bg-surface-container-high border border-white/5 text-center">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="absolute bottom-0 left-0 w-64 h-64 bg-tertiary/5 blur-[100px] rounded-full"></div>
+<h2 class="font-headline text-4xl md:text-5xl font-extrabold mb-8">Ready to evolve your workspace?</h2>
+<p class="text-on-surface-variant mb-12 max-w-xl mx-auto">
+                    Join over 500 enterprises using Aiva to automate their most complex intellectual workflows.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center">
+<button class="px-10 py-5 rounded-xl bg-primary text-on-primary font-bold text-lg active:scale-95 transition-all">Start 14-day Trial</button>
+<button class="px-10 py-5 rounded-xl bg-surface-container-highest border border-outline-variant font-bold text-lg hover:bg-surface-bright active:scale-95 transition-all">View Case Studies</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-white/5 py-20 px-8">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12">
+<div class="col-span-2">
+<div class="text-2xl font-black tracking-tighter text-white mb-6">Aiva Nebula</div>
+<p class="text-on-surface-variant text-sm max-w-xs leading-relaxed">
+                    The next evolution of collaborative intelligence. Building the future of autonomous enterprise systems.
+                </p>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-on-surface">Product</h5>
+<ul class="space-y-4 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Agents</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Neural Hub</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Security</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Roadmap</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-on-surface">Resources</h5>
+<ul class="space-y-4 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">Docs</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">API Reference</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Status</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Changelog</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-bold mb-6 text-on-surface">Company</h5>
+<ul class="space-y-4 text-sm text-on-surface-variant">
+<li><a class="hover:text-primary transition-colors" href="#">About</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="text-xs text-on-surface-variant">© 2024 Aiva Nebula Inc. All neural weights reserved.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer" data-icon="language">language</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer" data-icon="terminal">terminal</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-white cursor-pointer" data-icon="rss_feed">rss_feed</span>
+</div>
+</div>
+</footer>
+</body></html>

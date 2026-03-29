@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-bright": "#2c2c2c",
+              "on-error": "#490013",
+              "primary": "#bd9dff",
+              "surface-container-low": "#131313",
+              "primary-container": "#b28cff",
+              "inverse-on-surface": "#565554",
+              "error": "#ff6e84",
+              "secondary-dim": "#8455ef",
+              "on-surface-variant": "#adaaaa",
+              "primary-fixed": "#b28cff",
+              "secondary-container": "#5516be",
+              "outline-variant": "#494847",
+              "surface-tint": "#bd9dff",
+              "error-container": "#a70138",
+              "primary-dim": "#8a4cfc",
+              "on-error-container": "#ffb2b9",
+              "on-background": "#ffffff",
+              "inverse-surface": "#fcf8f8",
+              "on-tertiary-container": "#5a0027",
+              "secondary-fixed-dim": "#ceb9ff",
+              "on-tertiary-fixed": "#380016",
+              "secondary": "#ac8aff",
+              "error-dim": "#d73357",
+              "tertiary": "#ff97b2",
+              "tertiary-dim": "#f17799",
+              "tertiary-fixed-dim": "#f77c9e",
+              "tertiary-container": "#fe81a4",
+              "on-secondary-fixed": "#40009b",
+              "surface-container": "#1a1919",
+              "background": "#0e0e0e",
+              "surface": "#0e0e0e",
+              "on-primary-fixed-variant": "#390083",
+              "inverse-primary": "#742fe5",
+              "secondary-fixed": "#dac9ff",
+              "tertiary-fixed": "#ff8eac",
+              "on-primary": "#3c0089",
+              "primary-fixed-dim": "#a67aff",
+              "on-primary-fixed": "#000000",
+              "surface-container-high": "#201f1f",
+              "on-surface": "#ffffff",
+              "on-primary-container": "#2e006c",
+              "on-secondary": "#280067",
+              "surface-variant": "#262626",
+              "outline": "#777575",
+              "surface-container-lowest": "#000000",
+              "on-tertiary-fixed-variant": "#711036",
+              "surface-dim": "#0e0e0e",
+              "on-tertiary": "#6a0a31",
+              "surface-container-highest": "#262626",
+              "on-secondary-fixed-variant": "#5f28c8",
+              "on-secondary-container": "#d9c8ff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #0e0e0e; }
+        .headline-font { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .nebula-glow {
+            background: radial-gradient(circle at center, rgba(138, 76, 252, 0.15) 0%, rgba(14, 14, 14, 0) 70%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col relative overflow-hidden">
+<!-- Ambient Nebula Background Elements -->
+<div class="absolute inset-0 z-0 pointer-events-none">
+<div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[120px]"></div>
+<div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-secondary-dim/5 blur-[120px]"></div>
+<div class="absolute top-[20%] right-[10%] w-[30%] h-[30%] rounded-full nebula-glow"></div>
+</div>
+<!-- Top Navigation (Shell suppressed for transactional flow, but keeping Brand Identity) -->
+<header class="fixed top-0 w-full z-50 px-8 h-16 flex items-center justify-between pointer-events-none">
+<div class="flex items-center gap-2 pointer-events-auto">
+<span class="headline-font text-2xl font-black tracking-tighter text-white bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">Aiva Nebula</span>
+</div>
+<div class="hidden md:flex items-center gap-8 pointer-events-auto">
+<a class="text-sm font-medium text-neutral-400 hover:text-white transition-colors" href="#">Documentation</a>
+<a class="text-sm font-medium text-neutral-400 hover:text-white transition-colors" href="#">Support</a>
+</div>
+</header>
+<main class="flex-grow flex items-center justify-center p-6 z-10">
+<!-- Login/Signup Card -->
+<div class="w-full max-w-md">
+<div class="bg-surface-container-low/40 backdrop-blur-3xl p-8 rounded-xl border border-white/5 shadow-[0_32px_64px_-12px_rgba(0,0,0,0.5)]">
+<!-- Branding & Title -->
+<div class="text-center mb-8">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary/10 mb-6 group transition-transform duration-300 hover:scale-105">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<h1 class="headline-font text-3xl font-extrabold tracking-tight text-on-background mb-2">Welcome Back</h1>
+<p class="text-on-surface-variant text-sm">Enter your credentials to access your workspace.</p>
+</div>
+<!-- Auth Form -->
+<form class="space-y-5">
+<div class="space-y-2">
+<label class="text-xs font-semibold tracking-wider uppercase text-on-surface-variant ml-1" for="email">Email Address</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg group-focus-within:text-primary transition-colors" data-icon="mail">mail</span>
+<input class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:ring-0 focus:border-primary-dim rounded-lg py-3 pl-12 pr-4 text-on-surface placeholder:text-outline transition-all" id="email" placeholder="name@company.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="text-xs font-semibold tracking-wider uppercase text-on-surface-variant" for="password">Password</label>
+<a class="text-[11px] font-bold text-primary hover:text-primary-container transition-colors uppercase tracking-widest" href="#">Forgot?</a>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-lg group-focus-within:text-primary transition-colors" data-icon="lock">lock</span>
+<input class="w-full bg-surface-container-high border-none border-b-2 border-transparent focus:ring-0 focus:border-primary-dim rounded-lg py-3 pl-12 pr-4 text-on-surface placeholder:text-outline transition-all" id="password" placeholder="••••••••" type="password"/>
+</div>
+</div>
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary font-bold py-3.5 rounded-lg transition-all active:scale-[0.98] shadow-lg shadow-primary/10 flex items-center justify-center gap-2 mt-4" type="submit">
+<span>Continue to Workspace</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</form>
+<!-- Divider -->
+<div class="relative my-8">
+<div class="absolute inset-0 flex items-center">
+<div class="w-full border-t border-white/5"></div>
+</div>
+<div class="relative flex justify-center">
+<span class="bg-surface-container-low px-4 text-[11px] font-bold text-outline uppercase tracking-[0.2em]">Or continue with</span>
+</div>
+</div>
+<!-- Social Auth -->
+<div class="grid grid-cols-1 gap-3">
+<button class="flex items-center justify-center gap-3 w-full bg-white/5 hover:bg-white/10 text-on-surface font-medium py-3 rounded-lg border border-white/5 transition-all group">
+<img alt="Google Logo" class="w-5 h-5 group-hover:scale-110 transition-transform" data-alt="Official Google G logo in multicolored brand colors for authentication button" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJ7QUiWaOUGjNf1PehdPp-lg3ygfEcARIv1jJtE5XUQghlanznVVRYLWoipLL8eXsHvhPKF3yeAV7bpVlMA-zgubSCH-ZA4sZSYjcfGDFLSm8lEAgpefcjrj-AysWt2PcISaRhD2rdo6yNS5JazBAskc-uimEEJj4tMU7xLH5Pw1nMSrGtrEorNWVr8pLo_nwPkABZmDWNUTf6WmVHPlJne5-R8BE8RdlKf7fFk1o-nkvqatwe4wP_ELMzbkWX9LmWtDwIUZ03CNA"/>
+<span class="text-sm">Sign in with Google</span>
+</button>
+</div>
+<!-- Toggle Action -->
+<div class="mt-8 text-center">
+<p class="text-sm text-on-surface-variant">
+                        Don't have an account? 
+                        <a class="text-primary font-bold hover:underline underline-offset-4 ml-1" href="#">Create an account</a>
+</p>
+</div>
+</div>
+<!-- Trust Badge/Footer -->
+<div class="mt-8 flex flex-col items-center gap-4 text-center">
+<div class="flex items-center gap-6 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">
+<span class="material-symbols-outlined text-2xl" data-icon="verified_user">verified_user</span>
+<span class="material-symbols-outlined text-2xl" data-icon="security">security</span>
+<span class="material-symbols-outlined text-2xl" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<p class="text-[10px] text-outline font-medium tracking-widest uppercase">Secured by Aiva Nebula Intelligence</p>
+</div>
+</div>
+</main>
+<!-- Visual Polish: Grainy Texture Overlay -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay">
+<svg viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<filter id="noiseFilter">
+<feturbulence basefrequency="0.65" numoctaves="3" stitchtiles="stitch" type="fractalNoise"></feturbulence>
+</filter>
+<rect filter="url(#noiseFilter)" height="100%" width="100%"></rect>
+</svg>
+</div>
+</body></html>

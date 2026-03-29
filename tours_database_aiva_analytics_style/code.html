@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#7C3AED",
+              "primary-container": "#4C1D95",
+              "surface": "#09090b",
+              "surface-container": "#18181b",
+              "surface-container-low": "#27272a",
+              "surface-container-highest": "#27272a",
+              "on-surface": "#fafafa",
+              "on-surface-variant": "#a1a1aa",
+              "outline": "#3f3f46",
+              "tertiary": "#10b981",
+              "error": "#ef4444",
+              "background": "#09090b"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(24, 24, 27, 0.5);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .glow-overlay {
+            background: radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full flex flex-col h-screen w-64 border-r border-white/5 bg-zinc-950/60 backdrop-blur-2xl z-50">
+<div class="p-8 flex flex-col gap-1">
+<span class="text-xl font-black tracking-tighter text-primary font-headline uppercase leading-none">Aiva Nebula</span>
+<span class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold mt-1">AI Travel Sales</span>
+</div>
+<nav class="flex-1 px-2 py-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-white/5 transition-all duration-300 font-headline text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-white/5 transition-all duration-300 font-headline text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined text-[20px]">chat_bubble</span>
+<span>Leads</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-white/5 transition-all duration-300 font-headline text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined text-[20px]">filter_alt</span>
+<span>Funnel</span>
+</a>
+<!-- Active State: Tours -->
+<a class="flex items-center gap-3 px-4 py-3 text-primary border-r-4 border-primary bg-primary/10 font-headline text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined text-[20px]">explore</span>
+<span>Tours</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-white/5 transition-all duration-300 font-headline text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined text-[20px]">insights</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-white/5 transition-all duration-300 font-headline text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined text-[20px]">extension</span>
+<span>Integrations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-500 hover:text-zinc-200 hover:bg-white/5 transition-all duration-300 font-headline text-sm font-semibold tracking-wide" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="p-6 mt-auto">
+<button class="w-full py-2.5 px-4 bg-primary text-white rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:bg-violet-500 transition-all active:scale-95 shadow-[0_0_20px_rgba(124,58,237,0.15)]">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>New Lead</span>
+</button>
+</div>
+</aside>
+<!-- Main Canvas Area -->
+<main class="ml-64 min-h-screen relative overflow-hidden bg-surface">
+<div class="absolute inset-0 glow-overlay pointer-events-none"></div>
+<!-- TopAppBar -->
+<header class="flex items-center justify-between px-8 h-16 w-full sticky top-0 z-40 bg-zinc-950/40 backdrop-blur-xl border-b border-white/10">
+<h1 class="font-headline font-extrabold text-2xl tracking-tighter text-on-surface">Tours Database</h1>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400 material-symbols-outlined text-[18px]">search</span>
+<input class="bg-white/5 border border-white/10 rounded-full py-1.5 pl-10 pr-4 text-xs text-zinc-200 focus:outline-none focus:ring-1 focus:ring-primary w-64 transition-all" placeholder="Search tours..." type="text"/>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-zinc-400 hover:bg-white/5 p-2 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full border-2 border-primary/50 p-0.5 ml-2 overflow-hidden">
+<img alt="User Profile" class="w-full h-full rounded-full object-cover" data-alt="professional headshot of a travel agent smiling with soft studio lighting and dark blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYb3QYcQpabNEqezydzvEDHaUcmSgrDVscDxuT13OSXIt_H2rRhN5vvkwV_oHyAGHq-zZ4yqYmrEBbFPQjfo3Hzoo4bt9NCIkEiOn2M3ho1CPWlYSzqsNNNGdbCHGD-g-RtnoJbf-mRZ2sqkCKwWP2_ZZwDxri3Y9fqQnY6ndKMWzyQYWIKhTPh_JeSlWhRVwizmBF_seHMZXQoBZAVdwFKJxHE6xKvuyG11aHxdw4wtpYghlqtw4RrPtOWg5OaA298MvgtbG8zYM"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-8 max-w-7xl mx-auto space-y-8 relative z-10">
+<!-- Filters Section -->
+<section class="grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.15em] ml-1">Country</label>
+<select class="w-full bg-zinc-900 border border-white/5 rounded-lg text-sm p-3 text-zinc-200 focus:ring-1 focus:ring-primary focus:border-primary transition-colors">
+<option>All Countries</option>
+<option>Japan</option>
+<option>Iceland</option>
+<option>Switzerland</option>
+<option>Morocco</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.15em] ml-1">Budget Range</label>
+<select class="w-full bg-zinc-900 border border-white/5 rounded-lg text-sm p-3 text-zinc-200 focus:ring-1 focus:ring-primary focus:border-primary transition-colors">
+<option>Any Budget</option>
+<option>$1k - $3k</option>
+<option>$3k - $6k</option>
+<option>$6k+</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.15em] ml-1">Date Range</label>
+<div class="flex items-center bg-zinc-900 border border-white/5 rounded-lg p-3 gap-2">
+<span class="material-symbols-outlined text-zinc-500 text-[18px]">calendar_today</span>
+<input class="bg-transparent border-none text-sm p-0 focus:ring-0 w-full text-zinc-200" placeholder="Select dates" type="text"/>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex-1 py-3 px-4 bg-primary text-white rounded-lg font-bold text-sm flex items-center justify-center gap-2 hover:bg-violet-500 transition-all active:scale-95 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>Add Tour</span>
+</button>
+</div>
+</section>
+<!-- Table Section -->
+<section class="glass-card rounded-xl overflow-hidden">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-white/5">
+<th class="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Country</th>
+<th class="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Hotel &amp; Accommodation</th>
+<th class="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Price</th>
+<th class="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Dates</th>
+<th class="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest">Rating</th>
+<th class="px-6 py-4 text-[10px] font-bold text-zinc-500 uppercase tracking-widest text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-white/5">
+<!-- Row 1 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-7 rounded bg-zinc-800 overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover" data-alt="vibrant street view of kyoto japan with traditional wooden buildings and cherry blossoms at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2O7YVZdhXbaIWRe39Yhx7HGKamIOTBYLqJOQ3dhOPnuH7ljFWXvfEiTHfKmsPFL2-jKKReLoteAf6jrGpqvhe2qf4BpMt9Gf8pJ36rapn14cqKDfDamK9yF03GPQU18DWii0bg6pPLz1M5-9eTMi05sZFT_8z4U7-SK_4Cplt9QSPQFMCYd31s9DIv3wDaLkzhCBnvmoGupTAPhZbbf4t2Xnwcc0n1f5gbvK5muxryQRdJKrMR3bj_UJkTgaZDhYcr2-U-xu1SGU"/>
+</div>
+<span class="font-semibold text-on-surface">Japan</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<div class="text-sm font-medium text-on-surface">The Ritz-Carlton, Kyoto</div>
+<div class="text-[11px] text-zinc-500 font-medium">Luxury Suite • Zen Garden View</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-primary font-bold font-headline">$5,400</span>
+</td>
+<td class="px-6 py-5 text-sm text-zinc-400">Oct 12 - Oct 20, 2024</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.9</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white/10 rounded-lg text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-white/10 rounded-lg text-zinc-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-7 rounded bg-zinc-800 overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover" data-alt="stunning blue lagoon geothermal spa in iceland with black volcanic rocks and ethereal steam" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG5CVXS9NjqndzoFK_P9g9oGStIS_FRSVJFX6OOSb0M8TWJANidq6Yuw-HhubolrBGCBolW-V-LLZhJNmVWl0bXYveoB1qK-3D0bdRSAf_5q6SHe1Fuy_96CBKmDs1ZRbb8YA1FUqw0cguo-gS60tLWr2V3S_zFKGihx4l7OPW3aWo-HdJPNfRbKx7WnGbyQ_KO5-C4aQ51-HhbgMEOEiYxjnZT-wUBWkvH4AzYOiTEboQVfraq-jcEIbmHeWkmIzxvCQHIS6mt3c"/>
+</div>
+<span class="font-semibold text-on-surface">Iceland</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<div class="text-sm font-medium text-on-surface">The Retreat at Blue Lagoon</div>
+<div class="text-[11px] text-zinc-500 font-medium">Moss Junior Suite • Geothermal Pool</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-primary font-bold font-headline">$7,200</span>
+</td>
+<td class="px-6 py-5 text-sm text-zinc-400">Dec 05 - Dec 12, 2024</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">5.0</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white/10 rounded-lg text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-white/10 rounded-lg text-zinc-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-7 rounded bg-zinc-800 overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover" data-alt="scenic view of a french bistro on a cobblestone street in paris with colorful flowers and eiffel tower in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRnl_M2F3k-IWA26t5g_2fu8J_4vDhad-ipRp-4JLtZxAS_arSk4CQf-eMV--Jaw2bmPKmV5LtGheBbKR4PH1_0jOzJK_mYfwvc6qBmVD0cJcdhBbfC2rxcc77jBE0ogE5P2ez2-V1YFPbJzRWPG8HxhHVecxaxqzwAgF2qe3_S4zOpeEfyDN8nz62mkIkY7lYOtrWR6gE2kYTP57f2FLLMzVKk1-LOAIzQ8E7mlIjJJLEGU_BtFWzSvsyOO5svqqysokwuN5zQsA"/>
+</div>
+<span class="font-semibold text-on-surface">France</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<div class="text-sm font-medium text-on-surface">Hôtel de Crillon</div>
+<div class="text-[11px] text-zinc-500 font-medium">Deluxe King • Place de la Concorde View</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-primary font-bold font-headline">$4,850</span>
+</td>
+<td class="px-6 py-5 text-sm text-zinc-400">Nov 18 - Nov 25, 2024</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.7</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white/10 rounded-lg text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-white/10 rounded-lg text-zinc-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-white/5 transition-colors group">
+<td class="px-6 py-5">
+<div class="flex items-center gap-3">
+<div class="w-10 h-7 rounded bg-zinc-800 overflow-hidden border border-white/5">
+<img class="w-full h-full object-cover" data-alt="panoramic view of the swiss alps in zermatt with the matterhorn peak and a small village in the valley" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAq7MlNqSLfoDWbSuaGdH_WuLazj9Yows6n4XLYcQynVAB3LaVY6v8GTONattlRR8iNOYnEwMHUf3eBSwK_62nYJKZ36qABGpBr_QvppFuNUoV7nTFUKO0qQFJR3APaGEo-M7deD4CTUcS7O8X3_RnlJYyA-xYve_ttgUru7vVXKGugTXy3vDgmSKqZ2Z9pLkF6F0pCPmH2j6ZBcB47NOdLFl_tem2JKMMpGommwlFCUiFVnA9FDICiE1Ig5RsS_eGYv3xyFv5WBd4"/>
+</div>
+<span class="font-semibold text-on-surface">Switzerland</span>
+</div>
+</td>
+<td class="px-6 py-5">
+<div>
+<div class="text-sm font-medium text-on-surface">Badrutt's Palace</div>
+<div class="text-[11px] text-zinc-500 font-medium">Mountain Grand Room • Lake St. Moritz View</div>
+</div>
+</td>
+<td class="px-6 py-5">
+<span class="text-primary font-bold font-headline">$6,100</span>
+</td>
+<td class="px-6 py-5 text-sm text-zinc-400">Jan 15 - Jan 22, 2025</td>
+<td class="px-6 py-5">
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.8</span>
+</div>
+</td>
+<td class="px-6 py-5 text-right">
+<div class="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="p-2 hover:bg-white/10 rounded-lg text-zinc-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+<button class="p-2 hover:bg-white/10 rounded-lg text-zinc-400 hover:text-error transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination -->
+<div class="px-6 py-4 bg-white/5 border-t border-white/5 flex items-center justify-between">
+<span class="text-[11px] font-medium text-zinc-500">Showing 4 of 128 tours</span>
+<div class="flex items-center gap-1">
+<button class="p-1 hover:bg-white/5 rounded text-zinc-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_left</span>
+</button>
+<button class="w-8 h-8 rounded bg-primary/20 text-primary text-xs font-bold">1</button>
+<button class="w-8 h-8 rounded hover:bg-white/5 text-zinc-500 text-xs font-bold transition-colors">2</button>
+<button class="w-8 h-8 rounded hover:bg-white/5 text-zinc-500 text-xs font-bold transition-colors">3</button>
+<span class="text-zinc-700 px-1">...</span>
+<button class="p-1 hover:bg-white/5 rounded text-zinc-500 hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[18px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Stats Row -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-zinc-900/50 border border-white/5 p-6 rounded-xl hover:border-primary/30 transition-colors group">
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-zinc-500 tracking-[0.15em] uppercase">Active Tours</span>
+<span class="text-primary material-symbols-outlined text-xl">map</span>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-headline font-black text-on-surface">128</div>
+<div class="text-[11px] font-bold text-tertiary flex items-center gap-0.5 mt-1">
+<span class="material-symbols-outlined text-xs">arrow_upward</span> +12% from last month
+                    </div>
+</div>
+<div class="h-1 w-full bg-zinc-800 mt-4 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4 rounded-full"></div>
+</div>
+</div>
+<div class="bg-zinc-900/50 border border-white/5 p-6 rounded-xl hover:border-primary/30 transition-colors group">
+<div class="flex justify-between items-start">
+<span class="text-[10px] font-bold text-zinc-500 tracking-[0.15em] uppercase">Avg Revenue / Tour</span>
+<span class="text-primary material-symbols-outlined text-xl">payments</span>
+</div>
+<div class="mt-4">
+<div class="text-3xl font-headline font-black text-on-surface">$5,820</div>
+<div class="text-[11px] font-bold text-primary mt-1 uppercase tracking-wider">Market leader in luxury sector</div>
+</div>
+<div class="h-1 w-full bg-zinc-800 mt-4 rounded-full overflow-hidden">
+<div class="h-full bg-primary w-2/3 rounded-full"></div>
+</div>
+</div>
+<div class="bg-zinc-900/50 border border-white/5 p-6 rounded-xl hover:border-primary/30 transition-colors group relative overflow-hidden">
+<div class="relative z-10 flex justify-between items-start">
+<span class="text-[10px] font-bold text-zinc-500 tracking-[0.15em] uppercase">Customer Rating</span>
+<span class="text-primary material-symbols-outlined text-xl">reviews</span>
+</div>
+<div class="relative z-10 mt-4">
+<div class="text-3xl font-headline font-black text-on-surface">4.85</div>
+<div class="flex gap-1 mt-2">
+<div class="h-1.5 flex-1 bg-tertiary rounded-full shadow-[0_0_8px_rgba(16,185,129,0.3)]"></div>
+<div class="h-1.5 flex-1 bg-tertiary rounded-full shadow-[0_0_8px_rgba(16,185,129,0.3)]"></div>
+<div class="h-1.5 flex-1 bg-tertiary rounded-full shadow-[0_0_8px_rgba(16,185,129,0.3)]"></div>
+<div class="h-1.5 flex-1 bg-tertiary rounded-full shadow-[0_0_8px_rgba(16,185,129,0.3)]"></div>
+<div class="h-1.5 flex-1 bg-zinc-800 rounded-full"></div>
+</div>
+</div>
+<!-- Background Decoration -->
+<div class="absolute -right-8 -bottom-8 opacity-[0.03] rotate-12 transition-transform duration-1000 group-hover:rotate-0">
+<span class="material-symbols-outlined text-[120px] text-primary" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>

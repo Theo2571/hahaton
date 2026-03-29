@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aiva Nebula | Sales Funnel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#390083",
+                        "on-tertiary": "#6a0a31",
+                        "on-primary": "#3c0089",
+                        "error": "#ff6e84",
+                        "on-tertiary-fixed": "#380016",
+                        "primary-dim": "#8a4cfc",
+                        "surface-container-lowest": "#000000",
+                        "secondary-container": "#5516be",
+                        "inverse-primary": "#742fe5",
+                        "primary-fixed": "#b28cff",
+                        "tertiary-dim": "#f17799",
+                        "tertiary-fixed-dim": "#f77c9e",
+                        "tertiary-fixed": "#ff8eac",
+                        "on-secondary-fixed": "#40009b",
+                        "surface-container": "#1a1919",
+                        "on-secondary-container": "#d9c8ff",
+                        "primary-container": "#b28cff",
+                        "on-surface": "#ffffff",
+                        "secondary-fixed-dim": "#ceb9ff",
+                        "on-error": "#490013",
+                        "on-tertiary-container": "#5a0027",
+                        "on-primary-container": "#2e006c",
+                        "on-tertiary-fixed-variant": "#711036",
+                        "secondary": "#ac8aff",
+                        "primary-fixed-dim": "#a67aff",
+                        "tertiary": "#ff97b2",
+                        "primary": "#bd9dff",
+                        "on-secondary": "#280067",
+                        "secondary-fixed": "#dac9ff",
+                        "on-primary-fixed": "#000000",
+                        "on-background": "#ffffff",
+                        "inverse-surface": "#fcf8f8",
+                        "error-dim": "#d73357",
+                        "inverse-on-surface": "#565554",
+                        "surface-dim": "#0e0e0e",
+                        "background": "#0e0e0e",
+                        "on-surface-variant": "#adaaaa",
+                        "tertiary-container": "#fe81a4",
+                        "surface-variant": "#262626",
+                        "surface-container-highest": "#262626",
+                        "on-error-container": "#ffb2b9",
+                        "surface-bright": "#2c2c2c",
+                        "error-container": "#a70138",
+                        "surface-tint": "#bd9dff",
+                        "surface-container-low": "#131313",
+                        "surface": "#0e0e0e",
+                        "on-secondary-fixed-variant": "#5f28c8",
+                        "outline-variant": "#494847",
+                        "surface-container-high": "#201f1f",
+                        "secondary-dim": "#8455ef",
+                        "outline": "#777575"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(38, 38, 38, 0.4);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .funnel-gradient {
+            background: linear-gradient(180deg, rgba(189, 157, 255, 0.15) 0%, rgba(189, 157, 255, 0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col bg-[#0e0e0e] dark:bg-[#0e0e0e] h-screen w-64 border-r border-[#262626] font-manrope tracking-tight text-sm shadow-[0_0_30px_rgba(189,157,255,0.08)] z-50">
+<div class="p-6">
+<div class="flex items-center gap-3 mb-8">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-lg" style="font-variation-settings: 'FILL' 1;">cloud_done</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tighter text-[#bd9dff]">Aiva Nebula</h1>
+<p class="text-[10px] text-gray-500 uppercase tracking-widest">AI Travel Sales</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 transition-colors hover:bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 transition-colors hover:bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span>Leads</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#bd9dff] font-bold border-r-2 border-[#bd9dff] bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined" data-icon="filter_alt">filter_alt</span>
+<span>Funnel</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 transition-colors hover:bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span>Tours</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 transition-colors hover:bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 transition-colors hover:bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined" data-icon="extension">extension</span>
+<span>Integrations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 transition-colors hover:bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-6">
+<button class="w-full py-3 bg-primary text-on-primary font-bold rounded-lg flex items-center justify-center gap-2 hover:scale-[1.02] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">add</span>
+                New Lead
+            </button>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="flex items-center justify-between px-8 ml-64 w-[calc(100%-16rem)] h-16 sticky top-0 z-40 bg-[#0e0e0e]/80 backdrop-blur-xl border-b border-[#262626]/50">
+<h2 class="font-headline font-extrabold text-xl tracking-tight text-on-surface">Sales Funnel</h2>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute inset-y-0 left-3 flex items-center text-gray-500">
+<span class="material-symbols-outlined text-sm">search</span>
+</span>
+<input class="bg-surface-container border-none rounded-full pl-10 pr-4 py-1.5 text-sm w-64 focus:ring-1 focus:ring-primary-dim transition-all" placeholder="Search funnel..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="hover:bg-white/5 rounded-full p-2 transition-colors text-gray-400 hover:text-white">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="close-up portrait of a professional woman with a friendly expression in a modern office setting with soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARzxiU9iVA3vlVbrLBAV9gEvU4WCtK7Fs4A-Wk5LIU73JCXxXCPyGNwDGhXVK6fswgD7wVFr_pxPslZYURPS5JTqVAB0vdq2ARvhcAPgg0-t03Sis4yg5PzwDdeQSMr_JGW7fe8n8mBBMQ5jaq5yI2psJjF2jaCDT8VxRuqHiOP1sds4AuTcz-gWrR7ePuToMsxmoDzs61veAtGYdj8hOODnXpHPFPN9z6kWAzIgOK1dEUjS0qvhP8V1R9lxrHE_u3leiWa2R7amk"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 p-8 min-h-screen">
+<!-- Funnel Overview Header -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="glass-card p-6 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<p class="text-sm text-on-surface-variant font-medium mb-1">Overall Conversion</p>
+<h3 class="text-3xl font-headline font-extrabold text-primary">12.4%</h3>
+<p class="text-xs text-tertiary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">arrow_upward</span>
+                    2.1% from last month
+                </p>
+</div>
+<div class="glass-card p-6 rounded-xl">
+<p class="text-sm text-on-surface-variant font-medium mb-1">Active Pipeline Value</p>
+<h3 class="text-3xl font-headline font-extrabold text-on-surface">$1.2M</h3>
+<div class="mt-3 w-full bg-surface-container rounded-full h-1.5 overflow-hidden">
+<div class="h-full bg-primary-dim w-3/4"></div>
+</div>
+</div>
+<div class="glass-card p-6 rounded-xl">
+<p class="text-sm text-on-surface-variant font-medium mb-1">AI Efficiency Score</p>
+<h3 class="text-3xl font-headline font-extrabold text-tertiary">98/100</h3>
+<p class="text-xs text-on-surface-variant mt-2 tracking-wide uppercase">Optimal Lead Processing</p>
+</div>
+</div>
+<!-- Funnel Visualization Area -->
+<div class="relative">
+<!-- Connection Lines (Conceptual) -->
+<div class="absolute inset-0 flex items-center justify-between px-[10%] opacity-20 pointer-events-none">
+<div class="h-[2px] w-full bg-gradient-to-r from-primary/0 via-primary/50 to-primary/0"></div>
+</div>
+<div class="grid grid-cols-5 gap-4 relative z-10">
+<!-- Stage 1: New Leads -->
+<div class="space-y-4">
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-primary-dim/30 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary">person_add</span>
+</div>
+<h4 class="font-headline font-bold text-sm tracking-tight">New Leads</h4>
+<div class="px-2 py-0.5 bg-primary/10 text-primary rounded-full text-[10px] font-bold mt-1 uppercase tracking-tighter">248 Active</div>
+</div>
+<div class="space-y-3">
+<div class="glass-card p-4 rounded-lg hover:scale-[1.02] transition-transform cursor-pointer border-l-2 border-primary">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-primary-fixed uppercase">High Intent</span>
+<span class="text-[10px] text-on-surface-variant">2m ago</span>
+</div>
+<p class="text-xs font-semibold mb-1">Marco Rossi</p>
+<p class="text-[10px] text-on-surface-variant line-clamp-1">Luxury Amalfi Coast inquiry...</p>
+</div>
+<div class="glass-card p-4 rounded-lg hover:scale-[1.02] transition-transform cursor-pointer">
+<p class="text-xs font-semibold mb-1">Sarah Jenkins</p>
+<p class="text-[10px] text-on-surface-variant line-clamp-1">Tokyo food tour exploration</p>
+</div>
+<div class="glass-card p-4 rounded-lg hover:scale-[1.02] transition-transform cursor-pointer">
+<p class="text-xs font-semibold mb-1">James Wilson</p>
+<p class="text-[10px] text-on-surface-variant line-clamp-1">Iceland winter photography</p>
+</div>
+</div>
+</div>
+<!-- Conversion Rate Indicator -->
+<div class="flex flex-col justify-center items-center">
+<div class="h-12 w-12 rounded-full border border-outline-variant flex items-center justify-center bg-surface-container-low mb-2">
+<span class="text-[10px] font-bold text-tertiary">68%</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-sm">trending_flat</span>
+</div>
+<!-- Stage 2: Gathering Parameters -->
+<div class="space-y-4">
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-tertiary/30 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-tertiary">query_stats</span>
+</div>
+<h4 class="font-headline font-bold text-sm tracking-tight">Parameters</h4>
+<div class="px-2 py-0.5 bg-tertiary/10 text-tertiary rounded-full text-[10px] font-bold mt-1 uppercase tracking-tighter">142 Refining</div>
+</div>
+<div class="space-y-3">
+<div class="glass-card p-4 rounded-lg border-l-2 border-tertiary">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></div>
+<span class="text-[10px] text-tertiary font-bold">AI Processing</span>
+</div>
+<p class="text-xs font-semibold mb-1">Elena Kostic</p>
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="px-1.5 py-0.5 bg-surface-container-highest text-[9px] rounded text-on-surface-variant">Budget: $$</span>
+<span class="px-1.5 py-0.5 bg-surface-container-highest text-[9px] rounded text-on-surface-variant">Adults: 2</span>
+</div>
+</div>
+<div class="glass-card p-4 rounded-lg">
+<p class="text-xs font-semibold mb-1">David Chen</p>
+<p class="text-[10px] text-on-surface-variant">Validating dates for Bali...</p>
+</div>
+</div>
+</div>
+<!-- Conversion Rate Indicator -->
+<div class="flex flex-col justify-center items-center">
+<div class="h-12 w-12 rounded-full border border-outline-variant flex items-center justify-center bg-surface-container-low mb-2">
+<span class="text-[10px] font-bold text-tertiary">42%</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-sm">trending_flat</span>
+</div>
+<!-- Stage 3: Tours Offered -->
+<div class="space-y-4">
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-secondary/30 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-secondary">map</span>
+</div>
+<h4 class="font-headline font-bold text-sm tracking-tight">Tours Offered</h4>
+<div class="px-2 py-0.5 bg-secondary/10 text-secondary rounded-full text-[10px] font-bold mt-1 uppercase tracking-tighter">56 Pending</div>
+</div>
+<div class="space-y-3">
+<div class="glass-card p-4 rounded-lg overflow-hidden group">
+<img alt="Greek Island" class="w-full h-16 object-cover rounded mb-2 opacity-80 group-hover:opacity-100 transition-opacity" data-alt="vibrant blue dome church in Santorini Greece overlooking the caldera at sunset with warm orange sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqr-g9E3mSs2Gw1_Kk3kdFx_0yYFQuEcQZ9xJVU6FLFok2IbeuBgGOrqpO7LY9AB4lJQOMUUbWyX_i_O7PpzK20OokrrfTdo8xOz5TTuXsrye70qezv_xrQN2EOn4PAwQ43hVtKV1AHcisJthIpgLeR0vI4c_1nXdbK97JQXWYHA4xSeaL9X5FKGuGCWG2Vtc4PsFPd_RKZTQFLqZt0IdL3v7tHk6qHBtz-aoN8w1D7lVPtCzcnWiGzdbMkF98abH184z7ktNmylI"/>
+<p class="text-xs font-semibold mb-0.5">The Cyclades Escape</p>
+<p class="text-[10px] text-primary">Sent to: Sophie Laurent</p>
+</div>
+<div class="glass-card p-4 rounded-lg">
+<p class="text-xs font-semibold mb-1">Swiss Alps Peak Tour</p>
+<p class="text-[10px] text-on-surface-variant">Awaiting feedback (24h)</p>
+</div>
+</div>
+</div>
+<!-- Conversion Rate Indicator -->
+<div class="flex flex-col justify-center items-center">
+<div class="h-12 w-12 rounded-full border border-outline-variant flex items-center justify-center bg-surface-container-low mb-2">
+<span class="text-[10px] font-bold text-tertiary">31%</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-sm">trending_flat</span>
+</div>
+<!-- Stage 4: Hot Leads -->
+<div class="space-y-4">
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-surface-container-high border border-error/30 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<h4 class="font-headline font-bold text-sm tracking-tight">Hot Leads</h4>
+<div class="px-2 py-0.5 bg-error/10 text-error rounded-full text-[10px] font-bold mt-1 uppercase tracking-tighter">18 Closing</div>
+</div>
+<div class="space-y-3">
+<div class="glass-card p-4 rounded-lg border-l-2 border-error">
+<div class="flex justify-between items-center mb-2">
+<span class="text-[9px] font-bold text-error uppercase">Urgent</span>
+<span class="text-[9px] text-on-surface-variant font-medium">95% Prob.</span>
+</div>
+<p class="text-xs font-semibold mb-1">Robert Van de Berg</p>
+<p class="text-[10px] text-on-surface-variant">African Safari - Customized</p>
+</div>
+<div class="glass-card p-4 rounded-lg">
+<p class="text-xs font-semibold mb-1">Anita M. Ruiz</p>
+<p class="text-[10px] text-on-surface-variant">Modifying guest count...</p>
+</div>
+</div>
+</div>
+<!-- Conversion Rate Indicator -->
+<div class="flex flex-col justify-center items-center">
+<div class="h-12 w-12 rounded-full border border-outline-variant flex items-center justify-center bg-surface-container-low mb-2">
+<span class="text-[10px] font-bold text-tertiary">88%</span>
+</div>
+<span class="material-symbols-outlined text-outline-variant text-sm">trending_flat</span>
+</div>
+<!-- Stage 5: Paid -->
+<div class="space-y-4">
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-on-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h4 class="font-headline font-bold text-sm tracking-tight">Paid</h4>
+<div class="px-2 py-0.5 bg-primary/10 text-primary rounded-full text-[10px] font-bold mt-1 uppercase tracking-tighter">158 Completed</div>
+</div>
+<div class="space-y-3">
+<div class="glass-card p-4 rounded-lg bg-primary-dim/10">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-xs text-primary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<p class="text-xs font-semibold">T. Anderson</p>
+</div>
+<p class="text-[10px] font-bold text-primary tracking-tight">$8,450.00</p>
+<p class="text-[9px] text-on-surface-variant mt-1 italic">"Perfect AI itinerary match"</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Intelligence Insights Section (Bento Style) -->
+<section class="mt-16">
+<h3 class="font-headline font-extrabold text-2xl mb-8 tracking-tight">Luminous Intelligence Insights</h3>
+<div class="grid grid-cols-12 grid-rows-2 gap-6 h-[400px]">
+<div class="col-span-8 row-span-2 glass-card rounded-2xl p-8 flex flex-col justify-between">
+<div>
+<h4 class="text-lg font-bold mb-2">Funnel Velocity Trends</h4>
+<p class="text-sm text-on-surface-variant">Lead movement speed has increased by 14% this week.</p>
+</div>
+<div class="h-48 w-full flex items-end gap-4 pb-4">
+<div class="flex-1 bg-surface-container-highest rounded-t-lg relative group h-[40%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary-dim rounded-t-lg transition-all h-[60%] group-hover:h-[80%]"></div>
+</div>
+<div class="flex-1 bg-surface-container-highest rounded-t-lg relative group h-[60%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary-dim rounded-t-lg transition-all h-[45%] group-hover:h-[65%]"></div>
+</div>
+<div class="flex-1 bg-surface-container-highest rounded-t-lg relative group h-[30%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary-dim rounded-t-lg transition-all h-[90%] group-hover:h-[100%]"></div>
+</div>
+<div class="flex-1 bg-surface-container-highest rounded-t-lg relative group h-[80%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary-dim rounded-t-lg transition-all h-[30%] group-hover:h-[50%]"></div>
+</div>
+<div class="flex-1 bg-surface-container-highest rounded-t-lg relative group h-[50%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary-dim rounded-t-lg transition-all h-[75%] group-hover:h-[95%]"></div>
+</div>
+<div class="flex-1 bg-surface-container-highest rounded-t-lg relative group h-[90%]">
+<div class="absolute inset-x-0 bottom-0 bg-tertiary rounded-t-lg transition-all h-[100%]"></div>
+</div>
+</div>
+<div class="flex justify-between text-[10px] text-on-surface-variant uppercase font-bold tracking-widest">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+</div>
+</div>
+<div class="col-span-4 glass-card rounded-2xl p-6 bg-gradient-to-br from-surface-container-high to-surface-container-lowest flex items-center gap-4">
+<div class="w-14 h-14 rounded-full bg-tertiary-dim/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-3xl">psychology</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-medium">Predictive Outcome</p>
+<p class="text-lg font-bold">14.2% Growth</p>
+<p class="text-[10px] text-tertiary-fixed mt-1">Based on current funnel density</p>
+</div>
+</div>
+<div class="col-span-4 glass-card rounded-2xl p-6 bg-gradient-to-br from-primary-container/5 to-surface-container-lowest flex items-center gap-4">
+<div class="w-14 h-14 rounded-full bg-primary-dim/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl">auto_awesome</span>
+</div>
+<div>
+<p class="text-xs text-on-surface-variant font-medium">Auto-Optimization</p>
+<p class="text-lg font-bold">Active</p>
+<p class="text-[10px] text-primary-fixed mt-1">Adjusting responses for "Hot Leads"</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Notification FAB (Contextual) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-primary text-on-primary shadow-lg shadow-primary/20 flex items-center justify-center group hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="absolute right-full mr-4 bg-surface-container-highest px-3 py-1.5 rounded-lg text-xs font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Aiva Assistant Live</span>
+</button>
+</body></html>

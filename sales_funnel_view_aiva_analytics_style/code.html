@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aiva Nebula | Sales Funnel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#7C3AED",
+                        "primary-dim": "#6D28D9",
+                        "primary-container": "#4C1D95",
+                        surface: "#09090b",
+                        "surface-container": "#18181b",
+                        "surface-container-low": "#27272a",
+                        "surface-container-lowest": "#09090b",
+                        "on-surface": "#fafafa",
+                        "on-surface-variant": "#a1a1aa",
+                        outline: "#3f3f46",
+                        tertiary: "#10b981",
+                        "tertiary-dim": "#059669",
+                        error: "#ef4444",
+                        secondary: "#7C3AED",
+                        background: "#09090b"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(24, 24, 27, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .funnel-gradient {
+            background: linear-gradient(180deg, rgba(124, 58, 237, 0.1) 0%, rgba(124, 58, 237, 0) 100%);
+        }
+        .glow-purple {
+            box-shadow: 0 0 20px rgba(124, 58, 237, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30 selection:text-white">
+<!-- SideNavBar Shell -->
+<aside class="fixed left-0 top-0 h-full flex flex-col bg-zinc-950/60 backdrop-blur-2xl w-64 border-r border-white/5 font-manrope tracking-tight text-sm z-50">
+<div class="p-8">
+<div class="flex items-center gap-3 mb-10">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center border border-primary/30">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">neurology</span>
+</div>
+<div>
+<h1 class="text-lg font-black tracking-tighter text-primary uppercase leading-none">Aiva Nebula</h1>
+<p class="text-[10px] text-zinc-500 uppercase tracking-widest font-semibold mt-1">AI Travel Sales</p>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-500 hover:text-zinc-200 transition-all hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-500 hover:text-zinc-200 transition-all hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble">chat_bubble</span>
+<span>Leads</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary font-bold border-r-4 border-primary bg-primary/10" href="#">
+<span class="material-symbols-outlined" data-icon="filter_alt">filter_alt</span>
+<span>Funnel</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-500 hover:text-zinc-200 transition-all hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span>Tours</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-500 hover:text-zinc-200 transition-all hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-500 hover:text-zinc-200 transition-all hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="extension">extension</span>
+<span>Integrations</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-zinc-500 hover:text-zinc-200 transition-all hover:bg-white/5" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+</div>
+<div class="mt-auto p-8">
+<button class="w-full py-3 bg-primary hover:bg-primary-dim text-white font-bold rounded-lg flex items-center justify-center gap-2 transition-all active:scale-95 glow-purple">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">add</span>
+            New Lead
+        </button>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="flex items-center justify-between px-8 ml-64 w-[calc(100%-16rem)] h-16 sticky top-0 z-40 bg-zinc-950/40 backdrop-blur-xl border-b border-white/10">
+<h2 class="font-headline font-extrabold text-xl tracking-tight text-on-surface">Sales Funnel</h2>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute inset-y-0 left-3 flex items-center text-zinc-400">
+<span class="material-symbols-outlined text-sm">search</span>
+</span>
+<input class="bg-white/5 border border-white/10 rounded-full pl-10 pr-4 py-1.5 text-xs text-zinc-200 w-64 focus:outline-none focus:ring-1 focus:ring-primary transition-all" placeholder="Search funnel..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="hover:bg-white/5 rounded-full p-2 transition-colors text-zinc-400 hover:text-white">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full border-2 border-primary/50 p-0.5 overflow-hidden">
+<img alt="User Profile" class="w-full h-full rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARzxiU9iVA3vlVbrLBAV9gEvU4WCtK7Fs4A-Wk5LIU73JCXxXCPyGNwDGhXVK6fswgD7wVFr_pxPslZYURPS5JTqVAB0vdq2ARvhcAPgg0-t03Sis4yg5PzwDdeQSMr_JGW7fe8n8mBBMQ5jaq5yI2psJjF2jaCDT8VxRuqHiOP1sds4AuTcz-gWrR7ePuToMsxmoDzs61veAtGYdj8hOODnXpHPFPN9z6kWAzIgOK1dEUjS0qvhP8V1R9lxrHE_u3leiWa2R7amk"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 p-8 min-h-screen bg-surface">
+<!-- Funnel Overview Header -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+<div class="bg-zinc-900/50 border border-white/5 p-6 rounded-xl relative overflow-hidden group hover:border-primary/30 transition-colors">
+<div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary" style="font-variation-settings: 'FILL' 1;">trending_up</span>
+</div>
+<p class="text-[10px] font-bold text-zinc-500 tracking-[0.15em] uppercase mb-4">Overall Conversion</p>
+<h3 class="text-3xl font-manrope font-black text-on-surface">12.4%</h3>
+<p class="text-xs font-bold text-tertiary mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">arrow_upward</span>
+                2.1% from last month
+            </p>
+</div>
+<div class="bg-zinc-900/50 border border-white/5 p-6 rounded-xl hover:border-primary/30 transition-colors">
+<p class="text-[10px] font-bold text-zinc-500 tracking-[0.15em] uppercase mb-4">Active Pipeline Value</p>
+<h3 class="text-3xl font-manrope font-black text-on-surface">$1.2M</h3>
+<div class="mt-4 w-full bg-zinc-800 rounded-full h-1.5 overflow-hidden">
+<div class="h-full bg-primary w-3/4"></div>
+</div>
+</div>
+<div class="bg-zinc-900/50 border border-white/5 p-6 rounded-xl hover:border-primary/30 transition-colors">
+<p class="text-[10px] font-bold text-zinc-500 tracking-[0.15em] uppercase mb-4">AI Efficiency Score</p>
+<h3 class="text-3xl font-manrope font-black text-primary">98/100</h3>
+<div class="mt-2 px-2 py-0.5 inline-block bg-tertiary/20 text-tertiary text-[10px] rounded border border-tertiary/30 font-bold uppercase tracking-widest">Optimal Processing</div>
+</div>
+</div>
+<!-- Funnel Visualization Area -->
+<div class="relative">
+<div class="grid grid-cols-5 gap-4 relative z-10">
+<!-- Stage 1: New Leads -->
+<div class="space-y-4">
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-zinc-900 border border-primary/20 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary">person_add</span>
+</div>
+<h4 class="font-headline font-bold text-sm tracking-tight">New Leads</h4>
+<div class="px-2 py-0.5 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] font-bold mt-1 uppercase tracking-tighter">248 Active</div>
+</div>
+<div class="space-y-3">
+<div class="bg-zinc-900/50 border border-white/5 p-4 rounded-lg hover:border-primary/30 transition-all cursor-pointer border-l-2 border-l-primary">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-primary uppercase">High Intent</span>
+<span class="text-[10px] text-zinc-500">2m ago</span>
+</div>
+<p class="text-xs font-semibold mb-1 text-zinc-100">Marco Rossi</p>
+<p class="text-[10px] text-zinc-500 line-clamp-1">Luxury Amalfi Coast inquiry...</p>
+</div>
+<div class="bg-zinc-900/50 border border-white/5 p-4 rounded-lg hover:border-primary/30 transition-all cursor-pointer">
+<p class="text-xs font-semibold mb-1 text-zinc-100">Sarah Jenkins</p>
+<p class="text-[10px] text-zinc-500 line-clamp-1">Tokyo food tour exploration</p>
+</div>
+<div class="bg-zinc-900/50 border border-white/5 p-4 rounded-lg hover:border-primary/30 transition-all cursor-pointer">
+<p class="text-xs font-semibold mb-1 text-zinc-100">James Wilson</p>
+<p class="text-[10px] text-zinc-500 line-clamp-1">Iceland winter photography</p>
+</div>
+</div>
+</div>
+<!-- Conversion Rate Indicator -->
+<div class="flex flex-col justify-center items-center">
+<div class="h-12 w-12 rounded-full border border-white/5 flex items-center justify-center bg-zinc-900 mb-2">
+<span class="text-[10px] font-bold text-tertiary">68%</span>
+</div>
+<span class="material-symbols-outlined text-zinc-600 text-sm">trending_flat</span>
+</div>
+<!-- Stage 2: Gathering Parameters -->
+<div class="space-y-4">
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-zinc-900 border border-tertiary/20 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-tertiary">query_stats</span>
+</div>
+<h4 class="font-headline font-bold text-sm tracking-tight">Parameters</h4>
+<div class="px-2 py-0.5 bg-tertiary/10 text-tertiary border border-tertiary/20 rounded-full text-[10px] font-bold mt-1 uppercase tracking-tighter">142 Refining</div>
+</div>
+<div class="space-y-3">
+<div class="bg-zinc-900/50 border border-white/5 p-4 rounded-lg border-l-2 border-l-tertiary">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+<span class="text-[10px] text-tertiary font-bold uppercase tracking-widest">AI Processing</span>
+</div>
+<p class="text-xs font-semibold mb-1 text-zinc-100">Elena Kostic</p>
+<div class="flex flex-wrap gap-1 mt-2">
+<span class="px-1.5 py-0.5 bg-zinc-800 text-[9px] rounded text-zinc-400 font-medium">Budget: $$</span>
+<span class="px-1.5 py-0.5 bg-zinc-800 text-[9px] rounded text-zinc-400 font-medium">Adults: 2</span>
+</div>
+</div>
+<div class="bg-zinc-900/50 border border-white/5 p-4 rounded-lg">
+<p class="text-xs font-semibold mb-1 text-zinc-100">David Chen</p>
+<p class="text-[10px] text-zinc-500">Validating dates for Bali...</p>
+</div>
+</div>
+</div>
+<!-- Conversion Rate Indicator -->
+<div class="flex flex-col justify-center items-center">
+<div class="h-12 w-12 rounded-full border border-white/5 flex items-center justify-center bg-zinc-900 mb-2">
+<span class="text-[10px] font-bold text-tertiary">42%</span>
+</div>
+<span class="material-symbols-outlined text-zinc-600 text-sm">trending_flat</span>
+</div>
+<!-- Stage 3: Tours Offered -->
+<div class="space-y-4">
+<div class="flex flex-col items-center text-center">
+<div class="w-12 h-12 rounded-full bg-zinc-900 border border-primary/20 flex items-center justify-center mb-2">
+<span class="material-symbols-outlined text-primary">map</span>
+</div>
+<h4 class="font-headline font-bold text-sm tracking-tight">Tours Offered</h4>
+<div class="px-2 py-0.5 bg-primary/10 text-primary border border-primary/20 rounded-full text-[10px] font-bold mt-1 uppercase tracking-tighter">56 Pending</div>
+</div>
+<div class="space-y-3">
+<div class="bg-zinc-900/50 border border-white/5 p-4 rounded-lg overflow-hidden group hover:border-primary/20 transition-all">
+<img alt="Greek Island" class="w-full h-16 object-cover rounded mb-2 opacity-60 group-hover:opacity-80 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqr-g9E3mSs2Gw1_Kk3kdFx_0yYFQuEcQZ9xJVU6FLFok2IbeuBgGOrqpO7LY9AB4lJQOMUUbWyX_i_O7PpzK20OokrrfTdo8xOz5TTuXsrye70qezv_xrQN2EOn4PAwQ43hVtKV1AHcisJthIpgLeR0vI4c_1nXdbK97JQXWYHA4xSeaL9X5FKGuGCWG2Vtc4PsFPd_RKZTQFLqZt0IdL3v7tHk6qHBtz-aoN8w1D7lVPtCzcnWiGzdbMkF98abH184z7ktNmylI"/>
+<p class="text-xs font-semibold mb-0.5 text-zinc-100">The Cyclades Escape</p>
+<p class="text-[10px] text-primary font-medium">Sent to: Sophie Laurent</p>
+</div>
+<div class="bg-zinc-900/50 border border-white/5 p-4 rounded-lg">
+<p class="text-xs font-semibold mb-1 text-zinc-100">Swiss Alps Peak Tour</p>
+<p class="text-[10px] text-zinc-500">Awaiting feedback (24h)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Intelligence Insights Section (Bento Style) -->
+<section class="mt-20">
+<h3 class="font-headline font-extrabold text-2xl mb-8 tracking-tight">Luminous Intelligence Insights</h3>
+<div class="grid grid-cols-12 gap-6 h-[400px]">
+<div class="col-span-8 bg-zinc-900/40 border border-white/5 rounded-2xl p-8 flex flex-col justify-between hover:border-primary/20 transition-all">
+<div>
+<h4 class="text-lg font-bold mb-2">Funnel Velocity Trends</h4>
+<p class="text-sm text-zinc-500">Lead movement speed has increased by 14% this week.</p>
+</div>
+<div class="h-48 w-full flex items-end gap-4 pb-4">
+<div class="flex-1 bg-white/5 rounded-t-lg relative group h-[40%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary/40 rounded-t-lg transition-all h-[60%] group-hover:h-[80%]"></div>
+</div>
+<div class="flex-1 bg-white/5 rounded-t-lg relative group h-[60%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary/40 rounded-t-lg transition-all h-[45%] group-hover:h-[65%]"></div>
+</div>
+<div class="flex-1 bg-white/5 rounded-t-lg relative group h-[30%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary/40 rounded-t-lg transition-all h-[90%] group-hover:h-[100%] shadow-[0_-4px_15px_rgba(124,58,237,0.2)]"></div>
+</div>
+<div class="flex-1 bg-white/5 rounded-t-lg relative group h-[80%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary/40 rounded-t-lg transition-all h-[30%] group-hover:h-[50%]"></div>
+</div>
+<div class="flex-1 bg-white/5 rounded-t-lg relative group h-[50%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary/60 rounded-t-lg transition-all h-[75%] group-hover:h-[95%]"></div>
+</div>
+<div class="flex-1 bg-white/5 rounded-t-lg relative group h-[90%]">
+<div class="absolute inset-x-0 bottom-0 bg-primary rounded-t-lg transition-all h-[100%] shadow-[0_-4px_20px_rgba(124,58,237,0.3)]"></div>
+</div>
+</div>
+<div class="flex justify-between text-[10px] text-zinc-500 uppercase font-black tracking-widest">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+</div>
+</div>
+<div class="col-span-4 flex flex-col gap-6">
+<div class="flex-1 bg-zinc-950 border border-white/5 rounded-2xl p-6 flex items-center gap-4 hover:border-tertiary/20 transition-all">
+<div class="w-14 h-14 rounded-full bg-tertiary/10 border border-tertiary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-tertiary text-3xl">psychology</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Predictive Outcome</p>
+<p class="text-xl font-manrope font-black text-on-surface">14.2% Growth</p>
+<p class="text-[10px] text-tertiary font-bold mt-1 uppercase">Increasing density</p>
+</div>
+</div>
+<div class="flex-1 bg-zinc-950 border border-white/5 rounded-2xl p-6 flex items-center gap-4 hover:border-primary/20 transition-all">
+<div class="w-14 h-14 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary text-3xl">auto_awesome</span>
+</div>
+<div>
+<p class="text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1">Auto-Optimization</p>
+<p class="text-xl font-manrope font-black text-on-surface">Active</p>
+<p class="text-[10px] text-primary font-bold mt-1 uppercase">Adjusting Lead Flows</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Notification FAB -->
+<button class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-primary text-white shadow-lg shadow-primary/30 flex items-center justify-center group hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span class="absolute right-full mr-4 bg-zinc-900 border border-white/10 px-3 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">Aiva Assistant Live</span>
+</button>
+<!-- Footer -->
+<footer class="ml-64 w-[calc(100%-16rem)] py-12 border-t border-white/5 bg-zinc-950">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-2 mb-6 md:mb-0">
+<span class="font-inter text-[10px] tracking-widest uppercase text-zinc-600 font-bold">© 2024 Aiva Nebula. Editorial Futurist Division.</span>
+</div>
+<div class="flex gap-8">
+<a class="font-inter text-[10px] tracking-widest uppercase text-zinc-600 font-bold hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="font-inter text-[10px] tracking-widest uppercase text-zinc-600 font-bold hover:text-primary transition-colors" href="#">Terms of Service</a>
+<a class="font-inter text-[10px] tracking-widest uppercase text-zinc-600 font-bold hover:text-primary transition-colors" href="#">API Status</a>
+</div>
+</div>
+</footer>
+</body></html>

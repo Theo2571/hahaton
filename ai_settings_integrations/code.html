@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aiva Nebula | AI Configuration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary-fixed-variant": "#390083",
+                        "on-tertiary": "#6a0a31",
+                        "on-primary": "#3c0089",
+                        "error": "#ff6e84",
+                        "on-tertiary-fixed": "#380016",
+                        "primary-dim": "#8a4cfc",
+                        "surface-container-lowest": "#000000",
+                        "secondary-container": "#5516be",
+                        "inverse-primary": "#742fe5",
+                        "primary-fixed": "#b28cff",
+                        "tertiary-dim": "#f17799",
+                        "tertiary-fixed-dim": "#f77c9e",
+                        "tertiary-fixed": "#ff8eac",
+                        "on-secondary-fixed": "#40009b",
+                        "surface-container": "#1a1919",
+                        "on-surface": "#ffffff",
+                        "secondary-fixed-dim": "#ceb9ff",
+                        "on-error": "#490013",
+                        "on-tertiary-container": "#5a0027",
+                        "on-primary-container": "#2e006c",
+                        "on-tertiary-fixed-variant": "#711036",
+                        "secondary": "#ac8aff",
+                        "primary-fixed-dim": "#a67aff",
+                        "tertiary": "#ff97b2",
+                        "primary": "#bd9dff",
+                        "on-secondary": "#280067",
+                        "secondary-fixed": "#dac9ff",
+                        "on-primary-fixed": "#000000",
+                        "on-background": "#ffffff",
+                        "inverse-surface": "#fcf8f8",
+                        "error-dim": "#d73357",
+                        "inverse-on-surface": "#565554",
+                        "surface-dim": "#0e0e0e",
+                        "background": "#0e0e0e",
+                        "on-surface-variant": "#adaaaa",
+                        "tertiary-container": "#fe81a4",
+                        "surface-variant": "#262626",
+                        "surface-container-highest": "#262626",
+                        "on-error-container": "#ffb2b9",
+                        "surface-bright": "#2c2c2c",
+                        "error-container": "#a70138",
+                        "surface-tint": "#bd9dff",
+                        "surface-container-low": "#131313",
+                        "surface": "#0e0e0e",
+                        "on-secondary-fixed-variant": "#5f28c8",
+                        "outline-variant": "#494847",
+                        "surface-container-high": "#201f1f",
+                        "secondary-dim": "#8455ef",
+                        "outline": "#777575"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(38, 38, 38, 0.4);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #262626;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar Execution -->
+<aside class="fixed left-0 top-0 h-full flex flex-col bg-[#0e0e0e] dark:bg-[#0e0e0e] h-screen w-64 border-r border-[#262626] z-50">
+<div class="p-8">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-[0_0_20px_rgba(189,157,255,0.3)]">
+<span class="material-symbols-outlined text-on-primary text-2xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tighter text-[#bd9dff] font-headline">Aiva Nebula</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-outline font-bold">AI Travel Sales</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-1 font-manrope tracking-tight text-sm">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 transition-colors hover:bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 transition-colors hover:bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span>Leads</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 transition-colors hover:bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined">filter_alt</span>
+<span>Funnel</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 transition-colors hover:bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span>Tours</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 transition-colors hover:bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined">insights</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-500 hover:text-gray-200 transition-colors hover:bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined">extension</span>
+<span>Integrations</span>
+</a>
+<!-- Active State Logic: Settings -->
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-[#bd9dff] font-bold border-r-2 border-[#bd9dff] bg-[#1a1a1a]" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="p-6">
+<button class="w-full py-3 px-4 bg-surface-container-highest hover:bg-surface-bright text-primary border border-outline-variant/30 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 active:scale-95">
+<span class="material-symbols-outlined text-sm">add</span>
+<span class="font-bold">New Lead</span>
+</button>
+</div>
+</aside>
+<!-- TopAppBar Execution -->
+<header class="flex items-center justify-between px-8 ml-64 w-[calc(100%-16rem)] h-16 w-full sticky top-0 z-40 bg-[#0e0e0e]/80 backdrop-blur-xl border-b border-[#262626]/50">
+<div class="flex items-center gap-4">
+<h2 class="font-headline font-extrabold text-xl tracking-tight text-on-surface">Settings</h2>
+<div class="h-4 w-[1px] bg-outline-variant"></div>
+<p class="text-sm text-on-surface-variant">Configure your AI sales environment</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span>
+<input class="bg-surface-container-high border-none rounded-full pl-10 pr-4 py-1.5 text-sm w-64 focus:ring-1 focus:ring-primary/50 transition-all" placeholder="Search settings..." type="text"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="hover:bg-white/5 rounded-full p-2 transition-colors relative">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-tertiary rounded-full"></span>
+</button>
+<div class="flex items-center gap-3 pl-2 border-l border-outline-variant/30">
+<img alt="User Profile" class="w-8 h-8 rounded-full bg-surface-container-highest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAjPVRPfPkvZbBdES30isXNIp_sqfSeHSn-bWouPk2u2dbYd9DKhkU9mhwEHBXcR3f3Z6_E_irD7nu4AJ3c2xtFvZ9C6_Zpg7QBK633g_tUK5ADh0u4uMGf0xvoAo1g6Zlnr4UAgO4eHcfOoAyx_1oCFalqWaEzj-iH2SXi5QMt8JJX5cqZcIjJE0YDjf5JDrmHTK8m66mUynZuLVZYGa5i_a7cfpKlMPz2Prnu4673FG_es6liVxK9l1gSOMwy8Cbabz_gxm_2Zo"/>
+<span class="text-sm font-semibold text-on-surface">Alex Thompson</span>
+</div>
+</div>
+</div>
+</header>
+<main class="ml-64 p-12 min-h-screen bg-surface">
+<div class="max-w-6xl mx-auto space-y-12">
+<!-- Hero Title Section -->
+<section class="space-y-2">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    System Online
+                </div>
+<h3 class="text-5xl font-headline font-extrabold tracking-tighter text-on-surface">AI Intelligence Core</h3>
+<p class="text-on-surface-variant max-w-2xl text-lg leading-relaxed">Refine how Aiva interacts with your clients. Adjust parameters, set behavioral guardrails, and manage cross-platform connectivity.</p>
+</section>
+<!-- Bento Grid Configuration -->
+<div class="grid grid-cols-12 gap-6">
+<!-- AI Tone of Voice & Behavior (6 cols) -->
+<div class="col-span-12 lg:col-span-7 space-y-6">
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/10 relative overflow-hidden group">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all"></div>
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary-fixed">psychology</span>
+<h4 class="text-xl font-headline font-bold">Personality &amp; Tone</h4>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<!-- Tone Options -->
+<button class="flex flex-col items-center gap-4 p-6 rounded-xl bg-surface-container border border-outline-variant/50 hover:border-primary transition-all">
+<span class="material-symbols-outlined text-3xl">business_center</span>
+<div class="text-center">
+<p class="font-bold text-sm">Formal</p>
+<p class="text-[10px] text-outline">Executive &amp; Polished</p>
+</div>
+</button>
+<button class="flex flex-col items-center gap-4 p-6 rounded-xl bg-primary/10 border-2 border-primary text-primary transition-all">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">sentiment_satisfied</span>
+<div class="text-center">
+<p class="font-bold text-sm">Friendly</p>
+<p class="text-[10px] text-primary/70">Warm &amp; Approachable</p>
+</div>
+</button>
+<button class="flex flex-col items-center gap-4 p-6 rounded-xl bg-surface-container border border-outline-variant/50 hover:border-primary transition-all">
+<span class="material-symbols-outlined text-3xl">trending_up</span>
+<div class="text-center">
+<p class="font-bold text-sm">Sales-driven</p>
+<p class="text-[10px] text-outline">Direct &amp; Persuasive</p>
+</div>
+</button>
+</div>
+<div class="mt-10 space-y-6">
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-high/50">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-tertiary/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">schedule_send</span>
+</div>
+<div>
+<p class="font-bold text-sm">Auto-follow-up Scenario</p>
+<p class="text-xs text-outline">Reconnect after 24h of inactivity</p>
+</div>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- AI Parameters (Budget & Countries) -->
+<div class="p-8 rounded-2xl bg-surface-container-low border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-secondary">tune</span>
+<h4 class="text-xl font-headline font-bold">Global Parameters</h4>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="space-y-4">
+<label class="text-sm font-bold text-outline uppercase tracking-wider">Minimal Lead Budget</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-primary font-bold">$</span>
+<input class="w-full bg-surface-container-high border-none border-b-2 border-primary-dim rounded-t-lg p-4 pl-8 text-xl font-headline font-bold focus:ring-0" type="number" value="2500"/>
+</div>
+<p class="text-[11px] text-outline">Filter out leads below this travel budget threshold.</p>
+</div>
+<div class="space-y-4">
+<label class="text-sm font-bold text-outline uppercase tracking-wider">Priority Destinations</label>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1.5 bg-surface-container-highest rounded-full text-xs font-semibold flex items-center gap-2 border border-outline-variant/30">
+                                        Italy <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error">close</span>
+</span>
+<span class="px-3 py-1.5 bg-surface-container-highest rounded-full text-xs font-semibold flex items-center gap-2 border border-outline-variant/30">
+                                        Japan <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error">close</span>
+</span>
+<span class="px-3 py-1.5 bg-surface-container-highest rounded-full text-xs font-semibold flex items-center gap-2 border border-outline-variant/30">
+                                        Iceland <span class="material-symbols-outlined text-[14px] cursor-pointer hover:text-error">close</span>
+</span>
+<button class="px-3 py-1.5 bg-primary/20 text-primary rounded-full text-xs font-bold border border-primary/30 flex items-center gap-1 hover:bg-primary/30 transition-colors">
+<span class="material-symbols-outlined text-[14px]">add</span> Add Country
+                                    </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Integrations List (5 cols) -->
+<div class="col-span-12 lg:col-span-5">
+<div class="h-full p-8 rounded-2xl bg-surface-container-high border border-outline-variant/20 flex flex-col">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary">hub</span>
+<h4 class="text-xl font-headline font-bold">Integrations</h4>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant bg-surface-container px-2 py-1 rounded">3 ACTIVE</span>
+</div>
+<div class="space-y-4 flex-1">
+<!-- WhatsApp -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/10 flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366]">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">chat</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">WhatsApp Business</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#25D366]"></span>
+<span class="text-[10px] text-outline font-bold uppercase tracking-wider">Connected</span>
+</div>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity px-4 py-2 bg-surface-container-highest text-xs font-bold rounded-lg border border-outline-variant/30 hover:bg-surface-bright">Reconnect</button>
+</div>
+<!-- Telegram -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/10 flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-[#0088cc]/10 flex items-center justify-center text-[#0088cc]">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">send</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Telegram Bot</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#25D366]"></span>
+<span class="text-[10px] text-outline font-bold uppercase tracking-wider">Connected</span>
+</div>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity px-4 py-2 bg-surface-container-highest text-xs font-bold rounded-lg border border-outline-variant/30 hover:bg-surface-bright">Reconnect</button>
+</div>
+<!-- Instagram -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/10 flex items-center justify-between group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-gradient-to-tr from-[#f09433] via-[#e6683c] to-[#bc1888] opacity-20 flex items-center justify-center text-on-surface">
+<!-- Placeholder for IG icon color -->
+</div>
+<div class="absolute w-12 h-12 flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl text-on-surface">camera</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Instagram DMs</p>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-[#25D366]"></span>
+<span class="text-[10px] text-outline font-bold uppercase tracking-wider">Connected</span>
+</div>
+</div>
+</div>
+<button class="opacity-0 group-hover:opacity-100 transition-opacity px-4 py-2 bg-surface-container-highest text-xs font-bold rounded-lg border border-outline-variant/30 hover:bg-surface-bright">Reconnect</button>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/20">
+<div class="p-6 rounded-xl bg-gradient-to-br from-primary/10 to-transparent border border-primary/20 relative overflow-hidden">
+<div class="relative z-10">
+<p class="text-sm font-bold text-primary mb-2">New: AI Multimodal Support</p>
+<p class="text-xs text-on-surface-variant leading-relaxed mb-4">Aiva can now process voice notes and images shared via WhatsApp.</p>
+<a class="text-xs font-bold underline decoration-primary/50 underline-offset-4 hover:text-primary transition-colors" href="#">Configure Voice Models</a>
+</div>
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-7xl text-primary/5 select-none">mic</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Action Bar -->
+<div class="sticky bottom-8 z-30 p-1 rounded-2xl bg-surface-container-highest/50 backdrop-blur-xl border border-outline-variant/20 flex items-center justify-between px-8 py-4 shadow-2xl">
+<div class="flex items-center gap-6">
+<div class="flex -space-x-3">
+<div class="w-10 h-10 rounded-full border-2 border-surface-container-highest bg-surface-container-high overflow-hidden">
+<img alt="AI Agent" class="w-full h-full object-cover" data-alt="close-up of a futuristic glowing robotic eye with violet and blue microcircuitry reflecting in the lens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwRrdpXdvM3qT3QlslHqnbAbHIoHQSAri2voi4P0mJgk91MoNSzClR_mgKkNlE3OgkNkGz4T6p89my_XpIyv-THGP15JKsZG9fBtqj36NhJx_rSiQbk7Q-g8qrf-CITpb842pfdTtq1lg-nZWRdwLzg93Lqzw2UI_rOhr4ap4x91D3rQxMgI72_mEBUTdqqNmzPM5c_UryNlC-CB5IoqgJDT9kbgOsNHXnmjs5zwkfD3riHGH0r5MEyujt0QHYVEjXsUBtY5lYAhM"/>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-surface-container-highest bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-sm text-primary">sync</span>
+</div>
+</div>
+<p class="text-sm text-on-surface-variant font-medium">Last synced with neural server <span class="text-on-surface font-bold">2 minutes ago</span></p>
+</div>
+<div class="flex items-center gap-4">
+<button class="px-6 py-2.5 rounded-lg text-sm font-bold text-on-surface hover:bg-white/5 transition-colors">Discard Changes</button>
+<button class="px-8 py-2.5 rounded-lg bg-primary text-on-primary font-bold shadow-[0_0_20px_rgba(189,157,255,0.4)] hover:scale-[1.02] active:scale-95 transition-all">Save AI Configuration</button>
+</div>
+</div>
+</div>
+</main>
+<!-- Background Decorative Elements -->
+<div class="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
+<div class="absolute top-[-10%] right-[-10%] w-[50%] h-[50%] bg-primary/5 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-[-5%] left-[20%] w-[40%] h-[40%] bg-secondary/5 rounded-full blur-[100px]"></div>
+</div>
+</body></html>

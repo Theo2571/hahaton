@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aiva | Enterprise AI Bot Platform</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#7C3AED",
+              "surface": "#09090b",
+              "on-surface": "#fafafa",
+              "on-surface-variant": "#a1a1aa",
+              "outline-variant": "rgba(255, 255, 255, 0.1)",
+              "surface-container-low": "#18181b",
+              "surface-container-high": "#27272a",
+              "surface-container-highest": "#3f3f46"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "manrope": ["Manrope", "sans-serif"]
+            },
+            borderRadius: {
+              "DEFAULT": "0.5rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .bg-aiva-gradient {
+            background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(124, 58, 237, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px rgba(124, 58, 237, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-body antialiased bg-grid-pattern">
+<!-- TopNavBar Shared Component -->
+<nav class="fixed top-0 w-full z-50 bg-zinc-950/40 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_0_rgba(124,58,237,0.1)]">
+<div class="flex justify-between items-center px-6 py-3 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-10">
+<span class="text-2xl font-bold tracking-tighter text-white uppercase font-manrope">Aiva</span>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-manrope tracking-tight text-sm font-medium text-violet-400 font-bold border-b-2 border-violet-500 pb-1" href="#">Models</a>
+<a class="font-manrope tracking-tight text-sm font-medium text-zinc-400 hover:text-white transition-colors" href="#">Datasets</a>
+<a class="font-manrope tracking-tight text-sm font-medium text-zinc-400 hover:text-white transition-colors" href="#">Deploy</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="bg-aiva-gradient text-white px-5 py-2 rounded-lg font-manrope text-sm font-bold active:scale-95 transition-all duration-200 shadow-lg shadow-violet-500/20">Create Bot</button>
+<div class="flex items-center gap-4 text-zinc-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-violet-400 transition-all duration-300">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-violet-400 transition-all duration-300">settings</span>
+<div class="w-8 h-8 rounded-full bg-zinc-800 border border-white/10 overflow-hidden">
+<img alt="User profile avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6FADV5Cn4ETnRqe0UDtPzreixfUz0IagrM-ObqUgDHYUJCsr-6RSa31Jloh0bMGKnZIbYL5RtZHRxYriwSRxeYtJXoDYDLA7bcVQjA_bVJxmYJk4a1l7xGn70QgqRuZ1Gt4Q1AjGq2OBLrmoxX44CDv27R4PKL34Gpuxxmcd1jRUD3IGe7kNmXlwpQCbHh4Ktu1SW34eEy_lZAPgREI4RQs0e7D7ZGJ_q8gXYfn6jDPHqxPk_kIRlM8x1QB_WzYX-XdJ3KAnGLZk"/>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-40 pb-24 px-8 overflow-hidden">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-7">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-bold tracking-widest mb-8">
+                        NEURAL ENGINE V2.0 ACTIVE
+                    </span>
+<h1 class="font-headline text-5xl lg:text-7xl font-extrabold tracking-tight text-white mb-8 leading-[1.1]">
+                        Curate intelligence for your <span class="text-transparent bg-clip-text bg-aiva-gradient">entire organization.</span>
+</h1>
+<p class="text-xl text-zinc-400 max-w-2xl mb-12 leading-relaxed">
+                        Transform complex business data into actionable customer support and internal knowledge bases with our enterprise-grade AI bot builder. Built for scale, security, and precision.
+                    </p>
+<div class="flex flex-wrap gap-5">
+<button class="bg-aiva-gradient text-white px-10 py-4 rounded-lg font-headline font-bold text-lg shadow-xl shadow-violet-600/20 hover:scale-[1.02] active:scale-95 transition-all">
+                            Get Started Free
+                        </button>
+<button class="bg-zinc-900 border border-white/10 text-white px-10 py-4 rounded-lg font-headline font-bold text-lg hover:bg-zinc-800 transition-colors">
+                            Book a Demo
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<!-- Bot Preview Window -->
+<div class="bg-zinc-950 rounded-xl shadow-[0_0_50px_rgba(124,58,237,0.15)] overflow-hidden border border-white/10 backdrop-blur-sm">
+<div class="bg-zinc-900 px-4 py-3 flex items-center justify-between border-b border-white/5">
+<div class="flex gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+</div>
+<span class="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">aiva_interface_v2.ai</span>
+</div>
+<div class="p-6 space-y-5 bg-zinc-950/50">
+<div class="flex gap-3">
+<div class="w-9 h-9 rounded-lg bg-aiva-gradient flex items-center justify-center shrink-0 shadow-lg shadow-violet-500/20">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="bg-zinc-900 p-4 rounded-2xl rounded-tl-none text-sm text-zinc-200 max-w-[85%] border border-white/5">
+                                    Hello! I've analyzed your CRM data. Your customer retention increased by 14% last month. Would you like a detailed report?
+                                </div>
+</div>
+<div class="flex gap-3 justify-end">
+<div class="bg-violet-600 text-white p-4 rounded-2xl rounded-tr-none text-sm max-w-[85%] shadow-lg shadow-violet-900/20">
+                                    Yes, please generate that for the APAC region specifically.
+                                </div>
+</div>
+<div class="flex gap-3">
+<div class="w-9 h-9 rounded-lg bg-aiva-gradient flex items-center justify-center shrink-0 shadow-lg shadow-violet-500/20">
+<span class="material-symbols-outlined text-white text-sm" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+</div>
+<div class="bg-zinc-900 p-4 rounded-2xl rounded-tl-none text-sm text-zinc-200 max-w-[85%] border border-white/5">
+<div class="flex items-center gap-2 mb-2 text-violet-400">
+<span class="material-symbols-outlined text-xs animate-pulse">analytics</span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Processing APAC Dataset...</span>
+</div>
+                                    Report generated. APAC region showed peak performance in Singapore and Sydney hubs.
+                                </div>
+</div>
+</div>
+</div>
+<!-- Aura Decorations -->
+<div class="absolute -bottom-10 -right-10 w-64 h-64 bg-violet-600/10 rounded-full blur-[100px] -z-10"></div>
+<div class="absolute -top-20 -left-20 w-80 h-80 bg-indigo-600/5 rounded-full blur-[120px] -z-10"></div>
+</div>
+</div>
+</section>
+<!-- Trusted Brands -->
+<section class="py-16 bg-zinc-950/50 border-y border-white/5">
+<div class="max-w-7xl mx-auto px-8">
+<p class="text-center font-manrope text-[10px] font-bold uppercase tracking-[0.4em] text-zinc-500 mb-10">Integration Ecosystem</p>
+<div class="flex flex-wrap justify-center gap-12 lg:gap-24 opacity-30 grayscale invert brightness-200">
+<img alt="Global Logistics Brand" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChvq6lmUhnnfj5a_wF7-e_E0cFutc9CkXPGqtAZsJ-yHj-fg5EIrag3FaEVy1Djeq7gV_iWqTV_PcYrKIU8XDKkSBv3vB95r_Ua9os1kXifCxc5xJsrbK0Ev8zyUWSj7HTPEKqhTEqNMChkAV42Q0jTV1Y8W74_pJfjnNTc8Ami_LcYbYWlK0ds-EZsy56BYTChY7zQgIVBHkxtUZZDpiXevkZZjkkc3VBKrbPhgqglakB_QIxrHEvom_ETfJEWryjX8vKc8aq25U"/>
+<img alt="Tech Hub Corp" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKA0Zuy0XbzqpDPvzcMJp-mYmSHb1Dgr9oeI9Kkp7HiOvkQV3_AZSOtZsn8Bty68oKH5qPTPaU7TtD5k73TLnhGVXWgLDN7ktXn_B1jpkkAK-W9DecqAyQ86rmxnk5H0t2pXtLWGfUcqUsfmzIb1KBROtN9-JwphegCO77HRdX5aFRU-RtYmPRObKCrvReXleX0_ejSqWW8BEjmUfwg_0WqrAUGYR_k6Wy9OkDjH_PISEfzbJA3ae5aoIK9Q6u12qTYLJt6Ed_mxw"/>
+<img alt="Fintech Solutions" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYiUNidiq6ZLTHOjpIh6DGzBjwURNllJyMLxFSw9eB0yurHVx32BRVhFK3MF7awD8zpgo-IEQ9XbeWgRdq-PpCIpK20V_n-bjFY8UeRnN15FM5-rLmIRSquPuo5I26S6_bYn1j7d05At7k-bf04lDpdHS1RFvXApKYCTu9ZIbmmxZl4BCoyBlMupdU5bPvPUB6r-U2bXAeWpINnRBzktojIgxMgm6MsG5jQ5igSGNQtpdetQY7Ut8vCYD9W4jcSGeTGSWItY_LV_A"/>
+<img alt="Data Streams Inc" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDjzZn01TaMrxzioT3Ka2ZadU0wROBPoOXGiG1Z41CpUoAML4cZII8-I50lxsAFY0X7xjqs0ojx7b9U4H1GxgF3CZQtCNfSx739Og5Tna8Fy-QaV5XhO1WCQA2s-JCLq4fgZDrMMNiXVzvua7BzmJXFRUGmbUJrLJGCLpbZ555r7GgoLXTp_P1nYRQwWhQAIA9m8-5pHXPXeWE5IFmd7bqfn2QnA0fPpl-2oGkLizsR1VSFvajuD-VMLEBbNci_0c2Isibw-GfnD0"/>
+<img alt="Green Energy Co" class="h-6" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu89rolhdwjJ1_Q96y6H_DmpTwwRtzSOZHuxkno8JftTFOAHqZDtPeAGZ5wbFRnEVcAkbUaizwKBpP1RtHvAqibZsqTCbP4m6vtSI3xQTp8RGJ9uNk39gNNru8_6teIYpLCFtbkAlkFNBBuwHRTZkwFey3FgD0g3nepSkHAhqEYJMuC0H35D9-OIeuDRU1xRz6_QNUAEgpAZ4A9D23klqbSIe5x8-swv-KljnNo2DG3OhyAtVQHR--clpZ1HcmJi_RAY5osZ5qFRQ"/>
+</div>
+</div>
+</section>
+<!-- See it in Action Demo Section -->
+<section class="py-32 px-8 bg-zinc-950 relative overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-16">
+<h2 class="font-headline text-4xl lg:text-5xl font-extrabold text-white mb-6">See it in Action</h2>
+<p class="text-zinc-400 max-w-2xl mx-auto text-lg">Watch how our intuitive bot builder transforms raw enterprise data into a sophisticated neural conversational agent in minutes.</p>
+</div>
+<div class="relative max-w-5xl mx-auto group">
+<!-- Dashboard Mockup/Demo Player -->
+<div class="rounded-2xl border border-white/10 bg-zinc-900/50 backdrop-blur-xl overflow-hidden shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] glow-effect">
+<div class="bg-zinc-800/80 px-6 py-4 flex items-center justify-between border-b border-white/5">
+<div class="flex items-center gap-6">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-amber-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-emerald-500/50"></div>
+</div>
+<div class="h-6 w-px bg-white/10 mx-2"></div>
+<div class="flex items-center gap-2 text-zinc-400 text-xs font-mono">
+<span class="material-symbols-outlined text-sm">terminal</span>
+                                    app.aiva.ai/builder/neural-node-01
+                                </div>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[10px] text-zinc-500 font-bold tracking-widest uppercase">Live Workspace</span>
+</div>
+</div>
+<div class="aspect-video relative bg-zinc-950">
+<!-- Visual placeholder for a video/interactive demo -->
+<img alt="Interactive Dashboard Demo" class="w-full h-full object-cover opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtLuiqjHntf57tTyYfIN0nM1dOVwYATHu2XscPx6rBUZPRi9eD2_uXn58Ak73kc5NRW2xJOp3s8FHaHu_X8Ryh9QmHH_1PpqWTjWkMVhW8LwGS-hPgqpAK-bsrlkv7v9xnwDU05WO0h02IVTDR088_iXsZdKR7kwj9WXwl28eoSjIyV2ItboNehOU8tdvzKsjmQtEK5MwilFu9inAczNZLfbH-eNnSLLBYKmbNdbWOCSH-ZSofuz4NHo7bWVmJcaD_gSEg0N3OXGk"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<button class="w-20 h-20 rounded-full bg-white/10 border border-white/20 backdrop-blur-md flex items-center justify-center group-hover:scale-110 group-hover:bg-violet-600 transition-all duration-300">
+<span class="material-symbols-outlined text-white text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+</div>
+<!-- Floating UI Elements for 'Interactive' feel -->
+<div class="absolute top-10 right-10 p-4 bg-zinc-900/90 border border-violet-500/30 rounded-xl backdrop-blur-md shadow-2xl animate-bounce" style="animation-duration: 3s;">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-2 h-2 rounded-full bg-violet-400"></div>
+<span class="text-[10px] font-bold text-violet-400 tracking-wider">TRAINING ACTIVE</span>
+</div>
+<div class="text-xs text-white font-mono leading-none">Epoch 124/500... 98.2% Accuracy</div>
+</div>
+</div>
+</div>
+<!-- Decorative Gradients -->
+<div class="absolute -top-20 -right-20 w-96 h-96 bg-violet-600/20 rounded-full blur-[120px] -z-10"></div>
+<div class="absolute -bottom-20 -left-20 w-96 h-96 bg-indigo-600/20 rounded-full blur-[120px] -z-10"></div>
+</div>
+</div>
+</section>
+<!-- Features Bento Grid -->
+<section class="py-32 px-8 bg-zinc-950/30">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20">
+<h2 class="font-headline text-4xl font-extrabold text-white mb-6">Precision Engineering for Business.</h2>
+<p class="text-zinc-400 max-w-xl text-lg">We've designed our platform to handle the heavy lifting of enterprise data management while maintaining a boutique user experience.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Feature 1: 24/7 Support -->
+<div class="md:col-span-8 bg-zinc-900 border border-white/5 p-10 rounded-xl relative overflow-hidden group hover:border-violet-500/30 transition-all duration-500">
+<div class="relative z-10 max-w-md">
+<span class="material-symbols-outlined text-violet-500 text-4xl mb-6" style="font-variation-settings: 'FILL' 1;">support_agent</span>
+<h3 class="font-headline text-2xl font-bold mb-4 text-white">24/7 Autopilot Support</h3>
+<p class="text-zinc-400 leading-relaxed">Our AI doesn't sleep. It handles complex queries across time zones with a human-like touch, reducing ticket volume by up to 70%.</p>
+</div>
+<div class="absolute -right-20 -bottom-20 w-[400px] h-[400px] bg-violet-600/10 rounded-full blur-[80px] group-hover:bg-violet-600/20 transition-all"></div>
+</div>
+<!-- Feature 2: Language -->
+<div class="md:col-span-4 bg-aiva-gradient p-10 rounded-xl text-white shadow-lg shadow-violet-900/20">
+<span class="material-symbols-outlined text-white text-4xl mb-6">translate</span>
+<h3 class="font-headline text-2xl font-bold mb-4">95+ Languages</h3>
+<p class="text-white/80 leading-relaxed">Communicate natively with your customers worldwide. Automatic translation and cultural nuance detection built-in.</p>
+</div>
+<!-- Feature 3: CRM Integration -->
+<div class="md:col-span-4 bg-zinc-900 border border-white/5 p-10 rounded-xl hover:border-violet-500/30 transition-all">
+<span class="material-symbols-outlined text-violet-400 text-4xl mb-6">hub</span>
+<h3 class="font-headline text-2xl font-bold mb-4 text-white">Deep CRM Integration</h3>
+<p class="text-zinc-400 leading-relaxed">Connect with Salesforce, HubSpot, and Zendesk in seconds. Sync customer history and update records automatically.</p>
+</div>
+<!-- Feature 4: Security -->
+<div class="md:col-span-8 bg-zinc-900/50 border border-white/5 p-10 rounded-xl flex flex-col md:flex-row gap-10 items-center">
+<div class="flex-1">
+<span class="material-symbols-outlined text-violet-500 text-4xl mb-6" style="font-variation-settings: 'FILL' 1;">security</span>
+<h3 class="font-headline text-2xl font-bold mb-4 text-white">Bank-Grade Security</h3>
+<p class="text-zinc-400 leading-relaxed">SOC2 Type II compliant. Your data is encrypted at rest and in transit. We provide private cloud deployment options for highly regulated industries.</p>
+</div>
+<div class="flex-1 grid grid-cols-2 gap-4 w-full">
+<div class="bg-zinc-950/80 border border-white/10 p-5 rounded-lg text-center">
+<div class="text-violet-400 font-bold text-2xl mb-1">99.9%</div>
+<div class="text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-500">Uptime SLA</div>
+</div>
+<div class="bg-zinc-950/80 border border-white/10 p-5 rounded-lg text-center">
+<div class="text-violet-400 font-bold text-2xl mb-1">SOC2</div>
+<div class="text-[10px] uppercase font-bold tracking-[0.2em] text-zinc-500">Compliant</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="py-32 px-8 bg-zinc-950 border-t border-white/5">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-20">
+<span class="text-violet-500 font-bold tracking-[0.3em] uppercase text-xs">Testimonials</span>
+<h2 class="font-headline text-4xl lg:text-5xl font-extrabold text-white mt-4 mb-6">Trusted by Innovative Businesses</h2>
+<p class="text-zinc-400 max-w-2xl mx-auto text-lg">See how leading executives are leveraging Aiva to scale their intelligence operations.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-zinc-900/40 border border-white/5 p-8 rounded-2xl backdrop-blur-sm relative group hover:border-violet-500/30 transition-all duration-300">
+<div class="mb-8">
+<img alt="Global Logistics Logo" class="h-5 opacity-40 grayscale invert brightness-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuChvq6lmUhnnfj5a_wF7-e_E0cFutc9CkXPGqtAZsJ-yHj-fg5EIrag3FaEVy1Djeq7gV_iWqTV_PcYrKIU8XDKkSBv3vB95r_Ua9os1kXifCxc5xJsrbK0Ev8zyUWSj7HTPEKqhTEqNMChkAV42Q0jTV1Y8W74_pJfjnNTc8Ami_LcYbYWlK0ds-EZsy56BYTChY7zQgIVBHkxtUZZDpiXevkZZjkkc3VBKrbPhgqglakB_QIxrHEvom_ETfJEWryjX8vKc8aq25U"/>
+</div>
+<p class="text-zinc-300 text-lg leading-relaxed mb-8 italic">"Aiva has completely transformed how we handle internal documentation. What used to take hours of searching now takes seconds with their neural search bot."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border border-violet-500/20 overflow-hidden shrink-0">
+<img alt="Sarah Jenkins" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7j4OEoSHFGBdDwJ3X-zMMVcPOq5rgUHF8oHoPasna8-NW36dxAwE-hRAoEmqUPtLJ35GLeyck3TvbWXHfS7wUd5yqtWUlLAmXpqaBG14M_qw9-y0bxXJBNunII0PWVaHx6WYzBKGpFRXBIc0Q1pGLVWn7FH1A_vPGdD9iR-XB6yBR3G79kn93h5_u5sgW32R4noA-waFHgibr3RgsaUzz9AVbYk95Y0CI_rgU-e09gX_ZfSonw_zHwfMEm1ns5irMfnEPU6lHR_o"/>
+</div>
+<div>
+<h4 class="text-white font-bold text-sm">Sarah Jenkins</h4>
+<p class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest">CTO, Global Logistics</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-zinc-900/40 border border-white/5 p-8 rounded-2xl backdrop-blur-sm relative group hover:border-violet-500/30 transition-all duration-300">
+<div class="mb-8">
+<img alt="Tech Hub Corp Logo" class="h-5 opacity-40 grayscale invert brightness-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKA0Zuy0XbzqpDPvzcMJp-mYmSHb1Dgr9oeI9Kkp7HiOvkQV3_AZSOtZsn8Bty68oKH5qPTPaU7TtD5k73TLnhGVXWgLDN7ktXn_B1jpkkAK-W9DecqAyQ86rmxnk5H0t2pXtLWGfUcqUsfmzIb1KBROtN9-JwphegCO77HRdX5aFRU-RtYmPRObKCrvReXleX0_ejSqWW8BEjmUfwg_0WqrAUGYR_k6Wy9OkDjH_PISEfzbJA3ae5aoIK9Q6u12qTYLJt6Ed_mxw"/>
+</div>
+<p class="text-zinc-300 text-lg leading-relaxed mb-8 italic">"The speed of deployment is unmatched. We had a native-language support bot running for our APAC market in under 48 hours. The ROI was immediate."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border border-violet-500/20 overflow-hidden shrink-0">
+<img alt="Marcus Chen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzAmQMjU7mg_vkDRG2hX-J6xl-4Gvvo53MpHHIikxqCLrmbOfc4izNbl-051eKykRwsXq3riIFiSdNnr892vyGgXjkl0Qnwgxq41GnIu8elYyitL0fonOAXiqeJPWR_zGEvpWySA7cpcy42iGUgWwayadHW0StaMm-tcOGWOstcYWp4XK4TsuNvxQnWZfSlwbnBzKB3CHaK7Fa2ryMT3jo8MIPu2uQ-bs1MpCc0gmV2c3la4_DgRH1IdmoHNnecQskPGPzyrOAOMk"/>
+</div>
+<div>
+<h4 class="text-white font-bold text-sm">Marcus Chen</h4>
+<p class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest">CEO, Tech Hub Corp</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-zinc-900/40 border border-white/5 p-8 rounded-2xl backdrop-blur-sm relative group hover:border-violet-500/30 transition-all duration-300">
+<div class="mb-8">
+<img alt="Fintech Solutions Logo" class="h-5 opacity-40 grayscale invert brightness-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYiUNidiq6ZLTHOjpIh6DGzBjwURNllJyMLxFSw9eB0yurHVx32BRVhFK3MF7awD8zpgo-IEQ9XbeWgRdq-PpCIpK20V_n-bjFY8UeRnN15FM5-rLmIRSquPuo5I26S6_bYn1j7d05At7k-bf04lDpdHS1RFvXApKYCTu9ZIbmmxZl4BCoyBlMupdU5bPvPUB6r-U2bXAeWpINnRBzktojIgxMgm6MsG5jQ5igSGNQtpdetQY7Ut8vCYD9W4jcSGeTGSWItY_LV_A"/>
+</div>
+<p class="text-zinc-300 text-lg leading-relaxed mb-8 italic">"Security was our top priority as a fintech firm. Aiva's SOC2 compliance and private cloud options made them the only viable choice for our AI strategy."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full border border-violet-500/20 overflow-hidden shrink-0">
+<img alt="Elena Rodriguez" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBJuNA33yvFnmh0qfG6GsencUqFkyDyVckuq_GLO4lcoB8MQlyIZtkiAoKhkAF_hVOP6s1Rol21yshFt0nzQLWgdFdtKYQCB6H6btLcIBGvnZn7ucxn57UHLXp2UElVF8-pdUH-ruIT_qK_6cfHWnEFs_aob_LXdk998TwqzVfU0A8odR-5lVUar416u6IpBwO5TKJTeUn9LMhT6PUwppnIWRH4-zEtwh1-mau7DCgIVF6PPWCytYYKOGIOabJIUnoW_bfUMHzOvw"/>
+</div>
+<div>
+<h4 class="text-white font-bold text-sm">Elena Rodriguez</h4>
+<p class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest">Head of Operations, Fintech Solutions</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-8">
+<div class="max-w-7xl mx-auto">
+<div class="bg-aiva-gradient rounded-2xl p-16 lg:p-24 text-center text-white relative overflow-hidden shadow-2xl shadow-violet-900/40">
+<div class="relative z-10 max-w-3xl mx-auto">
+<h2 class="font-headline text-4xl lg:text-6xl font-extrabold mb-8 leading-tight">Ready to curate your business intelligence?</h2>
+<p class="text-white/80 text-xl mb-12">Join over 1,500 companies scaling their operations with Aiva Intelligence.</p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-white text-violet-600 px-10 py-5 rounded-lg font-headline font-bold text-xl shadow-2xl shadow-black/20 hover:scale-105 active:scale-95 transition-all">Start 14-Day Trial</button>
+<button class="bg-violet-900/40 border border-white/30 text-white px-10 py-5 rounded-lg font-headline font-bold text-xl hover:bg-white/10 transition-colors">Speak to Sales</button>
+</div>
+</div>
+<!-- Neural Pattern -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3 blur-[100px]"></div>
+<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-indigo-900/40 rounded-full translate-y-1/2 -translate-x-1/4 blur-[100px]"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Shared Component -->
+<footer class="w-full py-12 border-t border-white/5 bg-zinc-950">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 max-w-7xl mx-auto gap-8">
+<div class="flex flex-col items-center md:items-start gap-3">
+<span class="font-manrope text-sm font-semibold tracking-wide text-violet-500">AIVA INTELLIGENCE</span>
+<p class="font-inter text-[10px] tracking-widest uppercase text-zinc-600">© 2024 Aiva Intelligence. Editorial Futurist Division.</p>
+</div>
+<div class="flex gap-10">
+<a class="font-inter text-xs tracking-widest uppercase text-zinc-600 hover:text-violet-400 transition-colors" href="#">Privacy Policy</a>
+<a class="font-inter text-xs tracking-widest uppercase text-zinc-600 hover:text-violet-400 transition-colors" href="#">Terms of Service</a>
+<a class="font-inter text-xs tracking-widest uppercase text-zinc-600 hover:text-violet-400 transition-colors" href="#">API Status</a>
+</div>
+</div>
+</footer>
+</body></html>

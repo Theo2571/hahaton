@@ -7,48 +7,54 @@ const notifications = [
   { id: 3, type: 'error', text: 'AI не смог ответить Дмитрию Волкову', time: '1 час назад' },
 ];
 
+const dotColor = { hot: '#EF4444', new: '#7C3AED', error: '#F59E0B' } as Record<string, string>;
+
 export default function TopBar() {
   const [showNotifs, setShowNotifs] = useState(false);
 
   return (
     <header
       style={{
-        height: 60,
-        background: '#161B27',
-        borderBottom: '1px solid #2A3347',
+        height: 58,
+        background: 'rgba(9,9,11,0.6)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '1px solid rgba(255,255,255,0.05)',
         display: 'flex',
         alignItems: 'center',
         padding: '0 24px',
-        gap: 16,
+        gap: 14,
         position: 'sticky',
         top: 0,
         zIndex: 50,
+        boxShadow: '0 4px 24px rgba(124,58,237,0.06)',
       }}
     >
       {/* Search */}
       <div
         style={{
           flex: 1,
-          maxWidth: 400,
+          maxWidth: 380,
           display: 'flex',
           alignItems: 'center',
           gap: 8,
-          background: '#1E2433',
-          border: '1px solid #2A3347',
+          background: 'rgba(39,39,42,0.5)',
+          border: '1px solid rgba(255,255,255,0.06)',
           borderRadius: 8,
           padding: '7px 12px',
         }}
       >
-        <Search size={15} color="#94A3B8" />
+        <Search size={14} color="#52525b" />
         <input
           placeholder="Поиск лидов, туров..."
           style={{
             background: 'transparent',
             border: 'none',
             outline: 'none',
-            color: '#F1F5F9',
-            fontSize: 14,
+            color: '#fafafa',
+            fontSize: 13,
             width: '100%',
+            fontFamily: 'Inter, sans-serif',
           }}
         />
       </div>
@@ -61,26 +67,28 @@ export default function TopBar() {
           onClick={() => setShowNotifs(!showNotifs)}
           style={{
             position: 'relative',
-            background: '#1E2433',
-            border: '1px solid #2A3347',
+            background: 'rgba(39,39,42,0.5)',
+            border: '1px solid rgba(255,255,255,0.06)',
             borderRadius: 8,
             padding: '7px 9px',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
+            transition: 'all 0.2s',
           }}
         >
-          <Bell size={17} color="#94A3B8" />
+          <Bell size={16} color="#a1a1aa" />
           <span
             style={{
               position: 'absolute',
-              top: 5,
-              right: 5,
-              width: 8,
-              height: 8,
+              top: 6,
+              right: 6,
+              width: 7,
+              height: 7,
               borderRadius: '50%',
               background: '#EF4444',
-              border: '2px solid #161B27',
+              border: '1.5px solid #09090b',
+              boxShadow: '0 0 6px rgba(239,68,68,0.6)',
             }}
           />
         </button>
@@ -89,13 +97,15 @@ export default function TopBar() {
           <div
             style={{
               position: 'absolute',
-              top: 44,
+              top: 46,
               right: 0,
               width: 320,
-              background: '#1E2433',
-              border: '1px solid #2A3347',
+              background: 'rgba(24,24,27,0.9)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '1px solid rgba(255,255,255,0.08)',
               borderRadius: 12,
-              boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
+              boxShadow: '0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(124,58,237,0.1)',
               zIndex: 100,
               overflow: 'hidden',
             }}
@@ -106,15 +116,17 @@ export default function TopBar() {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 padding: '14px 16px',
-                borderBottom: '1px solid #2A3347',
+                borderBottom: '1px solid rgba(255,255,255,0.05)',
               }}
             >
-              <span style={{ fontSize: 14, fontWeight: 600, color: '#F1F5F9' }}>Уведомления</span>
+              <span style={{ fontSize: 13, fontWeight: 700, color: '#fafafa', fontFamily: 'Manrope, sans-serif' }}>
+                Уведомления
+              </span>
               <button
                 onClick={() => setShowNotifs(false)}
                 style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 2 }}
               >
-                <X size={15} color="#94A3B8" />
+                <X size={14} color="#71717a" />
               </button>
             </div>
             {notifications.map(n => (
@@ -122,24 +134,27 @@ export default function TopBar() {
                 key={n.id}
                 style={{
                   padding: '12px 16px',
-                  borderBottom: '1px solid #2A3347',
+                  borderBottom: '1px solid rgba(255,255,255,0.03)',
                   cursor: 'pointer',
+                  transition: 'background 0.15s',
                 }}
+                onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.03)')}
+                onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
               >
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 2 }}>
                   <span
                     style={{
-                      width: 8,
-                      height: 8,
+                      width: 7,
+                      height: 7,
                       borderRadius: '50%',
-                      background:
-                        n.type === 'hot' ? '#EF4444' : n.type === 'new' ? '#3B82F6' : '#F59E0B',
+                      background: dotColor[n.type],
                       flexShrink: 0,
+                      boxShadow: `0 0 6px ${dotColor[n.type]}80`,
                     }}
                   />
-                  <span style={{ fontSize: 13, color: '#F1F5F9' }}>{n.text}</span>
+                  <span style={{ fontSize: 12, color: '#e4e4e7' }}>{n.text}</span>
                 </div>
-                <div style={{ fontSize: 11, color: '#94A3B8', marginLeft: 16 }}>{n.time}</div>
+                <div style={{ fontSize: 10, color: '#52525b', marginLeft: 15 }}>{n.time}</div>
               </div>
             ))}
           </div>
@@ -149,17 +164,19 @@ export default function TopBar() {
       {/* Avatar */}
       <div
         style={{
-          width: 34,
-          height: 34,
+          width: 32,
+          height: 32,
           borderRadius: '50%',
-          background: '#3B82F6',
+          background: 'linear-gradient(135deg, #7C3AED, #5B21B6)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: 13,
-          fontWeight: 600,
+          fontSize: 11,
+          fontWeight: 700,
           color: '#fff',
           cursor: 'pointer',
+          boxShadow: '0 0 12px rgba(124,58,237,0.4)',
+          fontFamily: 'Inter, sans-serif',
         }}
       >
         МС
